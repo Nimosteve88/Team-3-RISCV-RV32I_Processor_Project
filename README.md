@@ -30,26 +30,29 @@ The result of this coursework is two CPUs: a pipelined, and a single-cycle CPU .
 
 ## Work Split 
 
-| File Name     |  Steve  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  | Sne &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;       | Yannis  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;       | Divine   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;         |
-|:-------------|:----------------:|:----------:|:------------:|:--------------:|
-| ALU.sv |  |  | |
-| control.sv | | |  |
-| ram_i.sv | | | |
-| ram_o.sv | | | |
-| ram.sv | | | |
-| rom.sv | | | |
-| register_file.sv | | | |
-| memory.sv | | | |
-| extend.sv | | | |
-| fetch_reg_file.sv | | | |
-| decode_reg_file.sv | | | |
-| execute_reg_file.sv | | | |
-| mem_reg_file.sv | | | |
-| top.sv (singlecycle) | | | |
-| top.sv (pipeline) | | | |
-| cpu_tb.cpp | | | |
-| F1Assembly.s | | | |
-
+| Goal     |  Task  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  | Status &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;       | Primary Contributor  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;       | Secondary Contributor   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;         | Tertiary Contributor   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;         |
+|:-------------|:----------------:|:----------:|:------------:|:--------------:|:--------------:| 
+| Lab 4 | PC Counter |Completed  | | |
+| Lab 4 | ALU |Completed  | | |
+| Lab 4 | Regfile |Completed  | | |
+| Lab 4 | Control Unit |Completed  | | |
+| Lab 4 | Instruction Memory |Completed  | | |
+| Lab 4 | Immediate Extend |Completed  | | |
+| Lab 4 | Lab 4 Top Level |Completed  | | |
+| Base | F1 Assembly Code |  | | |
+| Base | Update Immediate Extend |  | | |
+| Base | Update Control Unit |  | | |
+| Base | Update ALU |  | | |
+| Base | Create Data Memory |  | | |
+| Base | Update Top Level |  | | |
+| Base | Top Level Testing |  | | |
+| Stretch Goal 1 | Add Pipeline Registers |  | | |
+| Stretch Goal 1 | Hazard Unit |  | | |
+| Stretch Goal 1 | Top Level Testing |  | | |
+| Stretch Goal 1 | Update Top Level |  | | |
+| Stretch Goal 2 | Add Data Cache |  | | |
+| Stretch Goal 2 | Update Top Level |  | | |
+| Stretch Goal 2 | Top Level Testing |  | | |
 LEGEND :       `x` = full responsibility;  `p` = partial contribution; 
 
 ---

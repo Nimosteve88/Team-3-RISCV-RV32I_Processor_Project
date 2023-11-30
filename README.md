@@ -1,6 +1,12 @@
 # Team-3-RISCV-RV32I_Processor_Project
 # Group 3 Pipelined RV32I
 
+## Todo:
+- [ ] Update control unit for J, S, R and U type instructions
+- [ ] Update sign extend for new instructions
+- [ ] Update ALU
+- [ ] Add data memory and result MUX
+
 #### If desired, please skip ahead to:
 1. [Repo Structure Explanation](#structure)
 2. [Evidence](#evidence)
@@ -16,7 +22,7 @@ The result of this coursework is two CPUs: a pipelined, and a single-cycle CPU .
 | Name           | CID      | GitHub   | Email                     | Link to Personal Statement|
 |----------------|----------|----------|---------------------------|--------------|
 | Steve Nimo      | 02254814 | **Nimosteve88**  | sn722@imperial.ac.uk   &nbsp; &nbsp; &nbsp; &nbsp;   | 
-| Sne Samal   |  | **sne-samal** |      | 
+| Sne Samal   | 02201807 | **sne-samal** | ss5322@ic.ac.uk | 
 | Divine Wodi |  | **CB-W03** |  | 
 | Yannis Zioulis |  | **yanniszioullis**  |   | 
 

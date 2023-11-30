@@ -1,12 +1,15 @@
 module controlunit (
     input logic                 EQ,
-    input logic [6:0]           opcode,
+    input logic [31:0]          instr,
     output logic                RegWrite,
     output logic [2:0]          ALUctrl, // changed from [3:0]
     output logic                ALUsrc,
     output logic                ImmSrc,
     output logic                PCSrc
 );
+    logic opcode = instr[6:0];
+    logic funct7 = instr[31:25];
+    logic funct3 = instr[14:12];
 always_comb begin
     if (opcode == 7'b1100011) // B-type instruction - branch not equals
         begin

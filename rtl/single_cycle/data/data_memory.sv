@@ -1,4 +1,4 @@
-// specification for data memory:
+// Description:
 // - specified as a ram
 // - this is the data memory of the CPU - data memory starts from location 0x00000000 to 0x0001FFFF
 // - if write_enable is asserted then it writes data, WD, into address A on the rising edge of the clock.

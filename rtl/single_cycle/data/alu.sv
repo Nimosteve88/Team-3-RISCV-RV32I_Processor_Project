@@ -20,8 +20,8 @@ always_comb begin
       end
       3'b001: begin
         // ALU control is 3'b001, so check for equality
-        EQ <= (SrcA == SrcB) ? 1 : 0;
-        ALUResult <= 0; // Set ALUResult to 0 (not used in this case)
+        EQ <= (ALUop1 == ALUop2) ? 1 : 0;
+        SUM <= 0; // Set SUM to 0 (not used in this case)
       end
       default: begin
         // Handle other cases if needed

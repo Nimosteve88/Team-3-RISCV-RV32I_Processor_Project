@@ -23,7 +23,7 @@ logic [DATAWIDTH-1:0]               regOp2;
 logic [DATAWIDTH-1:0]               ALUop2;
 logic [DATAWIDTH-1:0]               ALUout;
 
-register_file register(
+regfile register(
     .AD1(rs1),
     .AD2(rs2),
     .AD3(rd),

@@ -1,4 +1,4 @@
-module multiplexer #(
+module alu_src_mux #(
     parameter WIDTH = 32
 )
 (

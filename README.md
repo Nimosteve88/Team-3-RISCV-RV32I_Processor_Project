@@ -3,7 +3,7 @@
 
 ## Todo:
 - [ ] Update control unit for J, S, R and U type instructions
-- [ ] Update sign extend for new instructions
+- [x] Update sign extend for new instructions
 - [ ] Update ALU
 - [ ] Add data memory and result MUX
 

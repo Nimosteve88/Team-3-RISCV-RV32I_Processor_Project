@@ -3,7 +3,7 @@
 
 ## Todo:
 - [ ] Update control unit for J, S, R and U type instructions
-- [ ] Update sign extend for new instructions
+- [x] Update sign extend for new instructions
 - [ ] Update ALU
 - [ ] Add data memory and result MUX
 
@@ -23,7 +23,7 @@ The result of this coursework is two CPUs: a pipelined, and a single-cycle CPU .
 |----------------|----------|----------|---------------------------|--------------|
 | Steve Nimo      | 02254814 | **Nimosteve88**  | sn722@imperial.ac.uk   &nbsp; &nbsp; &nbsp; &nbsp;   | 
 | Sne Samal   | 02201807 | **sne-samal** | ss5322@ic.ac.uk | 
-| Divine Wodi |  | **CB-W03** |  | 
+| Divine Wodi | 02208866 | **CB-W03** | dw722@ic.ac.uk | 
 | Yannis Zioulis |  | **yanniszioullis**  |   | 
 
 ---

@@ -5,7 +5,7 @@
 - [ ] Update control unit for J, S, R and U type instructions
 - [x] Update sign extend for new instructions
 - [ ] Update ALU
-- [ ] Add data memory and result MUX
+- [x] Add data memory and result MUX
 
 #### If desired, please skip ahead to:
 1. [Repo Structure Explanation](#structure)

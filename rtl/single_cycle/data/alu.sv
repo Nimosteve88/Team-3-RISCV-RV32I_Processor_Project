@@ -18,9 +18,9 @@ always_comb begin
         EQ <= EQ; // Set EQ to 0 (not used in this case)
       end
       3'b001: begin
-        // ALU control is 3'b001, so check for equality
-        EQ <= (ALUop1 == ALUop2) ? 1 : 0;
-        SUM <= 0; // Set SUM to 0 (not used in this case)
+        // ALU control is 3'b001, so subtraction and check for equality
+        SUM <= ALUop1 - ALUop2;
+        EQ <= (SUM == 0) ? 1 : 0;
       end
       default: begin
         // Handle other cases if needed

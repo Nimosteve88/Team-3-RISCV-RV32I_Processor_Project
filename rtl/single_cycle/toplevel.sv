@@ -64,7 +64,7 @@ signextend sign_extend(
 );
 
 
-role2toplevel alu_and_registers(
+data_top_level alu_and_registers(
     .clk(clk),
     .rs1 (instr[19:15]),
     .rs2 (instr[24:20]),

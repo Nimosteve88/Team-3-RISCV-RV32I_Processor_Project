@@ -1,10 +1,11 @@
 module alu #(
-    parameter WIDTH = 32
+    parameter WIDTH = 32,
+    parameter SH_WIDTH = 5
 )(
-    input   logic [WIDTH-1:0]     ALUop1,
-    input   logic [WIDTH-1:0]     ALUop2,
+    input   logic [WIDTH-1:0]     SrcA,
+    input   logic [WIDTH-1:0]     SrcB,
     input   logic [2:0]           ALUctrl,
-    output  logic [WIDTH-1:0]     SUM,
+    output  logic [WIDTH-1:0]     ALUResult,
     output  logic                 EQ
 );
 
@@ -14,17 +15,17 @@ always_comb begin
     case (ALUctrl)
       3'b000: begin
         // ALU control is 3'b000, so perform addition
-        SUM <= ALUop1 + ALUop2;
+        ALUResult <= SrcA + SrcB;
         EQ <= EQ; // Set EQ to 0 (not used in this case)
       end
       3'b001: begin
         // ALU control is 3'b001, so check for equality
-        EQ <= (ALUop1 == ALUop2) ? 1 : 0;
-        SUM <= 0; // Set SUM to 0 (not used in this case)
+        EQ <= (SrcA == SrcB) ? 1 : 0;
+        ALUResult <= 0; // Set ALUResult to 0 (not used in this case)
       end
       default: begin
         // Handle other cases if needed
-        SUM <= 0;
+        ALUResult <= 0;
         EQ <= 0;
       end
     endcase

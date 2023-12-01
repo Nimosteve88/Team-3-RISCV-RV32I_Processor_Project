@@ -15,6 +15,8 @@ init:
     # 7-bit primitive polynomial
     addi s3, zero, 0x83 
 
+    addi t0, t0, 0x1
+
 idle:
     # Checking for trigger
     bne t0, s1, idle
@@ -24,17 +26,21 @@ idle:
 
     # Copy vbuddy rotary value once trigger is activated
     add t1, t4, zero
-    bnez t1, fsm_setup
+    beq t1, zero, init
 
 fsm_setup:
-    # Make the ouput 1
+    # Make the output 1
     add a0, zero, s1
+    add t5, zero, s1
     bne a0, s1, fsm_setup
 
 fsm_loop:
-    # Add a0 to itself and add 1 (left shift by 1 with 1 as lsb)
-    add a0, a0, a0
-    add a0, a0, s1
+    # Add t5 to itself and add 1 (left shift by 1 with 1 as lsb)
+    add t5, t5, t5
+    add t5, t5, s1
+
+    # Set output to t5 to avoid lights incrementing in two steps
+    add a0, t5, zero
     bne a0, s2, fsm_loop
 
 lfsr:
@@ -49,15 +55,15 @@ lfsr:
 
     # Reduce number of remaining loops 
     sub t2, t2, s1
-    bnez tz, lfsr
+    bne t2, zero, lfsr
 
 delay:
     # Add noOps while the delay is decreasing
     nop 
     sub t1, t1, s1
-    bnez t1, delay
+    bne t1, zero, delay
 
 lights_off:
     # lights go off and back to init and idle
     addi a0, zero, 0x0
-    j init
+    jal zero, init

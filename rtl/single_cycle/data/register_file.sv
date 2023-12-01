@@ -21,7 +21,8 @@ logic [DATAWIDTH-1:0] registers [31:0];
 
     always_ff @(posedge clk) begin
         if (WE3 == 1'b1) begin
-            registers[AD3] <= WD3; //RESULT FROM ALU IS STORED IN ADDRESS 3
+            if (AD3 != WIDTH{1'b0}) registers[AD3] <= WD3; //RESULT FROM ALU IS STORED IN ADDRESS 3
+            else registers[AD3] <= DATAWIDTH{1'b0};
         end
     end
 
@@ -29,7 +30,7 @@ logic [DATAWIDTH-1:0] registers [31:0];
     begin
         RD1 <= registers[AD1]; // DATA IS READ FROM AD1 AND AD2
         RD2 <= registers[AD2];
-        a0 <=  registers[5'b01010]; // a0 is output which is set to result
+        a0 <=  registers[AD3]; // a0 is output which is set to result
         a1 <=  registers[5'b01011];
         t1 <=  registers[5'b00110];
     end

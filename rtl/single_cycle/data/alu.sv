@@ -13,27 +13,27 @@ module alu #(
 
 always_comb begin
     case (ALUctrl)
-      4'b000: begin
+      3'b000: begin
         // ALU control is 3'b000, so perform addition (add)
         ALUResult <= SrcA + SrcB;
         Zero <= Zero; // Set Zero to 0 (not used in this case)
       end
-      4'b001: begin
+      3'b001: begin
         // ALU control is 3'b001, so check for equality  (sub)
         ALUResult <= SrcA - SrcB;
         Zero <= Zero; // Set Zero to 0 (not used in this case)
       end
-      4'b010: begin
+      3'b010: begin
         // ALU control is 3'b010, so check for (xor))
         ALUResult <= SrcA ^ SrcB;
         Zero <= Zero; // Set Zero to 0 (not used in this case)
       end
-      4'b011: begin
+      3'b011: begin
         // ALU control is 3'b011, so check for (and)
         ALUResult <= SrcA & SrcB;
         Zero <= Zero; // Set Zero to 0 (not used in this case)
       end
-      4'b100: begin
+      3'b100: begin
         // ALU control is 3'b100, so check for (jal)
         ALUResult <= SrcB;
         Zero <= Zero; // Set Zero to 0 (not used in this case)

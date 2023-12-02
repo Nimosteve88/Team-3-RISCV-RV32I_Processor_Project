@@ -15,10 +15,11 @@ module data_top_level #(
     input logic  [DATAWIDTH-1:0]    ImmOp,
     //output logic [DATAWIDTH-1:0]    ALUout,
     output logic                    EQ,
-    output logic [DATAWIDTH-1:0]    a0
+    output logic [DATAWIDTH-1:0]    a0,
+    output logic [DATAWIDTH-1:0]    ALUop1 // used exclusively for jalr
 );
 
-logic [DATAWIDTH-1:0]               ALUop1;
+// logic [DATAWIDTH-1:0]               ALUop1;
 logic [DATAWIDTH-1:0]               regOp2;
 logic [DATAWIDTH-1:0]               ALUop2;
 logic [DATAWIDTH-1:0]               ALUout;

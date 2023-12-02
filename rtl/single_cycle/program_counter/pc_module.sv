@@ -4,21 +4,22 @@ module pc_module #(
     input   logic               clk,    // clock
     input   logic               rst,    // reset
     input   logic   [WIDTH-1:0] ImmOp,  // 32-bit immediate to make a pc jump
-    input   logic               PCsrc,  // determined whether pc is +4 or +ImmOp
+    input   logic   [1:0]       PCsrc,  // determined whether pc is +4 or +ImmOp
+    input   logic   [WIDTH-1:0] RegIn,  // register value input for jalr
     output  logic   [WIDTH-1:0] PC      // program counter
 );
 
-    logic   [WIDTH-1:0]           branch_PC;    // branch pc ie. pc + immop
-    logic   [WIDTH-1:0]           inc_PC;       // increased pc ie. pc + 4
     logic   [WIDTH-1:0]           next_PC;      // next program counter
 
 always_comb begin
     if (rst)
         next_PC <= 32'b0; // resolved wrong value after reset problem
     else begin
-        branch_PC <= PC + ImmOp;
-        inc_PC <= PC + 32'd4;
-        next_PC <= (PCsrc) ? branch_PC : inc_PC;
+        case (PCSrc)
+        2'b00: next_PC = PC + 42'd4;    // pc + 4
+        2'b01: next_PC = PC + ImmOp;    // pc + offset
+        2'b10: next_PC = RegIn + ImmOp; // rs1 + offset (jalr)
+        endcase
     end
 end
 

@@ -29,6 +29,7 @@ always_comb begin
             PCSrc <= Zero; // ALU determines whether branch is necessary so using Zero signal from ALU
             ImmSrc <= 3'b010;
             MemWrite <= 0;
+            ResultSrc <= 0; //value doesn't matter here as not using ALU result
         end
     
     else if (opcode == 7'b0010011)// I-type instruction - addi instruction

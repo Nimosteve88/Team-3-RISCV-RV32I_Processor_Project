@@ -1,5 +1,5 @@
 module controlunit (
-    input logic                 EQ,
+    input logic                 Zero,
     input logic [31:0]          instr,
     output logic                PCSrc,
     output logic                ResultSrc,
@@ -14,13 +14,21 @@ module controlunit (
     logic [2:0] funct3 = instr[14:12];
 
 always_comb begin
-    if (opcode == 7'b1100011) // B-type instruction - branch not equals
+    if (opcode == 7'b1100011) // B-type instruction - bne and beq
+        case (funct3)
+            3'b000: begin  // beq instruction
+                ALUctrl <= 3'b111;
+            end
+            3'b001: begin // bne instruction
+                ALUctrl <= 3'b101;
+            end
+        endcase
         begin
-            ALUctrl  <= 3'b001; //B-type signal
             ALUsrc   <= 0;
             RegWrite <= 0;
-            PCSrc <= ~(EQ);
-            ImmSrc <= 0;
+            PCSrc <= Zero; // ALU determines whether branch is necessary so using Zero signal from ALU
+            ImmSrc <= 3'b010;
+            MemWrite <= 0;
         end
     
     else if (opcode == 7'b0010011)// I-type instruction - addi instruction
@@ -30,6 +38,8 @@ always_comb begin
             RegWrite <= 1;
             PCSrc    <= 2'b00;
             ImmSrc <= 1;
+            MemWrite <= 0;
+            ResultSrc <= 0;
         end
 
     else if (opcode == 7'b0110011) // R-type instruction - add, and, xor, sub
@@ -42,10 +52,10 @@ always_comb begin
                 ALUctrl <= 3'b000;
               end
             3'b100: begin // xor function for ALU
-                ALUctrl <= 3'b010; //will change value once we've determined for bitwise XOR
+                ALUctrl <= 3'b010; 
             end
             3'b111: begin // and function for ALU
-                ALUctrl <= 3'b011; //will change value once determined for bitwise AND
+                ALUctrl <= 3'b011; 
             end
             default: begin
                 ALUctrl <= 3'b000;

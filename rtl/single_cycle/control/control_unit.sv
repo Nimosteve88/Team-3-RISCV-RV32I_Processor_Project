@@ -41,10 +41,10 @@ always_comb begin
                 ALUctrl <= 3'b000;
               end
             3'b100: begin // xor function for ALU
-                ALUctrl <= 3'b???; //will change value once we've determined for bitwise XOR
+                ALUctrl <= 3'b010; //will change value once we've determined for bitwise XOR
             end
             3'b111: begin // and function for ALU
-                ALUctrl <= 3'b???; //will change value once determined for bitwise AND
+                ALUctrl <= 3'b011; //will change value once determined for bitwise AND
             end
             default: begin
                 ALUctrl <= 3'b000;

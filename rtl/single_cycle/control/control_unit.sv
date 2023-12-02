@@ -12,6 +12,7 @@ module controlunit (
     logic [6:0] opcode = instr[6:0];
     logic        funct7 = instr[30]; //only 5th bit of funct7 is used which is bit 30 of instr word
     logic [2:0] funct3 = instr[14:12];
+
 always_comb begin
     if (opcode == 7'b1100011) // B-type instruction - branch not equals
         begin
@@ -27,7 +28,7 @@ always_comb begin
             ALUctrl  <= 3'b000; //I-type signal
             ALUsrc   <= 1;
             RegWrite <= 1;
-            PCSrc    <= 0;
+            PCSrc    <= 2'b00;
             ImmSrc <= 1;
         end
 
@@ -54,12 +55,12 @@ always_comb begin
             RegWrite <= 1;
             ALUsrc <= 0;
             ImmSrc <= 3'b??;
-            PCSrc <= 0;
+            PCSrc <= 2'b00;
             ResultSrc <= 0;
             MemWrite <= 0;
         end
     
-    else if (opcode == 7'b1100111) // J-type instruction - jal
+    else if (opcode == 7'b1101111) // J-type instruction - jal (fixed opcode for j-type)
         begin
             RegWrite <= 1;
             ALUsrc <= 1'b?;
@@ -67,7 +68,18 @@ always_comb begin
             ImmSrc <= 3'b011;
             MemWrite <= 0;
             ResultSrc <= 2'b10;
-            PCSrc <= 1;
+            PCSrc <= 2'b01;
+        end
+    
+    else if (opcode == 7'b1100111) // JALR instruction
+        begin
+            RegWrite <= 0;
+            ALUsrc <= 1'b1;
+            ALUctrl <= 3'b000; // alu adds rs1 value and immediate to then feed it back to the pc immediate input
+            ImmSrc <= 3'b000; // JALR is I-type
+            MemWrite <= 0;
+            ResultSrc <= 2'b10;
+            PCSrc <= 2'b10; // Made PCsrc 2 bit to allow for jalr
         end
     
     // EQ = 0;

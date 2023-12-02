@@ -30,12 +30,14 @@ logic [2:0]                         ALUctrl;        // from control_module to al
 logic                               ALUsrc;         // from control_module to alu_module
 logic                               PCsrc;          // from control_module to pc_module
 logic                               EQ;             // from alu_module to control_module
+logic [WIDTH-1:0]                   ALUop1;         // from data_module to pc_module
 
 pc_module program_counter(
     .clk(clk),
     .rst(rst),
     .ImmOp (ImmOp),
     .PCsrc (PCsrc),
+    .RegIn (ALUop1),
     .PC (PC)
 );
 
@@ -74,6 +76,7 @@ data_top_level alu_and_registers(
     .ALUsrc (ALUsrc),
     .ImmOp (ImmOp),
     .EQ (EQ),
+    .ALUop1 (ALUop1);
     .a0(a0)
 );
 

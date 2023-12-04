@@ -38,6 +38,14 @@ bool check_xor(Valu *top, int a, int b, int expected)
     return(top->ALUResult == expected);
 }
 
+bool check_and(Valu *top, int a, int b, int expected)
+{
+    top->SrcA = a;
+    top->SrcB = b;
+    top->ALUctrl = 2; // change with relevant opcode
+    top->eval();
+    return(top->ALUResult == expected);
+}
 
 bool check_equality(Valu *top, int a, int b, int expected)
 {
@@ -64,6 +72,9 @@ int main(int argc, char **argv, char **env)
 
     printf("XOR Test 1: \t\t%s!\n", check_xor(top, 13, 10, 7) ? "Passed" : "Failed");
     printf("XOR Test 2: \t\t%s!\n", check_xor(top, 149, 59, 174) ? "Passed" : "Failed");
+
+    printf("AND Test 1: \t\t%s!\n", check_and(top, 13, 10, 8) ? "Passed" : "Failed");
+    printf("AND Test 2: \t\t%s!\n", check_and(top, 149, 59, 17) ? "Passed" : "Failed");
     
     printf("Equality Test 1: \t%s!\n", check_equality(top, 13, 3, 0) ? "Passed" : "Failed");
     printf("Equality Test 2: \t%s!\n", check_equality(top, 149, 149, 1) ? "Passed" : "Failed");

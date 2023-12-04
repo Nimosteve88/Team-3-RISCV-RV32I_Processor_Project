@@ -1,13 +1,4 @@
-/*
-Five main sub components: 
-1. "program_counter" : Program Counter and related adders.
-2, 3, 4. control_module : The Control Unit, the Sign-extension Unit and the instruction memory.
-    2. "control_unit"
-    3. "instruction_memory"
-    4. "sign_extend"
-5. "alu_and_registers" : The Register File, ALU and the related MUX.
-*/ 
-
+// Top Level Component for Single Cycle Processor
 
 module toplevel #(
     parameter WIDTH = 32
@@ -17,67 +8,92 @@ module toplevel #(
     output logic [WIDTH-1:0]        a0              // measured output of program
 );
 
-// inerconnecting signals
-logic [WIDTH-1:0]                   PC;             // from pc_module to control_module)
-logic [WIDTH-1:0]                   instr;          // output of the instruction memory - the instruction
-logic [WIDTH-1:0]                   ImmOp;          // from control_module to alu_module and from control_module to pc_module
-logic                               ImmSrc;         // From control unit to Sign Extend
-//unused logic [4:0]                         rs1;            // from control_module to alu_module
-//unused logic [4:0]                         rs2;            // from control_module to alu_module
-//unused logic [4:0]                         rd;             // from control_module to alu_module
-logic                               RegWrite;       // from control_module to alu_module
-logic [2:0]                         ALUctrl;        // from control_module to alu_module
-logic                               ALUsrc;         // from control_module to alu_module
-logic                               PCsrc;          // from control_module to pc_module
-logic                               EQ;             // from alu_module to control_module
-logic [WIDTH-1:0]                   ALUop1;         // from data_module to pc_module
+logic   [WIDTH-1:0]                 sign_extend_immediate;      // sign extension to program counter, result mux and ALU
+logic   [1:0]                       PCSrc;                      // control unit to program counter
+logic   [WIDTH-1:0]                 register_data_1;            // register file in data top level to program counter
+logic   [WIDTH-1:0]                 PC;                         // program counter to instruction memory
+logic   [WIDTH-1:0]                 PC_plus_4;                  // program counter module to result mux
+logic   [WIDTH-1:0]                 instruction;                // instruction memory to control unit, sign extension and register file
+logic                               reg_write;                  // control unit to data memory
+logic                               ALUsrc;                     // control unit to ALU 2nd operand mux
+logic   [2:0]                       ALUctrl;                    // contorl unit to ALU
+logic   [WIDTH-1:0]                 result_data;                // result mux to write data for register file
+logic                               EQ;                         // ALU equals flag to control unit
+logic   [WIDTH-1:0]                 ALU_result;                 // ALU result to data memory address and result MUX
+logic   [WIDTH-1:0]                 write_data;                 // register data 2 to write data of data memory
+logic   [1:0]                       result_src;                 // control unit result source to reuslt mux
+logic                               mem_write;                  // control unit to memory write enable on data memory
+logic   [2:0]                       imm_src;                    // control unit to sign extend
+logic                               byte_addr;                  // control unit to data memory
+logic   [WIDTH-1:0]                 read_data;                  // data memory read output to result mux
 
-pc_module program_counter(
+pc_module program_counter (
     .clk(clk),
     .rst(rst),
-    .ImmOp (ImmOp),
-    .PCsrc (PCsrc),
-    .RegIn (ALUop1),
-    .PC (PC)
-);
+    .ImmOp(sign_extend_immediate),
+    .PCSrc(PCSrc),
+    .RegIn(register_data_1),
+    .PC(PC),
+    .PC_plus_4(PC_plus_4)
+)
 
-
-instrmem instruction_memory(
+instruction_memory instruction_memory (
     .A(PC),
-    .RD(instr)
-);
+    .RD(instruction) 
+)
 
-
-controlunit control_unit(
+data_top_level data (
+    .clk(clk),
+    .rs1(instruction[19:15]),
+    .rs2(instruction[24:20]),
+    .rd(instruction[11:7]),
+    .RegWrite(reg_write),
+    .ALUsrc(ALUsrc),
+    .ALUctrl(ALUctrl),
+    .ImmOp(sign_extend_immediate),
+    .writeData(result),
     .EQ(EQ),
-    .opcode(instr[6:0]),
-    .RegWrite(RegWrite),
+    .a0(a0),
+    .ALUop1(register_data_1),
+    .ALUout(ALU_result),
+    .regOp2(write_data)
+)
+
+control_unit control (
+    .EQ(EQ),
+    .instr(instruction),
+    .PCsrc(PCSrc),
+    .ResultSrc(result_src),
+    .MemWrite(mem_write),
     .ALUctrl(ALUctrl),
     .ALUsrc(ALUsrc),
-    .ImmSrc(ImmSrc),
-    .PCSrc(PCsrc)
-);
+    .ImmSrc(imm_src),
+    .RegWrite(reg_write),
+    .ByteAddr(byte_addr)
+)
 
+extend sign_extend (
+    .Immsrc(imm_src),
+    .instr(instruction),
+    .Immop(sign_extend_immediate)
+)
 
-signextend sign_extend(
-    .Immsrc(ImmSrc),
-    .instr(instr),
-    .Immop(ImmOp)
-);
-
-
-data_top_level alu_and_registers(
+data_memory data_memory (
     .clk(clk),
-    .rs1 (instr[19:15]),
-    .rs2 (instr[24:20]),
-    .rd (instr[11:7]),
-    .RegWrite (RegWrite),
-    .ALUctrl(ALUctrl),
-    .ALUsrc (ALUsrc),
-    .ImmOp (ImmOp),
-    .EQ (EQ),
-    .ALUop1 (ALUop1);
-    .a0(a0)
-);
+    .WE(mem_write),
+    .A(ALU_result),
+    .WD(write_data),
+    .ByteAddr(byte_addr),
+    .RD(read_data)
+)
+
+result_mux result (
+    .result_src(result_src),
+    .ALU_result(ALU_result),
+    .read_data(read_data),
+    .pc_plus_4(PC_plus_4),
+    .immediate(sign_extend_immediate),
+    .result(result_data)
+)
 
 endmodule

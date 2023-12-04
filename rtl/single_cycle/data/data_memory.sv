@@ -11,6 +11,7 @@ module data_memory #(
     input logic                             WE,
     input logic     [DATA_WIDTH-1:0]        A,
     input logic     [DATA_WIDTH-1:0]        WD,
+    input logic                             ByteAddr,
     output logic    [DATA_WIDTH-1:0]        RD
 )
 
@@ -25,19 +26,29 @@ initial begin
 end
 
 
-// reading is asynchronous
+// reading is asynchronous (loading)
 // need to check if bits are correctly alligned - i.e. need to determine whether big endian or little endian
 always_comb
 begin
-    if (!WD) begin
-        assign RD = {data_array[A[16:0] + 3], data_array[A[16:0] + 2], data_array[A[16:0] + 1], data_arrayA[16:0]};
+    if (ByteAddr) begin
+        if (!WE) begin
+            RD = {24'b0, data_array[A[16:0]]};
+        end
+    end
+    else begin 
+        if (!WE) begin
+            assign RD = {data_array[A[16:0] + 3], data_array[A[16:0] + 2], data_array[A[16:0] + 1], data_arrayA[16:0]};
+        end
     end
 end
 
 
-// writing is synchronous
+// writing is synchronous (storing)
 always_ff @(posedge clk) begin
-    if (WD) begin
+    if (WE && ByteAddr) begin
+        data_array[A[16:0]] <= WD[7:0];                 // SB instruction
+    end
+    else if (WE && !ByteAddr) begin
         data_array[A[16:0]]         <= WD[7:0];
         data_array[A[16:0] + 1]     <= WD[15:8];
         data_array[A[16:0] + 2]     <= WD[23:16];

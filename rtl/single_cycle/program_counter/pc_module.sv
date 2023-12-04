@@ -4,7 +4,7 @@ module pc_module #(
     input   logic               clk,    // clock
     input   logic               rst,    // reset
     input   logic   [WIDTH-1:0] ImmOp,  // 32-bit immediate to make a pc jump
-    input   logic   [1:0]       PCsrc,  // determined whether pc is +4 or +ImmOp
+    input   logic   [1:0]       PCSrc,  // determined whether pc is +4 or +ImmOp
     input   logic   [WIDTH-1:0] RegIn,  // register value input for jalr
     output  logic   [WIDTH-1:0] PC      // program counter
 );

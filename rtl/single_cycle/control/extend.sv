@@ -1,4 +1,4 @@
-module signextend #(
+module extend #(
     parameter WIDTH = 32
 )(
     input logic     [2:0]           Immsrc,

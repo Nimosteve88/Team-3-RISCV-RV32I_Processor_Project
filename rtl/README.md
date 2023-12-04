@@ -30,6 +30,7 @@ The data memory has another control input apart from write enable, ByteAddr, I h
 To correctly choose the value we want to write to the register, we implement a mux. The select comes directly from the control unit, in accordance with the instruction type.
 
 3. **MUX for PCTarget**: Before, for `BNE` instructions, the PCTarget would be PC + ImmExt. Now we have `JAL` and `JALR` instructions to consider. For `JAL`, we have PCTarget = PC + ImmExt (same as before), but for `JALR` we have PCTarget = rs1 + ImmExt. This is used especially in thr `RET` instruction since before jumping, we store the next PC instruction (PC+4) in a register, so when returning from a subroutine, it makes sense to set PCTarget to that value we saved before jumping. Since both cases from PCTarget have ImmExt as common, it makes sense to implement a mux to choose what to add ImmExt with to get PCTarget (PC or rs1). The select from this comes from the control unit, and its value depends on the current instruction. 
+**This has been changed now PCSrc is set to b3 2 bytes long instead of 1 as before. The value of rs1 will be directly added with Imm and will be an option for the MUX related to PC, this also removes the need for the PCTargetSrc Signal - see updated diagram below**
 
 4. **Extend**: In lab4, we only had to consider immediate sign extension for 2 type of instruction, now we need to consider 5 types. As such the input, ImmSrc has an increased width to correctly determine the sign extended immediate format based of the current instruction.
 
@@ -41,3 +42,9 @@ To correctly choose the value we want to write to the register, we implement a m
 - ImmSrc: Increase width than lab4 to allow for more instruction type immediate sign extension.
 - PCTargetSrc: A mux select line to determine PCTarget, depending on `BNE`, `JAL` and `JALR` instruction types.
 - ByteAddr: A control input to determine how we modify outputs and inputs of data memory when we only want to focus on the least significant byte.
+
+### Control Decode Table:
+![Alt text](image-1.png)
+
+### Upadted top level diagram:
+![Alt text](image-2.png)

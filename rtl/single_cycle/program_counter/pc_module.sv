@@ -6,7 +6,8 @@ module pc_module #(
     input   logic   [WIDTH-1:0] ImmOp,  // 32-bit immediate to make a pc jump
     input   logic   [1:0]       PCSrc,  // determined whether pc is +4 or +ImmOp
     input   logic   [WIDTH-1:0] RegIn,  // register value input for jalr
-    output  logic   [WIDTH-1:0] PC      // program counter
+    output  logic   [WIDTH-1:0] PC,     // program counter
+    output  logic   [WIDTH-1:0] PC_plus_4
 );
 
     logic   [WIDTH-1:0]           next_PC;      // next program counter
@@ -22,6 +23,7 @@ always_comb begin
         default: next_PC = PC + 32'd4;  // default to pc + 4
         endcase
     end
+    assign PC_plus_4 = PC + 32'd4;      // added as output to go to result MUX
 end
 
 pc_reg mypc_reg (

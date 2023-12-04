@@ -4,7 +4,7 @@ module alu #(
 )(
     input   logic [WIDTH-1:0]     SrcA,
     input   logic [WIDTH-1:0]     SrcB,
-    input   logic [3:0]           ALUctrl,
+    input   logic [2:0]           ALUctrl,
     output  logic [WIDTH-1:0]     ALUResult,
     output  logic                 Zero
 );

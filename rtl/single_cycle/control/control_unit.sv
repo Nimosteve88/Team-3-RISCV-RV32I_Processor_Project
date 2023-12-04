@@ -113,6 +113,7 @@ always_comb begin
             MemWrite <= 1;
             ResultSrc <= 0; //dont care
             PCSrc <= 0;
+        end
     
     // EQ = 0;
 end

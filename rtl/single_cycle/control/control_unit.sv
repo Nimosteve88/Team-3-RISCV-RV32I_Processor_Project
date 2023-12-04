@@ -86,7 +86,7 @@ always_comb begin
         begin
             RegWrite <= 0;
             ALUsrc <= 1'b1;
-            ALUctrl <= 3'b000; // alu adds rs1 value and immediate to then feed it back to the pc immediate input
+            ALUctrl <= 3'b000; 
             ImmSrc <= 3'b000; // JALR is I-type
             MemWrite <= 0;
             ResultSrc <= 2'b10;

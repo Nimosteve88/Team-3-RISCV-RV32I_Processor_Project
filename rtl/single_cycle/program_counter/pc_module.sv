@@ -16,9 +16,10 @@ always_comb begin
         next_PC <= 32'b0; // resolved wrong value after reset problem
     else begin
         case (PCSrc)
-        2'b00: next_PC = PC + 42'd4;    // pc + 4
+        2'b00: next_PC = PC + 32'd4;    // pc + 4
         2'b01: next_PC = PC + ImmOp;    // pc + offset
         2'b10: next_PC = RegIn + ImmOp; // rs1 + offset (jalr)
+        default: next_PC = PC + 32'd4;  // default to pc + 4
         endcase
     end
 end

@@ -9,12 +9,9 @@ module pc_reg #(
 
     logic   [WIDTH-1:0]           PCreg;    // 32-bit register
 
-    always_ff @(posedge clk or posedge rst)
+    always_ff @(posedge clk)
     begin
-        if (rst)
-            PCreg <= 32'b0;
-        else
-            PCreg <= pcin;
+        PCreg <= pcin;      // removed rst setting pc to 0
     end
 
     assign pcout = PCreg; // fixed pc delay

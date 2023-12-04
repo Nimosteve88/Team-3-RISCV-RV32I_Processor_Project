@@ -1,8 +1,8 @@
 module controlunit (
-    input logic                 Zero,
+    input logic                 EQ,
     input logic [31:0]          instr,
     output logic                PCSrc,
-    output logic                ResultSrc,
+    output logic [1:0]          ResultSrc,
     output logic                MemWrite,
     output logic [2:0]          ALUctrl, // changed from [3:0]
     output logic                ALUsrc,
@@ -26,7 +26,7 @@ always_comb begin
         begin
             ALUsrc   <= 0;
             RegWrite <= 0;
-            PCSrc <= Zero; // ALU determines whether branch is necessary so using Zero signal from ALU
+            PCSrc <= ~(EQ);
             ImmSrc <= 3'b010;
             MemWrite <= 0;
             ResultSrc <= 0; //value doesn't matter here as not using ALU result
@@ -92,6 +92,27 @@ always_comb begin
             ResultSrc <= 2'b10;
             PCSrc <= 2'b10; // Made PCsrc 2 bit to allow for jalr
         end
+    
+    else if (opcode == 7'b0110111) // U-type instruction - LUI
+        begin
+            RegWrite <= 1;
+            ALUsrc <= 0; //dont care
+            ALUctrl <= 0; //dont care
+            ImmSrc <= 3'b100;
+            MemWrite <= 0;
+            ResultSrc <= 2'b11;
+            PCSrc <= 0;
+        end
+
+    else if (opcode == 7'b0100011) // S-type instruction - SB
+        begin
+            RegWrite <= 0;
+            ALUsrc <= 1;
+            ALUctrl <= 0;
+            ImmSrc <= 3'b001;
+            MemWrite <= 1;
+            ResultSrc <= 0; //dont care
+            PCSrc <= 0;
     
     // EQ = 0;
 end

@@ -57,6 +57,10 @@ lfsr:
     sub t2, t2, s1
     bne t2, zero, lfsr
 
+    # Keep 5 lowesr bits
+    addi t5, zero, 0x1F
+    and t1, t1, t5
+
 delay:
     # Add noOps while the delay is decreasing
     nop 
@@ -64,6 +68,17 @@ delay:
     bne t1, zero, delay
 
 lights_off:
-    # lights go off and back to init and idle
+    # Lights go off and back to init and idle
     addi a0, zero, 0x0
+
+    # Set counter to zero
+    addi t5, zero, 0x0
+    
+count_reaction:
+    # Increment timer by 1 and check for trigger
+    addi t5, t5, 0x1
+    bne t0, s1, count_reaction
+
+    # Set output to number of cycles elapsed
+    add a0, zero, t5
     jal zero, init

@@ -1,4 +1,4 @@
-module instrmem #(
+module instruction_memory #(
     parameter ADDRESS_WIDTH = 32,
               DATA_WIDTH = 8
 )(
@@ -10,7 +10,7 @@ module instrmem #(
 
 initial begin
     $display("Loading instr.");
-    $readmemh("instrrom.mem", instr_array);
+    $readmemh("f1.mem", instr_array);
 end
 
 always_comb begin

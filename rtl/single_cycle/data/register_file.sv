@@ -1,4 +1,4 @@
-module regfile #(
+module register_file #(
     parameter WIDTH = 5,
     parameter DATAWIDTH = 32
 )(
@@ -11,8 +11,10 @@ module regfile #(
     output  logic  [DATAWIDTH-1:0] RD1,
     output  logic  [DATAWIDTH-1:0] RD2,
     output  logic  [DATAWIDTH-1:0] a0,
-    output logic   [DATAWIDTH-1:0] a1, // added for debugging
-    output logic   [DATAWIDTH-1:0] t1  // added for debugging   
+    // output logic   [DATAWIDTH-1:0] a1, // added for debugging
+    // output logic   [DATAWIDTH-1:0] t1  // added for debugging 
+    input logic     [DATAWIDTH-1:0] t4,     // F1 program inputs
+    input logic                     t0      // F1 program inputs
 );
 
 logic [DATAWIDTH-1:0] registers [31:0];
@@ -20,9 +22,11 @@ logic [DATAWIDTH-1:0] registers [31:0];
 
 
     always_ff @(posedge clk) begin
+        registers[5'd5] <= t0;  // F1 program input
+        registers[5'd29] <= t4; // F1 program input
         if (WE3 == 1'b1) begin
-            if (AD3 != WIDTH{1'b0}) registers[AD3] <= WD3; //RESULT FROM ALU IS STORED IN ADDRESS 3
-            else registers[AD3] <= DATAWIDTH{1'b0};
+            if (AD3 != 0'b00000) registers[AD3] <= WD3; //RESULT FROM ALU IS STORED IN ADDRESS 3
+            else registers[AD3] <= 32'b0;
         end
     end
 
@@ -30,9 +34,9 @@ logic [DATAWIDTH-1:0] registers [31:0];
     begin
         RD1 <= registers[AD1]; // DATA IS READ FROM AD1 AND AD2
         RD2 <= registers[AD2];
-        a0 <=  registers[AD3]; // a0 is output which is set to result
-        a1 <=  registers[5'b01011];
-        t1 <=  registers[5'b00110];
+        a0 <=  registers[5'd10]; // a0 is output which is set to result
+        // a1 <=  registers[5'b01011];
+        // t1 <=  registers[5'b00110];
     end
 
 

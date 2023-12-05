@@ -1,11 +1,28 @@
 // Top Level Component for Single Cycle Processor
 
+
+`include "program_counter/pc_module.sv"
+`include "program_counter/pc_reg.sv"
+`include "data/alu_src_mux.sv"
+`include "data/alu.sv"
+`include "data/data_memory.sv"
+`include "data/data_top_level.sv"
+`include "data/register_file.sv"
+`include "data/result_mux.sv"
+`include "control/control_unit.sv"
+`include "control/extend.sv"
+`include "control/instruction_memory.sv"
+
+
+
 module toplevel #(
     parameter WIDTH = 32
 )(
     input logic                     clk,
     input logic                     rst,            
-    output logic [WIDTH-1:0]        a0              // measured output of program
+    output logic [WIDTH-1:0]        a0,              // measured output of program
+    input logic                     trigger_val,     // inputs for F1 program
+    input logic [WIDTH-1:0]         seed             // inputs for F1 program
 );
 
 logic   [WIDTH-1:0]                 sign_extend_immediate;      // sign extension to program counter, result mux and ALU
@@ -35,12 +52,12 @@ pc_module program_counter (
     .RegIn(register_data_1),
     .PC(PC),
     .PC_plus_4(PC_plus_4)
-)
+);
 
 instruction_memory instruction_memory (
     .A(PC),
     .RD(instruction) 
-)
+);
 
 data_top_level data (
     .clk(clk),
@@ -51,18 +68,20 @@ data_top_level data (
     .ALUsrc(ALUsrc),
     .ALUctrl(ALUctrl),
     .ImmOp(sign_extend_immediate),
-    .writeData(result),
+    .writeData(result_data),
     .EQ(EQ),
     .a0(a0),
     .ALUop1(register_data_1),
     .ALUout(ALU_result),
-    .regOp2(write_data)
-)
+    .regOp2(write_data),
+    .t0(trigger_val),   // inputs for F1 program
+    .t4(seed)           // inputs for F1 program
+);
 
 control_unit control (
     .EQ(EQ),
     .instr(instruction),
-    .PCsrc(PCSrc),
+    .PCSrc(PCSrc),
     .ResultSrc(result_src),
     .MemWrite(mem_write),
     .ALUctrl(ALUctrl),
@@ -70,13 +89,13 @@ control_unit control (
     .ImmSrc(imm_src),
     .RegWrite(reg_write),
     .ByteAddr(byte_addr)
-)
+);
 
 extend sign_extend (
     .Immsrc(imm_src),
     .instr(instruction),
     .Immop(sign_extend_immediate)
-)
+);
 
 data_memory data_memory (
     .clk(clk),
@@ -85,15 +104,15 @@ data_memory data_memory (
     .WD(write_data),
     .ByteAddr(byte_addr),
     .RD(read_data)
-)
+);
 
-result_mux result (
+result_mux result_select (
     .result_src(result_src),
     .ALU_result(ALU_result),
     .read_data(read_data),
     .pc_plus_4(PC_plus_4),
     .immediate(sign_extend_immediate),
     .result(result_data)
-)
+);
 
 endmodule

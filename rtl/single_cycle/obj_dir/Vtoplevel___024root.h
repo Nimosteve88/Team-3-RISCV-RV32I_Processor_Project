@@ -15,27 +15,32 @@ class Vtoplevel___024root final : public VerilatedModule {
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
     VL_IN8(rst,0,0);
-    CData/*0:0*/ toplevel__DOT__ImmSrc;
-    CData/*0:0*/ toplevel__DOT__RegWrite;
-    CData/*2:0*/ toplevel__DOT__ALUctrl;
+    VL_IN8(trigger_val,0,0);
+    CData/*1:0*/ toplevel__DOT__PCSrc;
+    CData/*0:0*/ toplevel__DOT__reg_write;
     CData/*0:0*/ toplevel__DOT__ALUsrc;
-    CData/*0:0*/ toplevel__DOT__PCsrc;
+    CData/*2:0*/ toplevel__DOT__ALUctrl;
     CData/*0:0*/ toplevel__DOT__EQ;
+    CData/*1:0*/ toplevel__DOT__result_src;
+    CData/*0:0*/ toplevel__DOT__mem_write;
+    CData/*2:0*/ toplevel__DOT__imm_src;
+    CData/*0:0*/ toplevel__DOT__byte_addr;
     CData/*0:0*/ __Vclklast__TOP__clk;
-    CData/*0:0*/ __Vclklast__TOP__rst;
     VL_OUT(a0,31,0);
-    IData/*31:0*/ toplevel__DOT__instr;
-    IData/*31:0*/ toplevel__DOT__ImmOp;
-    IData/*31:0*/ toplevel__DOT__program_counter__DOT__branch_PC;
-    IData/*31:0*/ toplevel__DOT__program_counter__DOT__inc_PC;
+    VL_IN(seed,31,0);
+    IData/*31:0*/ toplevel__DOT__sign_extend_immediate;
+    IData/*31:0*/ toplevel__DOT__register_data_1;
+    IData/*31:0*/ toplevel__DOT__instruction;
+    IData/*31:0*/ toplevel__DOT__ALU_result;
+    IData/*31:0*/ toplevel__DOT__write_data;
+    IData/*31:0*/ toplevel__DOT__read_data;
     IData/*31:0*/ toplevel__DOT__program_counter__DOT__next_PC;
     IData/*31:0*/ toplevel__DOT__program_counter__DOT__mypc_reg__DOT__PCreg;
-    IData/*31:0*/ toplevel__DOT__alu_and_registers__DOT__ALUop1;
-    IData/*31:0*/ toplevel__DOT__alu_and_registers__DOT__ALUop2;
-    IData/*31:0*/ toplevel__DOT__alu_and_registers__DOT__ALUout;
+    IData/*31:0*/ toplevel__DOT__data__DOT__ALUop2;
     VlUnpacked<CData/*7:0*/, 256> toplevel__DOT__instruction_memory__DOT__instr_array;
-    VlUnpacked<IData/*31:0*/, 32> toplevel__DOT__alu_and_registers__DOT__register__DOT__registers;
-    VlUnpacked<CData/*0:0*/, 4> __Vm_traceActivity;
+    VlUnpacked<IData/*31:0*/, 32> toplevel__DOT__data__DOT__register__DOT__registers;
+    VlUnpacked<CData/*7:0*/, 131072> toplevel__DOT__data_memory__DOT__data_array;
+    VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
 
     // INTERNAL VARIABLES
     Vtoplevel__Syms* const vlSymsp;

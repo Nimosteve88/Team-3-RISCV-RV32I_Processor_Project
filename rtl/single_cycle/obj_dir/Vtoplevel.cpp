@@ -13,7 +13,9 @@ Vtoplevel::Vtoplevel(VerilatedContext* _vcontextp__, const char* _vcname__)
     , vlSymsp{new Vtoplevel__Syms(contextp(), _vcname__, this)}
     , clk{vlSymsp->TOP.clk}
     , rst{vlSymsp->TOP.rst}
+    , trigger_val{vlSymsp->TOP.trigger_val}
     , a0{vlSymsp->TOP.a0}
+    , seed{vlSymsp->TOP.seed}
     , rootp{&(vlSymsp->TOP)}
 {
     // Register model with the context

@@ -2,11 +2,15 @@
 #include "verilated_vcd_c.h"
 #include "Vtoplevel.h"
 
+#include "vbuddy.cpp"
+
+#define MAX_SIM_CYCLES 1500000
+
 int main(int argc, char **argv, char **env)
 {
 
-    int i;
-    int clk;
+    int simcyc;
+    int tick;
     Verilated::commandArgs(argc, argv);
 
     // top instance
@@ -17,24 +21,59 @@ int main(int argc, char **argv, char **env)
     top->trace (tfp, 99);
     tfp->open ("toplevel.vcd");
 
+
+    // init vbuddy
+    if (vbdOpen()!=1) return(-1);
+    vbdHeader("F1"); // change to correct title
+    vbdSetMode(1);
+    vbdBar(0); 
+    
+
     // initialuise simulation inputs
-    top->clk = 1;
+    top->clk = 0;
     top->rst = 0;
-    //top->a0 = 12;
 
+    
+    // for f1 program:
+    top->seed = vbdValue();
+    top->trigger_val = 0; 
 
-    // run simulation for many clock cycles
-    for (i = 0; i<300000; ++i)
+    for (simcyc=0; simcyc<MAX_SIM_CYCLES; simcyc++)
     {
-        // dump variables into VCD file and toggle clock
-        for (clk = 0; clk<2; ++clk)
+        for(tick=0; tick<2; tick++)
         {
-            tfp->dump (2*i+clk);
+            tfp->dump (2*simcyc+tick);
             top->clk = !top->clk;
-            top->eval ();
+            top->eval();
         }
-        if (Verilated::gotFinish()) exit(0);
+
+
+        // reference program
+        if (simcyc > 1300000 && simcyc % 2 == 0)
+        {  // plot every 4th, convenient for pipelining due to nops in display
+            vbdPlot(int(top->a0), 0, 255);
+            vbdCycle(simcyc);
+        }
+        // end of reference program
+        
+
+        // F1 program:
+        vbdCycle(simcyc);
+        top->trigger_val = vbdFlag(); 
+        vbdBar(top->a0 & 0xFF);
+        vbdHex(3,(int(top->a0)>>8)&0xF);
+        vbdHex(2,(int(top->a0)>>4)&0xF);
+        vbdHex(1,int(top->a0)&0xF);
+        // End of F1 program
+
+        if((Verilated::gotFinish()) || (vbdGetkey()=='q'))
+            exit(0);
+
+        
     }
+
+
+    vbdClose();
     tfp->close();
     exit(0);
 }

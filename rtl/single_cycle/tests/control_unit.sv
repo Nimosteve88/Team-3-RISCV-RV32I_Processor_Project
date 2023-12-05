@@ -19,17 +19,17 @@ always_comb begin
     begin
         case (funct3)
             3'b000: begin  // beq instruction
-                ALUctrl <= 3'b111;
+                PCSrc <= EQ ? 2'b01 : 2'b00;
             end
             3'b001: begin // bne instruction
-                ALUctrl <= 3'b001; // changed as per control decode table
+                PCSrc <= EQ ? 2'b00 : 2'b01;
             end
         endcase
         begin
             ALUsrc   <= 0;
             RegWrite <= 0;
-            PCSrc <= EQ ? 2'b00 : 2'b01;
             ImmSrc <= 3'b010;
+            ALUctrl <= 3'b001;
             MemWrite <= 0;
             ResultSrc <= 2'b00; //value doesn't matter here as not using ALU result
             ByteAddr <= 0;

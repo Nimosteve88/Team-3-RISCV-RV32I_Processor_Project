@@ -81,4 +81,13 @@ count_reaction:
 
     # Set output to number of cycles elapsed
     add a0, zero, t5
+
+    # NoOps added to increase display time
+    nop
+    nop
+    nop
+    nop
+    nop
+
+    # Jump back to idle
     jal zero, init

@@ -5,24 +5,24 @@
 // -   2. Read from the data memory.
 // -   3. PC + 4. When implementing a JAL instruction, a destination register needs to store the next instruction after JAL, so that the PC knows what to go to after running a subroutine - I think this is correct.
 // -   4. Immediate - for the LUI instruction, (LU rd upimm is equivalent to rd = [upimm, 12'b0]), we don't need to go through the ALU or data memory for this.
-module reuslt_mux #(
-    paremeter WIDTH = 32;,
+module result_mux #(
+    parameter WIDTH = 32
 )(
     input logic     [1:0]           result_src, // from control unit
     input logic     [WIDTH-1:0]     ALU_result, 
     input logic     [WIDTH-1:0]     read_data,
     input logic     [WIDTH-1:0]     pc_plus_4,
-    input logic     [WIDTH-1:0]     immediate
+    input logic     [WIDTH-1:0]     immediate,
     output logic    [WIDTH-1:0]     result
-)
+);
 
-always_comb (
+always_comb begin
     case (result_src)
-    2'b00:      result = ALU_result;
-    2'b01:      result = read_data;
-    2'b10:      result = pc_plus_4;
-    2'b11:      result = immediate; 
+        2'b00: result = ALU_result;
+        2'b01: result = read_data;
+        2'b10: result = pc_plus_4;
+        2'b11: result = immediate; 
     endcase
-)
+end
 
 endmodule

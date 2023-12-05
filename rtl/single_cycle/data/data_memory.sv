@@ -4,7 +4,7 @@
 // - if write_enable is asserted then it writes data, WD, into address A on the rising edge of the clock.
 // - If write enable is 0, then it reads data from address A into the outputm RD
 module data_memory #(
-    DATA_WIDTH = 32
+    DATA_WIDTH = 32,
     WIDTH = 8
 ) (
     input logic                             clk,
@@ -13,7 +13,7 @@ module data_memory #(
     input logic     [DATA_WIDTH-1:0]        WD,
     input logic                             ByteAddr,
     output logic    [DATA_WIDTH-1:0]        RD
-)
+);
 
 
 logic [WIDTH-1:0] data_array [17'h1FFFF: 17'h0];
@@ -21,7 +21,7 @@ logic [WIDTH-1:0] data_array [17'h1FFFF: 17'h0];
 
 initial begin
     $display("Loading data memory");
-    $readmemh("filename", data_array, 17'h10000);      // change parameter to correct filename. NB: the third parameter is there to start writing/ storing memory into the correct location according to the memory map
+    //$readmemh("gaussian.mem", data_array, 17'h10000);      // change parameter to correct filename. NB: the third parameter is there to start writing/ storing memory into the correct location according to the memory map
     $display("Finished loading memory");
 end
 
@@ -37,7 +37,7 @@ begin
     end
     else begin 
         if (!WE) begin
-            assign RD = {data_array[A[16:0] + 3], data_array[A[16:0] + 2], data_array[A[16:0] + 1], data_arrayA[16:0]};
+            assign RD = {data_array[A[16:0] + 3], data_array[A[16:0] + 2], data_array[A[16:0] + 1], data_array[A[16:0]]};
         end
     end
 end

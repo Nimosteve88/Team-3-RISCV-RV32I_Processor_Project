@@ -10,6 +10,8 @@
 // 9. SB 
 // 10. XOR
 // 11. AND
+// 12. SUB
+// 13. BEQ
 
 #include "verilated.h"
 #include "verilated_vcd_c.h"
@@ -130,6 +132,24 @@ int main(int argc, char **argv, char **env)
     dont_cares = {0, 0, 0, 0, 0, 1, 0, 1};
     printf("AND test 1: \t%s!\n", check_instruction(top, 0x00C5F7B3, 0, expected_answers, dont_cares) ? "Passed" : "Failed");
     printf("AND test 2: \t%s!\n", check_instruction(top, 0x00C5F7B3, 1, expected_answers, dont_cares) ? "Passed" : "Failed");
+
+
+    // SUB
+    expected_answers = {0b00, 0b00, 0b0, 0b001, 0b0, 0b000, 0b1, 0b0};
+    dont_cares = {0, 0, 0, 0, 0, 1, 0, 1};
+    printf("SUB test 1: \t%s!\n", check_instruction(top, 0x40c587b3, 0, expected_answers, dont_cares) ? "Passed" : "Failed");
+    printf("SUB test 2: \t%s!\n", check_instruction(top, 0x40c587b3, 1, expected_answers, dont_cares) ? "Passed" : "Failed");
+
+
+    // BEQ
+    expected_answers = {0b00, 0b00, 0b0, 0b001, 0b0, 0b010, 0b0, 0b0};
+    dont_cares = {0, 1, 0, 0, 0, 0, 0, 1};
+    printf("BEQ test 1: \t%s!\n", check_instruction(top, 0x00B50263, 0, expected_answers, dont_cares) ? "Passed" : "Failed");
+    
+    expected_answers = {0b01, 0b00, 0b0, 0b001, 0b0, 0b010, 0b0, 0b0};
+    dont_cares = {0, 1, 0, 0, 0, 0, 0, 1};
+    printf("BEQ test 2: \t%s!\n", check_instruction(top, 0x00B50263, 1, expected_answers, dont_cares) ? "Passed" : "Failed");
+
 
     delete top;
 

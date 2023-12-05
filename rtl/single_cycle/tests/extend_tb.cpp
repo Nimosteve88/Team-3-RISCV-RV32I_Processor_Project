@@ -8,51 +8,49 @@
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 #include "Vextend.h"
+#include <iostream>
 
 bool check_I_type(Vextend *top, int instruction, int expected)
 {
-    top->Immsrc = 0b000;
+    top->Immsrc = 0;
     top->instr = instruction; 
+    top->eval();
     return(top->Immop == expected);
 }
 
 
 bool check_S_type(Vextend *top, int instruction, int expected)
 {
-    top->Immsrc = 0b001;
+    top->Immsrc = 1;
     top->instr = instruction; 
+    top->eval();
     return(top->Immop == expected);
 }
 
 
 bool check_B_type(Vextend *top, int instruction, int expected)
 {
-    top->Immsrc = 0b010;
+    top->Immsrc = 2;
     top->instr = instruction; 
+    top->eval();
     return(top->Immop == expected);
 }
 
 
 bool check_J_type(Vextend *top, int instruction, int expected)
 {
-    top->Immsrc = 0b011;
+    top->Immsrc = 3;
     top->instr = instruction; 
+    top->eval();
     return(top->Immop == expected);
 }
 
 
 bool check_U_type(Vextend *top, int instruction, int expected)
 {
-    top->Immsrc = 0b100;
+    top->Immsrc = 4;
     top->instr = instruction; 
-    return(top->Immop == expected);
-}
-
-
-bool check_invalid(Vextend *top, int instruction, int expected)
-{
-    top->Immsrc = 0b110;
-    top->instr = instruction; 
+    top->eval();
     return(top->Immop == expected);
 }
 
@@ -66,24 +64,16 @@ int main(int argc, char **argv, char **env)
 
     // TODO: Add correct input parameters.
 
-    printf("I_type Test 1: %s!\n", check_I_type(top, 5, 3, 8) ? "Passed" : "Failed");
-    printf("I_type Test 2: %s!\n", check_I_type(top, 12, 45, 57) ? "Passed" : "Failed");
+    printf("I_type Test 1: %s!\n", check_I_type(top, 0xFFF58593, 0xFFFFFFFF) ? "Passed" : "Failed");
 
-    printf("S_type Test 1: %s!\n", check_S_type(top, 13, 3, 10) ? "Passed" : "Failed");
-    printf("S_type Test 2: %s!\n", check_S_type(top, 149, 59, 90) ? "Passed" : "Failed");
+    printf("S_type Test 1: %s!\n", check_S_type(top, 0x00680023, 0x00000000) ? "Passed" : "Failed");
 
-    printf("B_type Test 1: %s!\n", check_B_type(top, 13, 10, 7) ? "Passed" : "Failed");
-    printf("B_type Test 2: %s!\n", check_B_type(top, 149, 59, 174) ? "Passed" : "Failed");
+    printf("B_type Test 1: %s!\n", check_B_type(top, 0xFE659CE3, 0xFFFFFFF8) ? "Passed" : "Failed");
     
-    printf("J_type Test 1: %s!\n", check_J_type(top, 13, 3, 0) ? "Passed" : "Failed");
-    printf("J_type Test 2: %s!\n", check_J_type(top, 149, 149, 1) ? "Passed" : "Failed");
+    printf("J_type Test 1: %s!\n", check_J_type(top, 0x100000EF, 0x00000100) ? "Passed" : "Failed");
 
-    printf("U_type Test 1: %s!\n", check_U_type(top, 13, 3, 0) ? "Passed" : "Failed");
-    printf("U_type Test 2: %s!\n", check_U_type(top, 149, 149, 1) ? "Passed" : "Failed");
+    printf("U_type Test 1: %s!\n", check_U_type(top, 0x000105B7, 0x00010000) ? "Passed" : "Failed");
 
-    printf("Invalid ImmSrc Test 1: %s!\n", check_invalid(top, 13, 3, 0) ? "Passed" : "Failed");
-    printf("Invalid ImmSrc Test 2: %s!\n", check_invalid(top, 149, 149, 1) ? "Passed" : "Failed");
-    
     delete top;
 
     return 0;

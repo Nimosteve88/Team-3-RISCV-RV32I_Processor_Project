@@ -1,5 +1,5 @@
 module alu #(
-    parameter WIDTH = 32,
+    parameter WIDTH = 32
 )(
     input   logic [WIDTH-1:0]     SrcA,
     input   logic [WIDTH-1:0]     SrcB,

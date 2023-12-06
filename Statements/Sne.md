@@ -26,6 +26,7 @@
 ### Top Level
 - Designed the top level file for the single cycle having communicated with other team members
 - Diagram of single cycle top level:
+![Alt text](image-1.png)
 - **Commit:** [b7647d6](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/b7647d64a8db94cae6d9b5744ef8fe47a9a4b4aa)
 
 ### Testing and Debugging

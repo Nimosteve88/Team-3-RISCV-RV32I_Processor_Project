@@ -41,6 +41,7 @@ The result of this coursework is two CPUs: a pipelined, and a single-cycle CPU .
 | Lab 4 | Lab 4 Top Level |Completed  | | |
 | Base | F1 Assembly Code |  | | |
 | Base | Update Immediate Extend |  | | |
+| Base | Update Program Counter |  | | |
 | Base | Update Control Unit |  | | |
 | Base | Update ALU |  | | |
 | Base | Create Data Memory |  | | |
@@ -53,6 +54,7 @@ The result of this coursework is two CPUs: a pipelined, and a single-cycle CPU .
 | Stretch Goal 2 | Add Data Cache |  | | |
 | Stretch Goal 2 | Update Top Level |  | | |
 | Stretch Goal 2 | Top Level Testing |  | | |
+
 LEGEND :       `x` = full responsibility;  `p` = partial contribution; 
 
 ---

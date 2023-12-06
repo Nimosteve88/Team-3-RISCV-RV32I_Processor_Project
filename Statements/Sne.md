@@ -10,23 +10,23 @@
 - [Given more time](#given-more-time)
 
 ## Contributions
-### Sign Extend [4008b9c](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/4008b9cfe27fa0b299804222230f8b3731e6cacc)
+### Sign Extend: [4008b9c](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/4008b9cfe27fa0b299804222230f8b3731e6cacc)
 - Updated sign extend to output correct sign extended immediates for I, S, B, J, and U type instructions.
 - As per this specification:
 
 ![Alt text](image.png)
 
-### Data Memory [5779d53](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/5779d53e960b9f482223b6e8bc150dd2bf41c961)
+### Data Memory: [5779d53](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/5779d53e960b9f482223b6e8bc150dd2bf41c961)
 - Specified System Verilog for data memory. 
 - Implemented as RAM, inline with the memory map given in the project brief.
 - Added byte reading and storing for `LBU` and `SB` instructions.
 
-### Top Level [b7647d6](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/b7647d64a8db94cae6d9b5744ef8fe47a9a4b4aa)
+### Top Level: [b7647d6](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/b7647d64a8db94cae6d9b5744ef8fe47a9a4b4aa)
 - Designed the top level file for the single cycle having communicated with other team members
 - Diagram of single cycle top level:
 ![Alt text](image-1.png)
 
-### Testing and Debugging
+### Testing and Debugging:
 - Wrote comprehensive test benches for updated components.
 - Printed test outputs directly to the terminal. I found this to be a better way of testing rather than loading the waveform onto GTK wave and manually checking values.
 - Wrote the top level test bench for the reference and F1 programs.

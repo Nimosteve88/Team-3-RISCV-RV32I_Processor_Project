@@ -1,6 +1,6 @@
 # Personal Statement: Sne Samal
-**CID: 02201807**
-**GitHub Username: sne-samal**
+**CID:** 02201807
+**GitHub Username:** sne-samal
 
 ## Quick Links
 - [Contributions](#contributions)
@@ -15,8 +15,7 @@
 - As per this specification:
 
 ![Alt text](image.png)
-
-- **Commit:** 
+- **Commit:** [4008b9c](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/4008b9cfe27fa0b299804222230f8b3731e6cacc)
 
 ### Data Memory
 - Specified System Verilog for data memory. 

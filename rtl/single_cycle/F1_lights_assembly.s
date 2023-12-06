@@ -68,7 +68,7 @@ delay:
     bne t1, zero, delay
 
 lights_off:
-    # Lights go off and back to init and idle
+    # Lights go off and reaction counter starts
     addi a0, zero, 0x0
 
     # Set counter to zero

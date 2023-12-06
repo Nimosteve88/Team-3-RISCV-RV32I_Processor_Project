@@ -13,7 +13,9 @@
 ##### Sign Extend
 - Updated sign extend to output correct sign extended immediates for I, S, B, J, and U type instructions.
 - As per this specification:
+
 ![Alt text](image.png)
+
 - **Commit:** 
 
 ##### Data Memory

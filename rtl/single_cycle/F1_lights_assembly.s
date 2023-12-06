@@ -76,7 +76,7 @@ lights_off:
     
 count_reaction:
     # Increment timer by 1 and check for trigger
-    addi t5, t5, 0x1
+    add t5, t5, s1
     bne t0, s1, count_reaction
 
     # Set output to number of cycles elapsed

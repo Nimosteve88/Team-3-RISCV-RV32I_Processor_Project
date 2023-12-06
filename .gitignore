@@ -15,8 +15,6 @@
 # Ignore files from obj_dir()
 obj_dir/
 
-# Ignore files from obsidian
-.obsidian
 
 # Ignore .vcd files
 *.vcd

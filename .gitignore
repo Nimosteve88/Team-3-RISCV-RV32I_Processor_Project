@@ -1,0 +1,21 @@
+# Ignore compiled binaries
+*.exe
+*.o
+
+# Ignore temporary files
+*~
+
+# Ignore log files
+*.log# Ignore generated files
+*.exe
+*.o
+*.out
+*.log
+
+# Ignore files from obj_dir()
+obj_dir/
+
+
+# Ignore .vcd files
+*.vcd
+

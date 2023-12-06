@@ -16,7 +16,7 @@
 obj_dir/
 
 # Ignore files from obsidian
-.obsidian
+.obsidian/
 
 # Ignore .vcd files
 *.vcd

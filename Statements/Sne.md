@@ -21,12 +21,12 @@
 - Specified System Verilog for data memory. 
 - Implemented as RAM, inline with the memory map given in the project brief.
 - Added byte reading and storing for `LBU` and `SB` instructions.
-- **Commit:** 
+- **Commit:** [5779d53](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/5779d53e960b9f482223b6e8bc150dd2bf41c961)
 
 ### Top Level
 - Designed the top level file for the single cycle having communicated with other team members
 - Diagram of single cycle top level:
-- **Commit:**
+- **Commit:** [b7647d6](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/b7647d64a8db94cae6d9b5744ef8fe47a9a4b4aa)
 
 ### Testing and Debugging
 - Wrote comprehensive test benches for updated components.
@@ -36,11 +36,11 @@
 
 | **Component** | **Test Bench File** |
 |---------------|---------------------|
-| ALU           |                     |
-| Control Unit  |                     |
-| Sign Extend   |                     |
-| PC Module     |                     |
-| Top Level CPU |                     |
+| ALU           | [alu_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/single_cycle/tests/alu_tb.cpp)                    |
+| Control Unit  | [control_unit_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/single_cycle/tests/control_unit_tb.cpp)                    |
+| Sign Extend   | [extend_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/single_cycle/tests/extend_tb.cpp)                    |
+| PC Module     | [pc_module_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/single_cycle/tests/pc_module_tb.cpp)                    |
+| Top Level CPU | [toplevel_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/single_cycle/toplevel_tb.cpp)                    |
 
 ## Reflection
 

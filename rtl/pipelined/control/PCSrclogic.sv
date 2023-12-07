@@ -1,8 +1,8 @@
 module PCSrc_logic(
-    input logic             EQ,
-    input logic [1:0]       JumpTypeE,
-    input logic [1:0]       BranchTypeE,
-    output logic [1:0]      PCSrcE
+    input   logic           EQ,
+    input   logic   [1:0]   JumpTypeE,
+    input   logic   [1:0]   BranchTypeE,
+    output  logic   [1:0]   PCSrcE
 );
 
 always_comb begin

@@ -1,5 +1,5 @@
 module control_unit (
-    input logic                 EQ,
+   // input logic                 EQ,  (not needed anymore)
     input logic [31:0]          instr,
     // output logic [1:0]          PCSrc, (not needed anymore)
     output logic [1:0]          ResultSrc,

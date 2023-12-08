@@ -12,13 +12,17 @@ module decode #(
     logic   [DATA_WIDTH-1:0]            decode_reg;
 
 always_ff @(posedge clk) begin
-    if (CLR) begin
+    if (CLR && EN) begin
+        decode_reg <= DATA_WIDTH'b0;
+        InstrDo <= decode_reg;
+    end
+    else if (EN && !(CLR)) begin
+        decode_reg <= InstrDi;
+        InstrDo <= decode_reg;
+    end
+    else if (!(EN) && CLR) begin
         decode_reg <= DATA_WIDTH'b0;
     end
-    else if (EN == 1'd1) begin
-        decode_reg <= InstrDi;
-    end
-    assign InstrDo = decode_reg;
 end
 
 endmodule

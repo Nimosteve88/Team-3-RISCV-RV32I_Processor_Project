@@ -72,9 +72,9 @@ A software solution to hazards would invovle a programmer or compiler to insert 
 
 TODO: Fill out documentation for hazard unit development.
 
-Processor with Hazard unit changes:
+### Updated Processor with Hazard unit changes:
 ![Alt text](image-2.png)
 
-Complete pipelined processor:
+### Complete pipelined processor:
 ![Alt text](image-3.png)
 

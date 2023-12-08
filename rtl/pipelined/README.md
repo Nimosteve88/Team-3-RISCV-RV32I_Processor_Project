@@ -70,3 +70,11 @@ A software solution to hazards would invovle a programmer or compiler to insert 
 - Requires adding MUXs infront of the ALU so that it selects its operands from the register file, memory or writeback stage.
 - Forwarding is necessary when an instruction in the Execute stage has a source register matching the destination register of an instruction in the Memory or Writeback stage.
 
+TODO: Fill out documentation for hazard unit development.
+
+Processor with Hazard unit changes:
+![Alt text](image-2.png)
+
+Complete pipelined processor:
+![Alt text](image-3.png)
+

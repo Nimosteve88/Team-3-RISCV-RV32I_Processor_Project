@@ -17,8 +17,8 @@ always_ff @(posedge clk) begin
     end
     else if (EN == 1'd1) begin
         decode_reg <= InstrDi;
-        InstrDo <= decode_reg;
     end
+    assign InstrDo = decode_reg;
 end
 
 endmodule

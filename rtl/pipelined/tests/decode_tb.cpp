@@ -30,6 +30,8 @@ int main(int argc, char **argv, char **env)
             top->eval();
         }
         top->InstrDi = i;
+        top->PCF = 2*i;
+        top->PC_plus_4F = 3*i;
         if(i == 5 || i == 6)
         {
             top->CLR = 1;

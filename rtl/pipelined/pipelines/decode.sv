@@ -9,20 +9,14 @@ module decode #(
     output logic [DATA_WIDTH-1:0]       InstrDo
 );
 
-    logic   [DATA_WIDTH-1:0]            decode_reg;
+    logic   [DATA_WIDTH-1:0]            Instr_internal;
+  
+    always_ff @(posedge clk)
+    if (EN) begin
+        if (CLR) Instr_internal    <= 32'b0;
+        else Instr_internal        <= InstrDi;
+    end
 
-always_ff @(posedge clk) begin
-    if (CLR && EN) begin
-        decode_reg <= DATA_WIDTH'b0;
-        InstrDo <= decode_reg;
-    end
-    else if (EN && !(CLR)) begin
-        decode_reg <= InstrDi;
-        InstrDo <= decode_reg;
-    end
-    else if (!(EN) && CLR) begin
-        decode_reg <= DATA_WIDTH'b0;
-    end
-end
+    assign InstrDo = Instr_internal;
 
 endmodule

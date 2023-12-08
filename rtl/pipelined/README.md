@@ -59,3 +59,14 @@ Hazards occur when one instruction's result is needed by a subsequent instructio
 2. Stalls
 3. Flushes
 
+A software solution to hazards would invovle a programmer or compiler to insert `nop` instructions between hazard areas. This software solution is not ideal since it complicates programming and degrades performance.
+
+2 types of hazards:
+1. Data hazard: occurs when an instruction tries to read a register that has not yet been written back by a previous instruction.
+2. Control hazard: occurs when the decision of what instruction to fetch next has not been made by the time the fetch takes place.
+
+#### Forwarding:
+- A method of solving data hazards.
+- Requires adding MUXs infront of the ALU so that it selects its operands from the register file, memory or writeback stage.
+- Forwarding is necessary when an instruction in the Execute stage has a source register matching the destination register of an instruction in the Memory or Writeback stage.
+

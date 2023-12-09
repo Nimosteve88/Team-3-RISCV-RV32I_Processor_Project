@@ -16,23 +16,26 @@ module decode #(
     logic [DATA_WIDTH-1:0]              Instr_internal;
     logic [DATA_WIDTH-1:0]              PCF_internal;
     logic [DATA_WIDTH-1:0]              PC_plus_4F_internal;
-  
-    always_ff @(posedge clk)
-    if (EN) begin
-        if (CLR) begin
-            Instr_internal      <= 32'b0;
-            PCF_internal        <= 32'b0;
-            PC_plus_4F_internal <= 32'b0;
-        end
-        else begin 
-            Instr_internal      <= InstrDi;
-            PCF_internal        <= PCF;
-            PC_plus_4F_internal <= PC_plus_4F;
-        end
+    
+    always_ff @(posedge clk or posedge EN or posedge CLR) begin
+    if (CLR) begin
+      InstrDo <= 32'b0;  // Clear the register when clr is 1
+    end else if (EN) begin
+      InstrDo <= InstrDi;  // Update the register with input when enable is 1
     end
+  end
 
-    assign InstrDo = Instr_internal;
-    assign PCD = PCF_internal;
-    assign PC_plus_4D = PC_plus_4F_internal;
+/*
+    always_ff @(posedge CLR or posedge clk)
+    if (EN) begin
+        InstrDo    <= InstrDi;
+        PCD        <= PCF;
+        PC_plus_4D <= PC_plus_4F;
+    end
+    */
+    
+
+    
+
 
 endmodule

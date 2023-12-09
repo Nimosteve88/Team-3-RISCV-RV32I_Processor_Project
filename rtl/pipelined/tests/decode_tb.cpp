@@ -21,17 +21,10 @@ int main(int argc, char **argv, char **env)
 
     for (int i=0; i <30; i++)
     {
-        for (int clk = 0; clk<2; clk++)
-        {
-            
-
-            tfp->dump (2*i+clk);
-            top->clk = !top->clk; 
-            top->eval();
-        }
         top->InstrDi = i;
         top->PCF = 2*i;
         top->PC_plus_4F = 3*i;
+        
         if(i == 5 || i == 6)
         {
             top->CLR = 1;
@@ -49,6 +42,14 @@ int main(int argc, char **argv, char **env)
         {
             top->EN = 1;
         }
+        for (int clk = 0; clk<2; clk++)
+        {
+            tfp->dump (2*i+clk);
+            top->clk = !top->clk; 
+            top->eval();
+        }
+        
+        
         printf("\n");
         printf("Clock cycle: \t%i\n", i);
         printf("Inputs: \n");

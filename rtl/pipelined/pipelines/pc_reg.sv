@@ -3,6 +3,7 @@ module pc_reg #(
 )(
     input   logic               clk,    // clock
     input   logic               rst,    // reset
+    input   logic               en,
 
     input   logic   [WIDTH-1:0] pcin,   // 32-bit input pc
     output  logic   [WIDTH-1:0] pcout   // 32-bit output pc
@@ -12,10 +13,9 @@ module pc_reg #(
 
     always_ff @(posedge clk)
     begin
-        PCreg <= pcin;      // removed rst setting pc to 0
+        if (en) PCreg <= pcin;
     end
 
     assign pcout = PCreg; // fixed pc delay
 
 endmodule
-

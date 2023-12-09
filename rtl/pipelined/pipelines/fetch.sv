@@ -20,9 +20,9 @@ always_comb begin
 
     if (rst)
         next_PC <= 32'b0; 
-    else if (en == 1'b1) begin
+    else begin
         case (PCSrcE)
-        2'b00: next_PC = PCPlus4F           // pc + 4
+        2'b00: next_PC = PCPlus4F;           // pc + 4
         2'b01: next_PC = PCE + ImmExtE;     // pc + offset
         2'b10: next_PC = SrcAE + ImmExtE;   // rs1 + offset (jalr)
         default: next_PC = PCPlus4F;        // default to pc + 4
@@ -32,6 +32,7 @@ end
 
 pc_reg mypc_reg (
     .clk (clk),
+    .en(en),
     .rst (rst),
     .pcin (next_PC),
     .pcout (PCF)

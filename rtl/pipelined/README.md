@@ -78,3 +78,5 @@ TODO: Fill out documentation for hazard unit development.
 ### Complete pipelined processor:
 ![Alt text](image-3.png)
 
+### Updated diagram with general fetch stage:
+![Alt text](image-4.png)

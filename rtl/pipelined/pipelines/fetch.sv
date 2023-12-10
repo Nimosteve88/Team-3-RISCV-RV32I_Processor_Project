@@ -19,7 +19,7 @@ always_comb begin
     assign PCPlus4F = PCF + 32'd4;
 
     if (rst)
-        next_PC <= 32'b0; 
+        next_PC = 32'b0; 
     else begin
         case (PCSrcE)
         2'b00: next_PC = PCPlus4F;           // pc + 4
@@ -33,7 +33,7 @@ end
 pc_reg mypc_reg (
     .clk (clk),
     .en(en),
-    .rst (rst),
+//    .rst (rst),
     .pcin (next_PC),
     .pcout (PCF)
 );

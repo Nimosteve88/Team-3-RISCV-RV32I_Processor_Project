@@ -22,7 +22,7 @@ module decode #(
         if (CLR) begin
             Instr_internal      <= 32'b0;
             PCF_internal        <= 32'b0;
-            PC_plus_4F_internal <= 32'b0
+            PC_plus_4F_internal <= 32'b0;
         end
         else begin 
             Instr_internal      <= InstrDi;

@@ -2,7 +2,7 @@ module pc_reg #(
     parameter WIDTH = 32
 )(
     input   logic               clk,    // clock
-    input   logic               rst,    // reset
+    // input   logic               rst,    // reset
     input   logic               en,
 
     input   logic   [WIDTH-1:0] pcin,   // 32-bit input pc

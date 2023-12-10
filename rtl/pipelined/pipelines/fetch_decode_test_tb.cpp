@@ -16,6 +16,7 @@ int main(int argc, char **argv, char **env)
 
     top->clk = 1;
     top->CLR_decode = 0;
+    top->CLR_execute = 0;
     top->PCSrcE = 0;
     // top->PCF = 0;
     top->en_fetch = 1;
@@ -38,18 +39,21 @@ int main(int argc, char **argv, char **env)
         {
             top->en_fetch = 0;
             top->en_decode = 0;
+            top->CLR_execute = 1;
         }
         else if (i == 8)
         {
             top->en_fetch = 0;
             top->en_decode = 1;
-            top->CLR_decode = 0;
+            top->CLR_decode = 1;
+            top->CLR_execute = 0;
         }
         else
         {
             top->en_fetch = 1;
             top->en_decode = 1;
             top->CLR_decode = 0;
+            top->CLR_execute = 0;
         }
 
 

@@ -11,7 +11,7 @@ module alu #(
     // changed from 32'd255 to take that operand as t1, so that bnez also works
 
 always_comb begin
-    case (ALUctrl)
+    case (ALUcontrolE)
       3'b000: begin
         // ALU control is 3'b000, so perform addition (add)
         ALUResult <= SrcAE + SrcBE;

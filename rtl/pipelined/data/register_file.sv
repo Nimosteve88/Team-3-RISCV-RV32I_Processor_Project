@@ -13,7 +13,7 @@ module register_file #(
     output  logic  [DATAWIDTH-1:0] a0,
     // output logic   [DATAWIDTH-1:0] a1, // added for debugging
     // output logic   [DATAWIDTH-1:0] t1  // added for debugging 
-    input logic     [DATAWIDTH-1:0] t4,     // F1 program inputs
+    input logic [DATAWIDTH-1:0]     t4,     // F1 program inputs
     input logic                     t0      // F1 program inputs
 );
 
@@ -21,7 +21,7 @@ logic [DATAWIDTH-1:0] registers [31:0];
 
 
 
-    always_ff @(posedge clk) begin
+    always_ff @(negedge clk) begin
         registers[5'd5] <= t0;  // F1 program input
         registers[5'd29] <= t4; // F1 program input
         if (WE3 == 1'b1) begin
@@ -34,10 +34,12 @@ logic [DATAWIDTH-1:0] registers [31:0];
     begin
         RD1 <= registers[AD1]; // DATA IS READ FROM AD1 AND AD2
         RD2 <= registers[AD2];
-        a0 <=  registers[5'd10]; // a0 is output which is set to result
+       
         // a1 <=  registers[5'b01011];
         // t1 <=  registers[5'b00110];
     end
+
+    assign  a0 =  registers[10]; // a0 is output which is set to result
 
 
 endmodule

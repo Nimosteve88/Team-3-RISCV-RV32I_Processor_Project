@@ -1,7 +1,7 @@
 //##################################################################//
 //                        Include directives                        //
 //##################################################################//
-`include "control/countrol_unit_pipelined.sv"
+`include "control/control_unit_pipelined.sv"
 `include "control/extend.sv"
 `include "control/instruction_memory.sv"
 `include "control/PCSrclogic.sv"
@@ -26,9 +26,9 @@ module top_level #(
 )(
     input logic                     clk,
     input logic                     rst,            
-    output logic [WIDTH-1:0]        a0,              // measured output of program
+    output logic [DATA_WIDTH-1:0]   a0,              // measured output of program
     input logic                     trigger_val,     // inputs for F1 program
-    input logic [WIDTH-1:0]         seed             // inputs for F1 program
+    input logic [DATA_WIDTH-1:0]    seed             // inputs for F1 program
 );
 
 //##################################################################//
@@ -73,7 +73,7 @@ logic [1:0]                         branch_type_e;  // ''
 logic [2:0]                         alu_ctrl_e;     // from execute register to alu
 logic                               alu_src_e;      // from execure register to alu mux
 logic [DATA_WIDTH-1:0]              rd1_e;          // from execute register to rd1emux
-logic [DATA_WIDTH-1:0]              RD2E_mux;       // from execute register to rd2emux
+logic [DATA_WIDTH-1:0]              rd2_e;          // from execute register to rd2emux
 logic [REGISTER_ADDRESS_WIDTH-1:0]  rs1_e;          // from execute register to hazard
 logic [REGISTER_ADDRESS_WIDTH-1:0]  rs2_e;          // ''
 logic [REGISTER_ADDRESS_WIDTH-1:0]  rd_e;           // from execute register to hazard and memory register
@@ -118,14 +118,14 @@ fetch program_counter (
     .PCE(pc_e),
     .PCF(pc_f),
     .PCPlus4F(pc_plus_4_f)
-)
+);
 
 
 
 instruction_memory instruction_mem (
     .A(pc_f),
     .RD(instr_f)
-)
+);
 
 
 
@@ -145,7 +145,7 @@ decode decode_pipeline_register (
     .PCD(pc_d),
     .PC_plus_4D(pc_plus_4_d),
     .InstrDo(instr_d)
-)
+);
 
 
 
@@ -153,7 +153,7 @@ extend sign_extension_unit (
     .Immsrc(imm_src_d),
     .instr(instr_d),
     .Immop(imm_ext_d)
-)
+);
 
 
 
@@ -168,11 +168,11 @@ control_unit_pipelined control_unit (
     .ByteAddr(byte_addr_d),
     .JumpType(jump_type_d),
     .BranchType(branch_type_d)
-)
+);
 
 
 
-register_file registers (
+register_file reg_file (
     .AD1(instr_d[19:15]),
     .AD2(instr_d[24:20]),
     .AD3(rd_w),
@@ -184,7 +184,7 @@ register_file registers (
     .a0(a0),
     .t4(seed),
     .t0(trigger_val)
-)
+);
 
 
 
@@ -229,7 +229,7 @@ execute execute_pipeline_register (
     .RdE(rd_e),
     .ImmExtE(imm_ext_e),
     .PCPlus4E(pc_plus_4_e)
-)
+);
 
 
 
@@ -239,7 +239,7 @@ rd1emux RD1E_mux (
     .ALUResult(alu_result_m),
     .ForwardAE(forward_ae),
     .SrcAE(src_a_e)
-)
+);
 
 
 
@@ -249,7 +249,7 @@ rd2emux RD2E_mux (
     .ALUResult(alu_result_m),
     .ForwardBE(forward_be),
     .SrcBE(rd2e_out)
-)
+);
 
 
 
@@ -258,7 +258,7 @@ alu_src_mux ALU_mux (
     .d1(imm_ext_e),
     .ALUsrc(alu_src_e),
     .y(src_b_e)
-)
+);
 
 
 
@@ -268,7 +268,7 @@ alu ALU (
     .ALUcontrolE(alu_ctrl_e),
     .ALUResult(alu_result_e),
     .EQ(eq_flag)
-)
+);
 
 
 
@@ -277,7 +277,7 @@ PCSrclogic pc_src_logic (
     .JumpTypeE(jump_type_e),
     .BranchTypeE(branch_type_e),
     .PCSrcE(pc_src_e)
-) 
+);
 
 
 
@@ -307,7 +307,7 @@ memory memory_pipeline_register (
     .ImmExtM(imm_ext_m),
     .RdM(rd_m),
     .PCPlus4M(pc_plus_4_m)
-)
+);
 
 
 
@@ -318,7 +318,7 @@ data_memory data_mem (
     .WD(write_data_m),
     .ByteAddr(byte_addr_m),
     .RD(read_data_m)
-)
+);
 
 
 
@@ -344,7 +344,7 @@ write_back write_back_pipeline_register (
     .ImmExtW(imm_ext_w),
     .RdW(rd_w),
     .PCPlus4W(pc_plus_4_w)
-)
+);
 
 
 
@@ -355,7 +355,7 @@ result_mux result_data (
     .pc_plus_4(pc_plus_4_w),
     .immediate(imm_ext_w),
     .result(result_w)
-)
+);
 
 
 
@@ -372,7 +372,7 @@ hazard hazard_unit (
     .Rs2D(instr_d[24:20]),
     .FlushE(flush_e),
     .RdE(rd_e),
-    .Rs1E(rs1_1),
+    .Rs1E(rs1_e),
     .Rs2E(rs2_e),
     .ForwardAE(forward_ae),
     .ForwardBE(forward_be),
@@ -382,7 +382,7 @@ hazard hazard_unit (
     .RegWriteM(reg_write_m),
     .RdW(rd_w),
     .RegWriteW(reg_write_w)
-)
+);
 
 
 

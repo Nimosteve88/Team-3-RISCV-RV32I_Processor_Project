@@ -1,4 +1,4 @@
-module PCSrc_logic(
+module PCSrclogic(
     input   logic           EQ,
     input   logic   [1:0]   JumpTypeE,
     input   logic   [1:0]   BranchTypeE,
@@ -16,6 +16,7 @@ always_comb begin
         2'b10: begin
             PCSrcE <= (EQ) ? JumpTypeE : ~(BranchTypeE);
         end
+        default: $stop;
     endcase
 end
 

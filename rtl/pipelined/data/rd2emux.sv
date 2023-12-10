@@ -2,9 +2,11 @@ module rd2emux #(
     parameter WIDTH = 32
 )
 (
-    input logic[WIDTH-1:0] RD2E, WD3, ALUResult
-    input logic [1:0]            ForwardBE,
-    output logic [WIDTH-1:0] SrcBE
+    input logic[WIDTH-1:0]          RD2E, 
+    input logic [WIDTH-1:0]         WD3, 
+    input logic [WIDTH-1:0]         ALUResult,
+    input logic [1:0]               ForwardBE,
+    output logic [WIDTH-1:0]        SrcBE
     );
     always_comb begin
     case (ForwardBE)
@@ -17,6 +19,7 @@ module rd2emux #(
       2'b10: begin
         SrcBE <= ALUResult;
       end
+      default: $stop;
     endcase
   end
 endmodule

@@ -1,4 +1,4 @@
-module hazard_unit (
+module hazard (
     // fetch
     output  logic               StallF,
 

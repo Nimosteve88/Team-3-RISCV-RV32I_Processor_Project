@@ -61,7 +61,7 @@ module execute #(
 always_ff @(posedge clk) begin
     if (CLR) begin
         RegWrite_reg                            <= 1'b0;
-        ResultSrc_reg                           <= 1'b0;
+        ResultSrc_reg                           <= 2'b0;
         MemWrite_reg                            <= 1'b0;
         ByteAddr_reg                            <= 1'b0;
         JumpType_reg                            <= 2'b0;

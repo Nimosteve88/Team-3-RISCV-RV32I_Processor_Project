@@ -1,6 +1,8 @@
-module control_unit (
+module control_unit_pipelined (
    // input logic                 EQ,  (not needed anymore)
+   /* verilator lint_off UNUSED */
     input logic [31:0]          instr,
+    /* verilator lint_on UNUSED */
     // output logic [1:0]          PCSrc, (not needed anymore)
     output logic [1:0]          ResultSrc,
     output logic                MemWrite,
@@ -26,6 +28,7 @@ always_comb begin
             3'b001: begin // bne instruction
                 BranchType <= 2'b10;
             end
+            default: $stop;
         endcase
         begin
             ALUsrc   <= 0;

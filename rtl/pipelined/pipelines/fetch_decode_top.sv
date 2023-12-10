@@ -88,8 +88,9 @@ module fetch_decode_top #(
     .InstrDo(InstrDo)
   );
 
+// Instantiate execute module
 execute execute_inst (
-        .clk(clk),                // Connect these to your top-level signals
+        .clk(clk),               
         .CLR(CLR_execute),
         .RegWriteD(RegWriteD),
         .ResultSrcD(ResultSrcD),
@@ -107,7 +108,7 @@ execute execute_inst (
         .RdD(RdD),
         .ImmExtD(ImmExtD),
         .PCPlus4D(PC_plus_4D),
-        .RegWriteE(RegWriteE),    // Connect these to your top-level signals
+        .RegWriteE(RegWriteE),    
         .ResultSrcE(ResultSrcE),
         .MemWriteE(MemWriteE),
         .ByteAddrE(ByteAddrE),

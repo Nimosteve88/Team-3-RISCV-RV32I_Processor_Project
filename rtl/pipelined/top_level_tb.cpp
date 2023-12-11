@@ -4,7 +4,7 @@
 
 #include "vbuddy.cpp"
 
-#define MAX_SIM_CYCLES 1500000
+#define MAX_SIM_CYCLES 150000000
 
 int main(int argc, char **argv, char **env)
 {
@@ -24,13 +24,13 @@ int main(int argc, char **argv, char **env)
 
     // init vbuddy
     if (vbdOpen()!=1) return(-1);
-    vbdHeader("f1"); // change to correct title
+    vbdHeader("reference"); // change to correct title
     vbdSetMode(1);
     vbdBar(0); 
     
 
     // initialuise simulation inputs
-    top->clk = 0;
+    top->clk = 1;
     top->rst = 0;
 
     
@@ -49,21 +49,21 @@ int main(int argc, char **argv, char **env)
 
 
         // reference program
-        // if (simcyc > 1300000 && simcyc % 8 == 0)
-        // {  
-            // vbdPlot(int(top->a0), 0, 255);
-            // vbdCycle(simcyc);
-        // }
+        if (simcyc > 1300000 && simcyc % 8 == 0)
+        {  
+            vbdPlot(int(top->a0), 0, 255);
+            vbdCycle(simcyc);
+        }
         // end of reference program
         
 
         // F1 program:
-        vbdCycle(simcyc);
-        top->trigger_val = vbdFlag(); 
-        vbdBar(top->a0 & 0xFF);
-        vbdHex(3,(int(top->a0)>>8)&0xF);
-        vbdHex(2,(int(top->a0)>>4)&0xF);
-        vbdHex(1,int(top->a0)&0xF);
+        // vbdCycle(simcyc);
+        // top->trigger_val = vbdFlag(); 
+        // vbdBar(top->a0 & 0xFF);
+        // vbdHex(3,(int(top->a0)>>8)&0xF);
+        // vbdHex(2,(int(top->a0)>>4)&0xF);
+        // vbdHex(1,int(top->a0)&0xF);
         // End of F1 program
 
         if((Verilated::gotFinish()) || (vbdGetkey()=='q'))

@@ -10,7 +10,7 @@ module instruction_memory #(
 
 initial begin
     $display("Loading instr.");
-    $readmemh("pdf.mem", instr_array);
+    $readmemh("f1.mem", instr_array);
 end
 
 always_comb begin

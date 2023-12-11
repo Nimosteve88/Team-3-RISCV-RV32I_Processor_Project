@@ -23,7 +23,7 @@ logic [WIDTH-1:0] data_array [17'h1FFFF: 17'h0];
 
 initial begin
     $display("Loading data memory");
-    $readmemh("gaussian.mem", data_array, 17'h10000);      // change parameter to correct filename. NB: the third parameter is there to start writing/ storing memory into the correct location according to the memory map
+    //$readmemh("gaussian.mem", data_array, 17'h10000);      // change parameter to correct filename. NB: the third parameter is there to start writing/ storing memory into the correct location according to the memory map
     $display("Finished loading memory");
 end
 

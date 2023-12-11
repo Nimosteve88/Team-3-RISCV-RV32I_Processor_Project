@@ -18,18 +18,16 @@ module decode #(
     logic [DATA_WIDTH-1:0]              PC_plus_4F_internal;
   
     always_ff @(posedge clk)
-    if (EN) begin
         if (CLR) begin
             Instr_internal      <= 32'b0;
             PCF_internal        <= 32'b0;
             PC_plus_4F_internal <= 32'b0;
         end
-        else begin 
+        else if (EN) begin 
             Instr_internal      <= InstrDi;
             PCF_internal        <= PCF;
             PC_plus_4F_internal <= PC_plus_4F;
         end
-    end
 
     assign InstrDo = Instr_internal;
     assign PCD = PCF_internal;

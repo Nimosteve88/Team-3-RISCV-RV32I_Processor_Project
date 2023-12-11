@@ -10,23 +10,23 @@
 - [Given more time](#given-more-time)
 
 ## Contributions
-### Sign Extend: [4008b9c](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/4008b9cfe27fa0b299804222230f8b3731e6cacc)
+### Single Cycle: Sign Extend: [4008b9c](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/4008b9cfe27fa0b299804222230f8b3731e6cacc)
 - Updated sign extend to output correct sign extended immediates for I, S, B, J, and U type instructions.
 - As per this specification:
 
 ![Alt text](image.png)
 
-### Data Memory: [5779d53](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/5779d53e960b9f482223b6e8bc150dd2bf41c961)
+### Single Cycle: Data Memory: [5779d53](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/5779d53e960b9f482223b6e8bc150dd2bf41c961)
 - Specified System Verilog for data memory. 
 - Implemented as RAM, inline with the memory map given in the project brief.
 - Added byte reading and storing for `LBU` and `SB` instructions.
 
-### Top Level: [b7647d6](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/b7647d64a8db94cae6d9b5744ef8fe47a9a4b4aa)
+### Single Cycle: Top Level: [b7647d6](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/b7647d64a8db94cae6d9b5744ef8fe47a9a4b4aa)
 - Designed the top level file for the single cycle having communicated with other team members
 - Diagram of single cycle top level:
 ![Alt text](image-1.png)
 
-### Testing and Debugging:
+### Single Cycle: Testing and Debugging:
 - Wrote comprehensive test benches for updated components.
 - Printed test outputs directly to the terminal. I found this to be a better way of testing rather than loading the waveform onto GTK wave and manually checking values.
 - Wrote the top level test bench for the reference and F1 programs.
@@ -39,6 +39,28 @@
 | Sign Extend   | [extend_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/single_cycle/tests/extend_tb.cpp)                    |
 | PC Module     | [pc_module_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/single_cycle/tests/pc_module_tb.cpp)                    |
 | Top Level CPU | [toplevel_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/single_cycle/toplevel_tb.cpp)                    |
+
+### Pipelining: Top Level: [1275e68](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/1275e68ab0f799c9920300c993d8b91525329b3f)
+- Designed the new top level overview for the pipelined processor with new pipeline registers, a hazard unit and the a new logic unit that determined PCSrc.
+- Wrote System Verilog for the top level module.
+![Alt text](image-3.png)
+
+### Pipelined: Testing:
+- Wrote test benches for new parts specific for the pipelined processor:
+| **Component**                      | **Test Bench File**                                                                                                                                              |
+|------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Control Unit Pipelined             | [control_unit_pipelined_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/control_unit_pipelined_tb.cpp) |
+| Decode pipeline register           | [decode_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/decode_tb.cpp)                                 |
+| Execute pipeline register          | [execute_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/execute_tb.cpp)                               |
+| Fetch register and Program counter | [fetch_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/fetch_tb.cpp)                                   |
+| Hazard unit                        | [hazard_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/hazard_tb.cpp)                                 |
+| Memory pipeline register           | [memory_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/memory_tb.cpp)                                 |
+| PCSrc Logic                        | [pc_src_logic_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/pc_src_logic_tb.cpp)                     |
+| Write back register                | [write_back_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/write_back_tb.cpp)                         |
+
+### Pipelined Debugging: [f66f296](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/f66f2965e86a285fa05a747ccb1f07ae63bf12be)
+- Debugged the top level when nothing seemed to run.
+- Found the error: The control unit didn't handle the case where the instruction is 0x0 (not a valid instruction, but the instruction input after a register flush)
 
 ## Reflection
 

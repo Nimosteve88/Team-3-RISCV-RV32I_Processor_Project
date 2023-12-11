@@ -151,6 +151,17 @@ always_comb begin
             BranchType <= 0;
             JumpType <= 0;
         end
+    else begin
+        RegWrite <= 0;
+        ALUsrc <= 0;
+        ALUctrl <= 0;
+        ImmSrc <= 3'b000;
+        MemWrite <= 0;
+        ResultSrc <= 2'b00; //dont care
+        ByteAddr <= 0;
+        BranchType <= 0;
+        JumpType <= 0;
+    end
     
 end
 

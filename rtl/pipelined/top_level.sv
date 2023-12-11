@@ -72,7 +72,7 @@ logic [1:0]                         jump_type_e;    // from execute register to 
 logic [1:0]                         branch_type_e;  // ''
 logic [2:0]                         alu_ctrl_e;     // from execute register to alu
 logic                               alu_src_e;      // from execure register to alu mux
-logic [DATA_WIDTH-1:0]              rd1_e;          // from execute register to rd1emux
+logic [DATA_WIDTH-1:0]              rd1_e;          // from execute register to rd1emux and program counter
 logic [DATA_WIDTH-1:0]              rd2_e;          // from execute register to rd2emux
 logic [REGISTER_ADDRESS_WIDTH-1:0]  rs1_e;          // from execute register to hazard
 logic [REGISTER_ADDRESS_WIDTH-1:0]  rs2_e;          // ''
@@ -114,7 +114,7 @@ fetch program_counter (
     .en(~(stall_f)),
     .ImmExtE(imm_ext_e),
     .PCSrcE(pc_src_e),
-    .SrcAE(src_a_e),
+    .SrcAE(rd1_e),
     .PCE(pc_e),
     .PCF(pc_f),
     .PCPlus4F(pc_plus_4_f)

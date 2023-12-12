@@ -10,7 +10,7 @@
 - [Given more time](#given-more-time)
 
 ## Contributions
-#### **Single Cycle: Sign Extend: [4008b9c](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/4008b9cfe27fa0b299804222230f8b3731e6cacc)
+#### Single Cycle: Sign Extend: [4008b9c](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/4008b9cfe27fa0b299804222230f8b3731e6cacc)
 - Updated sign extend to output correct sign extended immediates for I, S, B, J, and U type instructions.
 - As per this specification:
 

@@ -47,6 +47,7 @@
 
 ### Pipelined: Testing:
 - Wrote test benches for new parts specific for the pipelined processor:
+
 | **Component**                      | **Test Bench File**                                                                                                                                              |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Control Unit Pipelined             | [control_unit_pipelined_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/control_unit_pipelined_tb.cpp) |
@@ -58,7 +59,7 @@
 | PCSrc Logic                        | [pc_src_logic_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/pc_src_logic_tb.cpp)                     |
 | Write back register                | [write_back_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/write_back_tb.cpp)                         |
 
-### Pipelined Debugging: [f66f296](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/f66f2965e86a285fa05a747ccb1f07ae63bf12be)
+### Pipelined: Debugging: [f66f296](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/f66f2965e86a285fa05a747ccb1f07ae63bf12be)
 - Debugged the top level when nothing seemed to run.
 - Found the error: The control unit didn't handle the case where the instruction is 0x0 (not a valid instruction, but the instruction input after a register flush)
 
@@ -67,13 +68,20 @@
 ## Mistakes
 
 ## Special design decisions
-### Byte Addressing in Data Memory
+### Byte Addressing in Data Memory:
 - Specified an extra input bit from the control unit to the data memory to tell the data memory to read/store the LSB of an address/value. Not sure if this is standard though.
 
-### Automation of Test Results
+### Automation of Test Results:
 - Rather than viewing the waveform for certain test benches, I wrote functions that would verify that the output is as what I expected. 
 - This way, I can run multiple test cases quickly by plugging in multiple inputs one after the other and printing out whether the output is correct or not.
 - This was much quicker than viewing waveforms and more efficient in my opinion.
+
+### PCSrc Logic in the pipelined processor:
+- Determining PCTarget for the program counter was done in the control unit in the single cycle processor. 
+- In the pipelined processor, this is no longer possible since PCTarget (PCSrc) depends on the EQ flag (determined in the execute stage) and the instruction type (determined in the decode stage).
+- To go around this, together with Divine, we designed a new logic block - PCSrc Logic - that determines PCSrc in the execute stage based on the type of jump or branch and th EQ flag.
+- The type of branch and jump was determined from the control unit in the decode stage and the signals were pipelined to the execute stage to be fed into PCSrc Logic
+![Alt text](image-4.png)
 
 ## Given more time
 

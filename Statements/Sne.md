@@ -2,7 +2,7 @@
 **CID:** 02201807
 **GitHub Username:** sne-samal
 
-## Quick Links
+## Contents
 - [Contributions](#contributions)
 - [Reflection](#reflection)
 - [Mistakes](#mistakes)

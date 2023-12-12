@@ -75,6 +75,7 @@
 - Rather than viewing the waveform for certain test benches, I wrote functions that would verify that the output is as what I expected. 
 - This way, I can run multiple test cases quickly by plugging in multiple inputs one after the other and printing out whether the output is correct or not.
 - This was much quicker than viewing waveforms and more efficient in my opinion.
+
 ![Alt text](image-5.png)
 
 ### PCSrc Logic in the pipelined processor:

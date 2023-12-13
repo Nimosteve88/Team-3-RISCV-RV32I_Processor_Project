@@ -3,18 +3,15 @@ module cache #(
     WIDTH = 8
 ) (
     input logic                             clk,
-    // input logic                             WEN_cache,       changed to internal signal 
     /* verilator lint_off UNUSED */
     input logic     [DATA_WIDTH-1:0]        A,
     /* verilator lint_on UNUSED */
-    // input logic     [DATA_WIDTH-1:0]        WData,           Removed - not used in this code 
     output logic                            Hit,
     input logic                             ByteAddr,
-    input logic    [DATA_WIDTH-1:0]         d0,                 // added as data outputs to be written to cache for spatial locality
+    input logic    [DATA_WIDTH-1:0]         d0,                 // added as data inputs to be written to cache for spatial locality
     input logic    [DATA_WIDTH-1:0]         d1,                 // ''
     input logic    [DATA_WIDTH-1:0]         d2,                 // ''
     input logic    [DATA_WIDTH-1:0]         d3,                 // ''      
-    // input logic    [DATA_WIDTH-1:0]         read_data_mem,   not used    // changed name for cache implementation.
     output logic   [DATA_WIDTH-1:0]         dout_cache
 );
 

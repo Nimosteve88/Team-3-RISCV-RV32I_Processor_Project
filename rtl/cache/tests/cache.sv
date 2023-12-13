@@ -71,7 +71,7 @@ logic WEN_cache = ~(Hit);
 
 
 // reading is asynchronous (loading)
-always_comb
+always_ff @(posedge clk)
 begin
     //if (WEN_cache == 0) begin
         case (set_number)
@@ -138,7 +138,7 @@ end
 
 
 // writing is synchronous (storing)
-always_ff @(posedge clk) begin
+always_ff @(negedge clk) begin
     if (WEN_cache) begin
         case (set_number)
             2'b00:          cache_array[0] <= {1'b1, tag, d3, d2, d1, d0};

@@ -12,6 +12,9 @@
 `include "data/rd2emux.sv"
 `include "data/register_file.sv"
 `include "data/result_mux.sv"
+`include "data/cache.sv"
+`include "data/combined_cache_memory.sv"
+`include "data/rd_mux.sv"
 `include "pipelines/decode.sv"
 `include "pipelines/execute.sv"
 `include "pipelines/fetch.sv"
@@ -311,13 +314,13 @@ memory memory_pipeline_register (
 
 
 
-data_memory data_mem (
+combined_cache_memory data_cache_data_memory (
     .clk(clk),
-    .WE(mem_write_m),
-    .A(alu_result_m),
-    .WD(write_data_m),
-    .ByteAddr(byte_addr_m),
-    .RD(read_data_m)
+    .WEN(mem_write_m),
+    .address(alu_result_m),
+    .write_data(write_data_m),
+    .byte_addr(byte_addr_m),
+    .read_data(read_data_m) 
 );
 
 

@@ -63,9 +63,15 @@ int main(int argc, char **argv, char **env)
     std::vector<long> d3_i = {0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F};
 
     std::vector<int> block_0_valid_i = {1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1};
+                                                                //
     std::vector<int> block_1_valid_i = {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1};
+                                                                   //
     std::vector<int> block_2_valid_i = {1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1};
+                                                                      //
     std::vector<int> block_3_valid_i = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0};
+                                                                         //
+
+    // marked places where there would be a hit because tags match the relevent set's tag but the valid bit is 0
 
     std::vector<int> block_0_tag_i = {1030, 1030, 1030, 1030, 1030, 1030, 1030, 1030, 1030, 1030, 1030, 1030};
     std::vector<int> block_1_tag_i = {1031, 1031, 1031, 1031, 1031, 1031, 1031, 1031, 1031, 1031, 1031, 1031};

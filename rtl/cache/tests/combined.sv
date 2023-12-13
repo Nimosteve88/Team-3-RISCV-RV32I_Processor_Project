@@ -48,4 +48,6 @@ rd_mux read_data_output (
     .read_data_cache(cache_output),
     .hit(hit),
     .read_data_output(read_data)
-)
+);
+
+endmodule

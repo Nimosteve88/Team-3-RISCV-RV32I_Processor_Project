@@ -1,8 +1,3 @@
-// Description:
-// - specified as a ram
-// - this is the data memory of the CPU - data memory starts from location 0x00000000 to 0x0001FFFF
-// - if write_enable is asserted then it writes data, WD, into address A on the rising edge of the clock.
-// - If write enable is 0, then it reads data from address A into the outputm RD
 module data_memory #(
     DATA_WIDTH = 32,
     WIDTH = 8
@@ -29,15 +24,13 @@ logic [1:0]       block_offset = A[3:2];                        // used to deter
 
 initial begin
     $display("Loading data memory");
-    //$readmemh("gaussian.mem", data_array, 17'h10000);      // change parameter to correct filename. NB: the third parameter is there to start writing/ storing memory into the correct location according to the memory map
+    $readmemh("gaussian.mem", data_array, 17'h10000);      // change parameter to correct filename. NB: the third parameter is there to start writing/ storing memory into the correct location according to the memory map
     $display("Finished loading memory");
 end
 
 
 // reading is asynchronous (loading)
 // need to check if bits are correctly alligned - i.e. need to determine whether big endian or little endian
-
-
 // reading is now controlled by read enable signal - REN
 always_comb
 begin

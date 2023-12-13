@@ -45,7 +45,7 @@ module cache #(
 );
 
 
-logic [155:0] cache_array [2'h3:2'b0]; // V, tag (26 bits), 4*32 bit words
+logic [154:0] cache_array [2'h3:2'h0]; // V, tag (26 bits), 4*32 bit words
 
 logic [DATA_WIDTH-1:0]                      pre_dout; 
 

@@ -12,7 +12,36 @@ module cache #(
     input logic    [DATA_WIDTH-1:0]         d1,                 // ''
     input logic    [DATA_WIDTH-1:0]         d2,                 // ''
     input logic    [DATA_WIDTH-1:0]         d3,                 // ''      
-    output logic   [DATA_WIDTH-1:0]         dout_cache
+    output logic   [DATA_WIDTH-1:0]         dout_cache,
+
+    // TESTING:
+    input logic                             cache_block_0_valid,
+    input logic [25:0]                      cache_block_0_tag,
+    input logic [DATA_WIDTH-1:0]            cache_block_0_0_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_0_1_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_0_2_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_0_3_data,
+
+    input logic                             cache_block_1_valid,
+    input logic [25:0]                      cache_block_1_tag,
+    input logic [DATA_WIDTH-1:0]            cache_block_1_0_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_1_1_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_1_2_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_1_3_data,
+
+    input logic                             cache_block_2_valid,
+    input logic [25:0]                      cache_block_2_tag,
+    input logic [DATA_WIDTH-1:0]            cache_block_2_0_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_2_1_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_2_2_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_2_3_data,
+
+    input logic                             cache_block_3_valid,
+    input logic [25:0]                      cache_block_3_tag,
+    input logic [DATA_WIDTH-1:0]            cache_block_3_0_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_3_1_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_3_2_data,
+    input logic [DATA_WIDTH-1:0]            cache_block_3_3_data
 );
 
 
@@ -24,19 +53,27 @@ logic [1:0] block_offset = A[3:2];
 logic [1:0] set_number = A[5:4];
 logic [25:0] tag = A[31:6];
 
+logic WEN_cache = ~(Hit);
 
-initial begin
-    cache_array[0] = 155'b0;
-    cache_array[1] = 155'b0;
-    cache_array[2] = 155'b0;
-    cache_array[3] = 155'b0;
-end
+// TESTING:
+    assign cache_array[0] = {cache_block_0_valid, cache_block_0_tag, cache_block_0_0_data, cache_block_0_1_data, cache_block_0_2_data, cache_block_0_3_data};
+    assign cache_array[1] = {cache_block_1_valid, cache_block_1_tag, cache_block_1_0_data, cache_block_1_1_data, cache_block_1_2_data, cache_block_1_3_data};
+    assign cache_array[2] = {cache_block_2_valid, cache_block_2_tag, cache_block_2_0_data, cache_block_2_1_data, cache_block_2_2_data, cache_block_2_3_data};
+    assign cache_array[3] = {cache_block_3_valid, cache_block_3_tag, cache_block_3_0_data, cache_block_3_1_data, cache_block_3_2_data, cache_block_3_3_data};
+ 
+
+// initial begin
+//     cache_array[0] = 155'b0;
+//     cache_array[1] = 155'b0;
+//     cache_array[2] = 155'b0;
+//     cache_array[3] = 155'b0;
+// end
 
 
 // reading is asynchronous (loading)
 always_comb
 begin
-    if (WEN_cache == 0) begin
+    //if (WEN_cache == 0) begin
         case (set_number)
                 2'b00: begin
                     if ((tag == cache_array[0][153:128]) && (cache_array[0][154] == 1)) begin
@@ -96,10 +133,9 @@ begin
                 end  
         endcase
         dout_cache <= ByteAddr ? {24'b0, pre_dout[7:0]} : pre_dout;
-    end
+    //end
 end
 
-logic WEN_cache = ~(Hit);
 
 // writing is synchronous (storing)
 always_ff @(posedge clk) begin

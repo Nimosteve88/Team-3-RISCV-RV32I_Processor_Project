@@ -62,10 +62,10 @@ int main(int argc, char **argv, char **env)
     std::vector<long> d2_i = {0x0000000E, 0x0000000E, 0x0000000E, 0x0000000E, 0x0000000E, 0x0000000E, 0x0000000E, 0x0000000E, 0x0000000E, 0x0000000E, 0x0000000E, 0x0000000E};
     std::vector<long> d3_i = {0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F, 0x0000000F};
 
-    std::vector<int> block_0_valid_i = {1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1};
-    std::vector<int> block_1_valid_i = {1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1};
-    std::vector<int> block_2_valid_i = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1};
-    std::vector<int> block_3_valid_i = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0};
+    std::vector<int> block_0_valid_i = {1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1};
+    std::vector<int> block_1_valid_i = {1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1};
+    std::vector<int> block_2_valid_i = {1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1};
+    std::vector<int> block_3_valid_i = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0};
 
     std::vector<int> block_0_tag_i = {1030, 1030, 1030, 1030, 1030, 1030, 1030, 1030, 1030, 1030, 1030, 1030};
     std::vector<int> block_1_tag_i = {1031, 1031, 1031, 1031, 1031, 1031, 1031, 1031, 1031, 1031, 1031, 1031};

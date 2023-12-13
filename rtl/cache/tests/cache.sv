@@ -12,7 +12,7 @@ module cache #(
     input logic    [DATA_WIDTH-1:0]         d1,                 // ''
     input logic    [DATA_WIDTH-1:0]         d2,                 // ''
     input logic    [DATA_WIDTH-1:0]         d3,                 // ''      
-    output logic   [DATA_WIDTH-1:0]         dout_cache,
+    output logic   [DATA_WIDTH-1:0]         dout_cache
 
     // TESTING:
     // input logic                             cache_block_0_valid,
@@ -62,10 +62,10 @@ logic WEN_cache = ~(Hit);
     // assign cache_array[3] = {cache_block_3_valid, cache_block_3_tag, cache_block_3_3_data, cache_block_3_2_data, cache_block_3_1_data, cache_block_3_0_data};
  
 
-    cache_array[0] = 155'b0;
-    cache_array[1] = 155'b0;
-    cache_array[2] = 155'b0;
-    cache_array[3] = 155'b0;
+    assign cache_array[0] = 155'b0;
+    assign cache_array[1] = 155'b0;
+    assign cache_array[2] = 155'b0;
+    assign cache_array[3] = 155'b0;
 
 
 // reading is asynchronous (loading)

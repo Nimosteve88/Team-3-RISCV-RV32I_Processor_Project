@@ -7,7 +7,7 @@ module combined #(
     input logic                             WEN,
     input logic                             clk,
     output logic [DATA_WIDTH-1:0]           read_data
-)
+);
 
 logic                                       hit;
 logic [DATA_WIDTH-1:0]                      d0_internal;
@@ -15,7 +15,7 @@ logic [DATA_WIDTH-1:0]                      d1_internal;
 logic [DATA_WIDTH-1:0]                      d2_internal;
 logic [DATA_WIDTH-1:0]                      d3_internal;
 logic [DATA_WIDTH-1:0]                      cache_output;
-logic [DATE_WIDTH-1:0]                      memory_output;
+logic [DATA_WIDTH-1:0]                      memory_output;
 
 cache data_cache (
     .clk(clk),

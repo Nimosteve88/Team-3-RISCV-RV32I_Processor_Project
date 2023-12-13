@@ -15,33 +15,33 @@ module cache #(
     output logic   [DATA_WIDTH-1:0]         dout_cache,
 
     // TESTING:
-    input logic                             cache_block_0_valid,
-    input logic [25:0]                      cache_block_0_tag,
-    input logic [DATA_WIDTH-1:0]            cache_block_0_0_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_0_1_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_0_2_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_0_3_data,
+    // input logic                             cache_block_0_valid,
+    // input logic [25:0]                      cache_block_0_tag,
+    // input logic [DATA_WIDTH-1:0]            cache_block_0_0_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_0_1_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_0_2_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_0_3_data,
 
-    input logic                             cache_block_1_valid,
-    input logic [25:0]                      cache_block_1_tag,
-    input logic [DATA_WIDTH-1:0]            cache_block_1_0_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_1_1_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_1_2_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_1_3_data,
+    // input logic                             cache_block_1_valid,
+    // input logic [25:0]                      cache_block_1_tag,
+    // input logic [DATA_WIDTH-1:0]            cache_block_1_0_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_1_1_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_1_2_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_1_3_data,
 
-    input logic                             cache_block_2_valid,
-    input logic [25:0]                      cache_block_2_tag,
-    input logic [DATA_WIDTH-1:0]            cache_block_2_0_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_2_1_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_2_2_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_2_3_data,
+    // input logic                             cache_block_2_valid,
+    // input logic [25:0]                      cache_block_2_tag,
+    // input logic [DATA_WIDTH-1:0]            cache_block_2_0_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_2_1_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_2_2_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_2_3_data,
 
-    input logic                             cache_block_3_valid,
-    input logic [25:0]                      cache_block_3_tag,
-    input logic [DATA_WIDTH-1:0]            cache_block_3_0_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_3_1_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_3_2_data,
-    input logic [DATA_WIDTH-1:0]            cache_block_3_3_data
+    // input logic                             cache_block_3_valid,
+    // input logic [25:0]                      cache_block_3_tag,
+    // input logic [DATA_WIDTH-1:0]            cache_block_3_0_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_3_1_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_3_2_data,
+    // input logic [DATA_WIDTH-1:0]            cache_block_3_3_data
 );
 
 
@@ -56,18 +56,16 @@ logic [25:0] tag = A[31:6];
 logic WEN_cache = ~(Hit);
 
 // TESTING:
-    assign cache_array[0] = {cache_block_0_valid, cache_block_0_tag, cache_block_0_3_data, cache_block_0_2_data, cache_block_0_1_data, cache_block_0_0_data};
-    assign cache_array[1] = {cache_block_1_valid, cache_block_1_tag, cache_block_1_3_data, cache_block_1_2_data, cache_block_1_1_data, cache_block_1_0_data};
-    assign cache_array[2] = {cache_block_2_valid, cache_block_2_tag, cache_block_2_3_data, cache_block_2_2_data, cache_block_2_1_data, cache_block_2_0_data};
-    assign cache_array[3] = {cache_block_3_valid, cache_block_3_tag, cache_block_3_3_data, cache_block_3_2_data, cache_block_3_1_data, cache_block_3_0_data};
+    // assign cache_array[0] = {cache_block_0_valid, cache_block_0_tag, cache_block_0_3_data, cache_block_0_2_data, cache_block_0_1_data, cache_block_0_0_data};
+    // assign cache_array[1] = {cache_block_1_valid, cache_block_1_tag, cache_block_1_3_data, cache_block_1_2_data, cache_block_1_1_data, cache_block_1_0_data};
+    // assign cache_array[2] = {cache_block_2_valid, cache_block_2_tag, cache_block_2_3_data, cache_block_2_2_data, cache_block_2_1_data, cache_block_2_0_data};
+    // assign cache_array[3] = {cache_block_3_valid, cache_block_3_tag, cache_block_3_3_data, cache_block_3_2_data, cache_block_3_1_data, cache_block_3_0_data};
  
 
-// initial begin
-//     cache_array[0] = 155'b0;
-//     cache_array[1] = 155'b0;
-//     cache_array[2] = 155'b0;
-//     cache_array[3] = 155'b0;
-// end
+    cache_array[0] = 155'b0;
+    cache_array[1] = 155'b0;
+    cache_array[2] = 155'b0;
+    cache_array[3] = 155'b0;
 
 
 // reading is asynchronous (loading)

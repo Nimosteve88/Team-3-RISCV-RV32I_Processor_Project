@@ -1,5 +1,4 @@
 # Source Code
-TODO: Add listing of who wrote each file as per specification
 
 ## Changes from Lab 4:
 From looking at both the reference program and out F1 RISC-V code, there a number of changes that must be implemented to successfully execute the new instructions found in these programs. The processor needs to be updated to include the following instructions:

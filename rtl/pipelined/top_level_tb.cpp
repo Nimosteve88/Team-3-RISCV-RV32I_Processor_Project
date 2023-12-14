@@ -1,10 +1,12 @@
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 #include "Vtop_level.h"
+#include <fstream>
+#include <sstream>
 
 #include "vbuddy.cpp"
 
-#define MAX_SIM_CYCLES 150000000
+#define MAX_SIM_CYCLES 15000000
 
 int main(int argc, char **argv, char **env)
 {
@@ -38,6 +40,10 @@ int main(int argc, char **argv, char **env)
     top->seed = vbdValue();
     top->trigger_val = 0; 
 
+
+    // std::ofstream csvFile("pipelined_triangle.csv");
+    // csvFile << "clock, output" << std::endl;
+
     for (simcyc=0; simcyc<MAX_SIM_CYCLES; simcyc++)
     {
         for(tick=0; tick<2; tick++)
@@ -49,11 +55,12 @@ int main(int argc, char **argv, char **env)
 
 
         // reference program
-        // if (simcyc > 1300000 && simcyc % 2 == 0)
-        // {  
-        //     vbdPlot(int(top->a0), 0, 255);
-        //     vbdCycle(simcyc);
-        // }
+        if (simcyc > 1300000 && simcyc % 2 == 0)
+        {  
+            vbdPlot(int(top->a0), 0, 255);
+            //csvFile << simcyc << "," << top->a0 << std::endl;
+            vbdCycle(simcyc);
+        }
         // end of reference program
         
 
@@ -72,7 +79,7 @@ int main(int argc, char **argv, char **env)
         
     }
 
-
+    // csvFile.close();
     vbdClose();
     tfp->close();
     exit(0);

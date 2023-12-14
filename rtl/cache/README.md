@@ -125,6 +125,9 @@ Additionally, CSV files with output data were generated for each distribution in
 |---------------------------------------------------------------|---------------------------------------------------------------|
 | ![cache_Sine](../graph/output/cache_sine_graph.png)         | ![cache_Triangle](../graph/output/cache_triangle_graph.png) |
 
+> [!NOTE]
+> It is important to point out that for cache results, the pdf results appear to be slightly smoother. This is because the output results were taken less frequently for a given cycle of the pdf generation - this can be seen in the test bench.
+
 ## Documentation
     
 For this stretch goal, we will be implementing a data cache designed for both temporal and spatial locality.

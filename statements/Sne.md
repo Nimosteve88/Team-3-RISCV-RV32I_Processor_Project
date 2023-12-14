@@ -70,7 +70,7 @@
 #### Cache: Wrapper for Cache and Data Memory: [9720d3d](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/d6158f14ad0273d3322b3bd6fe929eaaee671396)
 - Tested and wrote the code for a combined data cache and memory. It can be seen working in the waveform below.
 - Added a mux at the end to determine whether data has been taken from the cache or main memory.
-![Alt text](Resources/image-8.jpg>)
+![Alt text](Resources/image-8.jpg)
 
 #### Cache: Top Level: [9720d3d](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/d6158f14ad0273d3322b3bd6fe929eaaee671396)
 - Added the previous component to the top level, replacing the old data memory.

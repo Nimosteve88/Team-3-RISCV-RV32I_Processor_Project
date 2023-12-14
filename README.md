@@ -24,6 +24,15 @@
 ## High Level Description
 > TODO: Insert high level description of what were tasked to do in each stretch goal
 
+#### Single Cycle Processor:
+![Alt text](images/image.png)
+
+#### Pipelined Processor:
+![Alt text](images/image-1.png)
+
+#### Pipelined Processor with Data Cache:
+![Alt text](images/image-2.png)
+
 ## Repository Structure
 > TODO: Insert a tree diagram of the structure of this repository so that the marker has a broad overview of files and where they are located. Also include a list of important files and folders and explain their purpose - don't want the marker to figure it out on their own.
 

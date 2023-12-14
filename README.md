@@ -50,38 +50,38 @@ This is the file listing for all the files that were used in each processor vers
 
 Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 
-| File Name                          | First Seen          | Steve | Sne | Divine | Yannis |
-|------------------------------------|---------------------|-------|-----|--------|--------|
-| alu.sv                             | Single Cycle        |   x    | t   |        |        |
-| alu_src_mux.sv                     | Single Cycle        |   x    |     |        |        |
-| control_unit.sv                    | Single Cycle        |       | t   |        |        |
-| data_memory.sv                     | Single Cycle        |       | x   |        |        |
-| data_top_level.sv                  | Single Cycle        |       | t   |        |        |
-| extend.sv                          | Single Cycle        |       | p   |        |        |
-| instruction_memory.sv              | Single Cycle        |       |     |        |        |
-| pc_module.sv                       | Single Cycle        |       | t   |        | x      |
-| pc_reg.sv                          | Single Cycle        |       |     |        | x      |
-| register_file.sv                   | Single Cycle        |   x    | t   |        |        |
-| result_mux.sv                      | Single Cycle        |       | x   |        |        |
-| toplevel.sv (single cycle)         | Single Cycle        |       | x/t |        |        |
-| f1_lights_assembly.s               | Single Cycle        |       |     |        | x      |
-| f1_lights_complex.s (version with jump instructions)| Single Cycle|       |     |        | x      |
-| control_unit_pipelined.sv          | Pipelined           |       | t   |        |        |
-| decode.sv                          | Pipelined           |    p   | t   |        | x      |
-| execute.sv                         | Pipelined           |   p    | t   |        | x      |
-| fetch.sv                           | Pipelined           |    p   | t   |        | x      |
-| hazard.sv                          | Pipelined           |       | t   |        | x      |
-| memory.sv                          | Pipelined           |    p   | t   |        | x      |
-| pc_reg.sv                          | Pipelined           |   p    |     |        |        |
-| PCSrclogic.sv                      | Pipelined           |       | t   |        |        |
-| rd1emux.sv                         | Pipelined           |       |     |        |        |
-| rd2emux.sv                         | Pipelined           |       |     |        |        |
-| top_level.sv (pipelined)           | Pipelined           |       | x/t |        |        |
-| write_back.sv                      | Pipelined           |    p   | t   |        | x      |
-| cache.sv                           | Pipelined and Cache |       |     |        | x      |
-| combined_cache_memory.sv           | Pipelined and Cache |       | p/t |        |        |
-| data_memory.sv                     | Pipelined and Cache |       | x/t |        |        |
-| rd_mux.sv                          | Pipelined and Cache |       | x   |        |        |
-| top_level.sv (pipelined and cache) | Pipelined and Cache |       | x/t |        |        |
+| File Name                                                         | First Seen          | Steve | Sne | Divine | Yannis |
+|-------------------------------------------------------------------|---------------------|-------|-----|--------|--------|
+| alu.sv                                                            | Single Cycle        |   x    | t   |       |       |
+| alu_src_mux.sv                                                    | Single Cycle        |   x    |     |       |       |
+| control_unit.sv                                                   | Single Cycle        |       | t   |        |        |
+| data_memory.sv                                                    | Single Cycle        |       | x   |        |        |
+| data_top_level.sv                                                 | Single Cycle        |   x   | t   |        |        |
+| extend.sv                                                         | Single Cycle        |       | p   |        |        |
+| instruction_memory.sv                                             | Single Cycle        |       |     |        |        |
+| pc_module.sv                                                      | Single Cycle        |       | t   |        | x      |
+| pc_reg.sv                                                         | Single Cycle        |       |     |        | x      |
+| register_file.sv                                                  | Single Cycle        |   x   | t   |        |        |
+| result_mux.sv                                                     | Single Cycle        |       | x   |        |        |
+| toplevel.sv (single cycle)                                        | Single Cycle        |       | x/t |        |        |
+| f1_lights_assembly.s                                              | Single Cycle        |       |     |        | x      |
+| f1_lights_complex.s (version with jump instructions)| Single Cycle|                     |       |     | x      |
+| control_unit_pipelined.sv                                         | Pipelined           |       | t   |        |        |
+| decode.sv                                                         | Pipelined           |    p   | t   |        | x      |
+| execute.sv                                                        | Pipelined           |   p    | t   |        | x      |
+| fetch.sv                                                          | Pipelined           |    p   | t   |        | x      |
+| hazard.sv                                                         | Pipelined           |       | t   |        | x      |
+| memory.sv                                                         | Pipelined           |    p   | t   |        | x      |
+| pc_reg.sv                                                         | Pipelined           |   p    |     |        |        |
+| PCSrclogic.sv                                                     | Pipelined           |       | t   |        |        |
+| rd1emux.sv                                                        | Pipelined           |    x   |     |        |        |
+| rd2emux.sv                                                        | Pipelined           |    x  |     |        |        |
+| top_level.sv (pipelined)                                          | Pipelined           |       | x/t |        |        |
+| write_back.sv                                                     | Pipelined           |    p   | t   |        | x      |
+| cache.sv                                                          | Pipelined and Cache |       |     |        | x      |
+| combined_cache_memory.sv                                          | Pipelined and Cache |       | x/t |        |        |
+| data_memory.sv                                                    | Pipelined and Cache |       | x/t |        |        |
+| rd_mux.sv                                                         | Pipelined and Cache |       | x   |        |        |
+| top_level.sv (pipelined and cache)                                | Pipelined and Cache |       | x/t |        |        |
 ## References
 Our CPU was an extension of the processor outlined in Prof. Peter Cheung's lecture notes and in the textbook: _"Digital Design and Computer Architecture (RISC-V Edition)"_ by Sarah Harris and David Harris. 

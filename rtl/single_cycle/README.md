@@ -39,7 +39,7 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 ```
 
 > [!NOTE]
-> The commented out code has gaussian.mem in it - ignore this, this could have been any .mem file, for the sake of the F1 program, we don't care.
+> The commented out code has `gaussian.mem` in it - ignore this, this could have been any .mem file, for the sake of the F1 program, we don't care.
 
 6. In the top level test bench file (`toplevel_tb.cpp`) comment out the code for the reference program and make sure that the code for the F1 program is uncommented:
 ```cpp

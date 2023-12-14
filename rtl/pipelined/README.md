@@ -121,7 +121,7 @@ source ./pipelined.sh
 
 ## Documentation
 This is the single cycle processor from before:  
-![Alt text](image-5.png)
+![Alt text](images/image-5.png)
 
 In order to successfully implement pipelining, the processor must be split into 5 stages. Each stage is associated with a particular part of the processor
 | **Stage**  | **Abbreviation** | **Role**                                                                                                               |
@@ -135,11 +135,11 @@ In order to successfully implement pipelining, the processor must be split into 
 It is important to note that the register file is used twice in every cycle (written in the first part and read in the second - writing done on the falling edge and reading done on the rising edge)
 
 ### Updated datapath with pipelining
-![Alt text](image.png)
+![Alt text](images/image.png)
 
 The destination register address has been pipelined as well so that the result data is in sync with the correct destination register when it is written to the register file.
 ### Updated controlpath with pipelining
-![Alt text](image-1.png)
+![Alt text](images/image-1.png)
 Control signals must be pipelined along with the data so that they remain synchronized with the instruction.4
 
 It is not possible to calculate the PCSrc value within the control unit, since the we would need to effectively "pipeline back" the EQ flag from the execute stage. It makes most sense to work out PCSrc in the execute stage too since conditons for BEQ and BNE will be determined by the ALU in that current clock cycle. As such, there are 3 modifications:
@@ -194,10 +194,10 @@ A software solution to hazards would invovle a programmer or compiler to insert 
 TODO: Fill out documentation for hazard unit development.
 
 ### Updated Processor with Hazard unit changes:
-![Alt text](image-2.png)
+![Alt text](images/image-2.png)
 
 ### Complete pipelined processor:
-![Alt text](image-3.png)
+![Alt text](images/image-3.png)
 
 ### Updated diagram with general fetch stage:
-![Alt text](image-4.png)
+![Alt text](images/image-4.png)

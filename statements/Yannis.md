@@ -26,7 +26,7 @@ See commit [05291c3](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor
 
 Finally, as a result of Sne's testing, we found that the Program Counter would would take **2 clock cycles to resume normal operation after a reset input.**
 
-![[Resources/pc_reset_error.jpg]]
+![Alt text](Resources/pc_reset_error.jpg)
 
 This issue was caused by the fact that both pc_module.sv (the pc 'top')  would set pc_next to 0, and pc_reg.sv (the register itself) would set the stored value to 0. This would effectively create a two-cycle bubble which was resolved with commit [ac768a0](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/ac768a058ef602ffd99314098295a2d83d68e19b). 
 

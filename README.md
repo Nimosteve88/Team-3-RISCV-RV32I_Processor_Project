@@ -17,7 +17,7 @@
 | Name           | CID      | GitHub Username    | Email           | Personal Statement |
 |----------------|----------|--------------------|-----------------|----------------------------|
 | Steve Nimo     | 02254814 | **Nimosteve88**    | sn722@ic.ac.uk  | [Statement](statements/Steve.md)                  |
-| Sne Samal      | 02201807 | **sne-samal**      | ss5322@ic.ac.uk |                            |
+| Sne Samal      | 02201807 | **sne-samal**      | ss5322@ic.ac.uk | [Statement](statements/Sne.md)                           |
 | Divine Wodi    | 02208866 | **CB-WO3**         | dw722@ic.ac.uk  |                            |
 | Yannis Zioulis | 02223077 | **yanniszioullis** | yz9722@ic.ac.uk |                            |
 

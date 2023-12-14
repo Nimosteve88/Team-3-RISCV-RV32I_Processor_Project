@@ -1,11 +1,43 @@
 # Team-3-RISCV-RV32I_Processor_Project
-# Group 3 Pipelined RV32I
 
-## Todo:
-- [ ] Update control unit for J, S, R and U type instructions
-- [x] Update sign extend for new instructions
-- [ ] Update ALU
-- [x] Add data memory and result MUX
+## Contents:
+1. [Joint Statement](#joint-statement)
+2. [Contributors and Personal Statements](#contributors-and-personal-statements)
+3. [High Level Description](#high-level-description)
+4. [Repository Structure](#repository-structure)
+5. [Source Code](#source-code)
+6. [References](#references)
+
+## Joint Statement
+>TODO: Insert Joint Statement Here
+
+## Contributors and Personal Statements
+
+| Name           | CID      | GitHub Username    | Email           | Link to Personal Statement |
+|----------------|----------|--------------------|-----------------|----------------------------|
+| Steve Nimo     | 02254814 | **Nimosteve88**    | sn722@ic.ac.uk  |                            |
+| Sne Samal      | 02201807 | **sne-samal**      | ss5322@ic.ac.uk |                            |
+| Divine Wodi    | 02208866 | **CB-WO3**         | dw722@ic.ac.uk  |                            |
+| Yannis Zioulis | 02223077 | **yanniszioullis** | yz9722@ic.ac.uk |                            |
+
+## High Level Description
+> TODO: Insert high level description of what were tasked to do in each stretch goal
+
+## Repository Structure
+> TODO: Insert a tree diagram of the structure of this repository so that the marker has a broad overview of files and where they are located. Also include a list of important files and folders and explain their purpose - don't want the marker to figure it out on their own.
+
+## Source Code
+In the table below, you can directly access the source code for the different processor versions. You can click on a link to the test results for each version. This link contains video evidence of the processor working and instructions to access relevant waveforms. If you want to test the code for yourself, click on the test instructions link, where you will be directed to instructions on how to test the processor with both the reference and f1 programs.
+
+| Processor Version         | Test Results | Testing Instructions |
+|---------------------------|--------------|----------------------|
+| Single Cycle              |              |                      |
+| Pipelined                 |              |                      |
+| Pipelined with Data Cache |              |                      |
+
+
+## References
+Our CPU was an extension of the processor outlined in Prof. Peter Cheung's lecture notes and in the textbook: _"Digital Design and Computer Architecture (RISC-V Edition)"_ by Sarah Harris and David Harris. 
 
 #### If desired, please skip ahead to:
 1. [Repo Structure Explanation](#structure)

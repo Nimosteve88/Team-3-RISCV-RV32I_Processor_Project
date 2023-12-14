@@ -6,7 +6,7 @@
 [Documentation](#documentation)  
 
 ## File Listing
-> [!NOTE] 
+> [!IMPORTANT] 
 > This file listing contains only the components that required changing for this version, components that are in the top level, but aren't listed remained the same in terms of individual functonality to that of the single cycle processor. You can see the file listing for those parts on the [single cycle file listing](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle#file-listing). Alternatively, you can also view a [combined file listing](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main?tab=readme-ov-file#combined-file-listing), with files from all goals.
 
 Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing

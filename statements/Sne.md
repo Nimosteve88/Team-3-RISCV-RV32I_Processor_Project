@@ -14,7 +14,7 @@
 - Updated sign extend to output correct sign extended immediates for I, S, B, J, and U type instructions.
 - As per this specification:
 
-![Alt text](image.png)
+![Alt text](Resources/image.png)
 
 #### Single Cycle: Data Memory: [5779d53](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/5779d53e960b9f482223b6e8bc150dd2bf41c961)
 - Specified System Verilog for data memory. 
@@ -24,7 +24,7 @@
 #### Single Cycle: Top Level: [b7647d6](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/b7647d64a8db94cae6d9b5744ef8fe47a9a4b4aa)
 - Designed the top level file for the single cycle having communicated with other team members
 - Diagram of single cycle top level:
-![Alt text](image-1.png)
+![Alt text](Resources/image-1.png)
 
 #### Single Cycle: Testing and Debugging:
 - Wrote comprehensive test benches for updated components.
@@ -43,7 +43,7 @@
 #### Pipelining: Top Level: [1275e68](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/1275e68ab0f799c9920300c993d8b91525329b3f)
 - Designed the new top level overview for the pipelined processor with new pipeline registers, a hazard unit and the a new logic unit that determined PCSrc.
 - Wrote System Verilog for the top level module.
-![Alt text](image-3.png)
+![Alt text](Resources/image-3.png)
 
 #### Pipelined: Testing:
 - Wrote test benches for new parts specific for the pipelined processor:
@@ -90,14 +90,14 @@ I learnt several useful features of Git and GitHub that allowed me to effectivel
 - This way, I can run multiple test cases quickly by plugging in multiple inputs one after the other and printing out whether the output is correct or not.
 - This was much quicker than viewing waveforms and more efficient in my opinion.
 
-![Alt text](image-5.png)
+![Alt text](Resources/image-5.png)
 
 #### PCSrc Logic in the pipelined processor:
 - Determining PCTarget for the program counter was done in the control unit in the single cycle processor. 
 - In the pipelined processor, this is no longer possible since PCTarget (PCSrc) depends on the EQ flag (determined in the execute stage) and the instruction type (determined in the decode stage).
 - To go around this, together with Divine, we designed a new logic block - PCSrc Logic - that determines PCSrc in the execute stage based on the type of jump or branch and th EQ flag.
 - The type of branch and jump was determined from the control unit in the decode stage and the signals were pipelined to the execute stage to be fed into PCSrc Logic
-![Alt text](image-4.png)
+![Alt text](Resources/image-4.png)
 
 ## Given more time
 

@@ -59,29 +59,30 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 | data_top_level.sv                  | Single Cycle        |       | t   |        |        |
 | extend.sv                          | Single Cycle        |       | p   |        |        |
 | instruction_memory.sv              | Single Cycle        |       |     |        |        |
-| pc_module.sv                       | Single Cycle        |       | t   |        |        |
-| pc_reg.sv                          | Single Cycle        |       |     |        |        |
+| pc_module.sv                       | Single Cycle        |       | t   |        | x      |
+| pc_reg.sv                          | Single Cycle        |       |     |        | x      |
 | register_file.sv                   | Single Cycle        |       | t   |        |        |
 | result_mux.sv                      | Single Cycle        |       | x   |        |        |
 | toplevel.sv (single cycle)         | Single Cycle        |       | x/t |        |        |
+| f1_lights_assembly.s               | Single Cycle        |       |     |        | x      |
+| f1_lights_complex.s (version with jump instructions)| Single Cycle|       |     |        | x      |
 | control_unit_pipelined.sv          | Pipelined           |       | t   |        |        |
-| decode.sv                          | Pipelined           |       | t   |        |        |
-| execute.sv                         | Pipelined           |       | t   |        |        |
-| fetch.sv                           | Pipelined           |       | t   |        |        |
-| hazard.sv                          | Pipelined           |       | t   |        |        |
-| memory.sv                          | Pipelined           |       | t   |        |        |
+| decode.sv                          | Pipelined           |       | t   |        | x      |
+| execute.sv                         | Pipelined           |       | t   |        | x      |
+| fetch.sv                           | Pipelined           |       | t   |        | x      |
+| hazard.sv                          | Pipelined           |       | t   |        | x      |
+| memory.sv                          | Pipelined           |       | t   |        | x      |
 | pc_reg.sv                          | Pipelined           |       |     |        |        |
 | PCSrclogic.sv                      | Pipelined           |       | t   |        |        |
 | rd1emux.sv                         | Pipelined           |       |     |        |        |
 | rd2emux.sv                         | Pipelined           |       |     |        |        |
 | top_level.sv (pipelined)           | Pipelined           |       | x/t |        |        |
-| write_back.sv                      | Pipelined           |       | t   |        |        |
-| cache.sv                           | Pipelined and Cache |       |     |        |        |
+| write_back.sv                      | Pipelined           |       | t   |        | x      |
+| cache.sv                           | Pipelined and Cache |       |     |        | x      |
 | combined_cache_memory.sv           | Pipelined and Cache |       | p/t |        |        |
 | data_memory.sv                     | Pipelined and Cache |       | x/t |        |        |
 | rd_mux.sv                          | Pipelined and Cache |       | x   |        |        |
 | top_level.sv (pipelined and cache) | Pipelined and Cache |       | x/t |        |        |
-
 ## References
 Our CPU was an extension of the processor outlined in Prof. Peter Cheung's lecture notes and in the textbook: _"Digital Design and Computer Architecture (RISC-V Edition)"_ by Sarah Harris and David Harris. 
 
@@ -152,7 +153,7 @@ LEGEND :       `x` = full responsibility;  `p` = partial contribution;
 | `FOLDER 2` | Full implementation of single cycle processor, no AUIPC
 | `FOLDER 3` | Full Pipelined implementation, all instructions (up to date in main)
 
-> (Potential Image of Branch breakdown / File directory (Heirarchy) )
+> (Potential Image of Branch breakdown / File directory (Hierarchy) )
 
 
 ---

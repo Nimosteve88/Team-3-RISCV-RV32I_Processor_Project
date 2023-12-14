@@ -1,4 +1,29 @@
-# Stretch Goal 2: Pipelined Processor with Data Cache.
+# Pipelined Processor with Data Cache.
+## Contents
+[File Listing](#file-listing)  
+[Testing Instructions](#testing-instructions)  
+[Test Results](#test-results)   
+[Documentation](#documentation)  
+
+## File Listing
+> NB: This file listing contains only the components that required changing for this version, components that are in the top level, but aren't listed remained the same in terms of individual functonality to that of the single cycle processor or pipelined processor. You can see the file listing for those parts on the single cycle file listing or pipelined processor file listing. Alternatively, you can also view a combined file listing, with files from all goals.
+
+Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
+
+| File Name                | Steve | Sne | Divine | Yannis |
+|--------------------------|-------|-----|--------|--------|
+| cache.sv                 |       |     |        |        |
+| combined_cache_memory.sv |       | p/t |        |        |
+| data_memory.sv           |       | x/t |        |        |
+| rd_mux.sv                |       | x   |        |        |
+| top_level.sv             |       | x/t |        |        |
+
+## Testing Instructions
+
+## Test Results
+
+## Documentation
+    
 For this stretch goal, we will be implementing a data cache designed for both temporal and spatial locality.
 
 ### Cache Organisation:

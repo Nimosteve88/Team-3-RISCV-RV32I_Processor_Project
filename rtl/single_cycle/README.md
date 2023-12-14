@@ -21,7 +21,7 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 | pc_reg.sv             |       |     |        |        |
 | register_file.sv      |       | t   |        |        |
 | result_mux.sv         |       | x   |        |        |
-| toplevel.sv           |       | x   |        |        |
+| toplevel.sv           |       | x/t   |        |        |
 
 ## Testing Instructions
 

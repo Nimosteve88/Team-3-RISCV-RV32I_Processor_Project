@@ -100,4 +100,7 @@ I learnt several useful features of Git and GitHub that allowed me to effectivel
 ![Alt text](Resources/image-4.png)
 
 ## Given more time
+- Given more time, I would try and make more wrappers around lower level components - such that the final top level file has a fewer number of parts. For instance, I would wrap each pipeline stage, for example into its own component. This would make each component more modular and the top level a lot less complicated.
+- I would have liked to make use of GitHub actions to automate testing. Given more time, I would have liked to learn how to use this feature of GitHub. If I had been familiar with this, time would have been saved in testing, since team members would have been able to immediately see if their component would work or not.
+- I would have also liked to reasearch additional ways to improve performance. With more time, I would have looked at branch prediction in particular to design a more efficient RISC-V CPU.
 

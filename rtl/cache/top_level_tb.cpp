@@ -24,7 +24,7 @@ int main(int argc, char **argv, char **env)
 
     // init vbuddy
     if (vbdOpen()!=1) return(-1);
-    vbdHeader("Cache - F1"); // change to correct title
+    vbdHeader("Cache"); // change to correct title
     vbdSetMode(1);
     vbdBar(0); 
     

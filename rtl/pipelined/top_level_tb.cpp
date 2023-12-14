@@ -24,7 +24,7 @@ int main(int argc, char **argv, char **env)
 
     // init vbuddy
     if (vbdOpen()!=1) return(-1);
-    vbdHeader("F1"); // change to correct title
+    vbdHeader("Pipelined"); // change to correct title
     vbdSetMode(1);
     vbdBar(0); 
     
@@ -49,7 +49,7 @@ int main(int argc, char **argv, char **env)
 
 
         // reference program
-        // if (simcyc > 1300000 && simcyc % 8 == 0)
+        // if (simcyc > 1300000 && simcyc % 2 == 0)
         // {  
         //     vbdPlot(int(top->a0), 0, 255);
         //     vbdCycle(simcyc);

@@ -1,9 +1,9 @@
 # Single Cycle
 ## Contents
-[File Listing](#file-listing)
-[Testing Instructions](#testing-instructions)
-[Test Results](#test-results)
-[Documentation](#documentation)
+[File Listing](#file-listing) 
+[Testing Instructions](#testing-instructions) 
+[Test Results](#test-results) 
+[Documentation](#documentation) 
 
 ## File Listing
 Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing

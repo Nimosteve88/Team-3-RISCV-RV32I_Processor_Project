@@ -50,7 +50,7 @@ int main(int argc, char **argv, char **env)
 
         // reference program
         if (simcyc > 1300000 && simcyc % 2 == 0)
-        {  // plot every 4th, convenient for pipelining due to nops in display
+        {  
             vbdPlot(int(top->a0), 0, 255);
             vbdCycle(simcyc);
         }

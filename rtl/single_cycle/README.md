@@ -131,10 +131,8 @@ Additionally, CSV files with output data were generated for each distribution in
 ![Single_Triangle](../graph/output/single_triangle_graph.png)
 
 
-|                          **Gaussian**                         |                           **Noisy**                           |
-|:-------------------------------------------------------------:|:-------------------------------------------------------------:|
 | ![Single_Gaussian](../graph/output/single_gaussian_graph.png) | ![Single_Noisy](../graph/output/single_noisy_graph.png)       |
-|                            **Sine**                           |                          **Triangle**                         |
+|---------------------------------------------------------------|---------------------------------------------------------------|
 | ![Single_Sine](../graph/output/single_sine_graph.png)         | ![Single_Triangle](../graph/output/single_triangle_graph.png) |
 
 ## Documentation

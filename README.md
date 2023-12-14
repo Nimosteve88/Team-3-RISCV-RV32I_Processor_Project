@@ -52,8 +52,8 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 
 | File Name                          | First Seen          | Steve | Sne | Divine | Yannis |
 |------------------------------------|---------------------|-------|-----|--------|--------|
-| alu.sv                             | Single Cycle        |       | t   |        |        |
-| alu_src_mux.sv                     | Single Cycle        |       |     |        |        |
+| alu.sv                             | Single Cycle        |   x    | t   |        |        |
+| alu_src_mux.sv                     | Single Cycle        |   x    |     |        |        |
 | control_unit.sv                    | Single Cycle        |       | t   |        |        |
 | data_memory.sv                     | Single Cycle        |       | x   |        |        |
 | data_top_level.sv                  | Single Cycle        |       | t   |        |        |
@@ -61,23 +61,23 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 | instruction_memory.sv              | Single Cycle        |       |     |        |        |
 | pc_module.sv                       | Single Cycle        |       | t   |        | x      |
 | pc_reg.sv                          | Single Cycle        |       |     |        | x      |
-| register_file.sv                   | Single Cycle        |       | t   |        |        |
+| register_file.sv                   | Single Cycle        |   x    | t   |        |        |
 | result_mux.sv                      | Single Cycle        |       | x   |        |        |
 | toplevel.sv (single cycle)         | Single Cycle        |       | x/t |        |        |
 | f1_lights_assembly.s               | Single Cycle        |       |     |        | x      |
 | f1_lights_complex.s (version with jump instructions)| Single Cycle|       |     |        | x      |
 | control_unit_pipelined.sv          | Pipelined           |       | t   |        |        |
-| decode.sv                          | Pipelined           |       | t   |        | x      |
-| execute.sv                         | Pipelined           |       | t   |        | x      |
-| fetch.sv                           | Pipelined           |       | t   |        | x      |
+| decode.sv                          | Pipelined           |    p   | t   |        | x      |
+| execute.sv                         | Pipelined           |   p    | t   |        | x      |
+| fetch.sv                           | Pipelined           |    p   | t   |        | x      |
 | hazard.sv                          | Pipelined           |       | t   |        | x      |
-| memory.sv                          | Pipelined           |       | t   |        | x      |
-| pc_reg.sv                          | Pipelined           |       |     |        |        |
+| memory.sv                          | Pipelined           |    p   | t   |        | x      |
+| pc_reg.sv                          | Pipelined           |   p    |     |        |        |
 | PCSrclogic.sv                      | Pipelined           |       | t   |        |        |
 | rd1emux.sv                         | Pipelined           |       |     |        |        |
 | rd2emux.sv                         | Pipelined           |       |     |        |        |
 | top_level.sv (pipelined)           | Pipelined           |       | x/t |        |        |
-| write_back.sv                      | Pipelined           |       | t   |        | x      |
+| write_back.sv                      | Pipelined           |    p   | t   |        | x      |
 | cache.sv                           | Pipelined and Cache |       |     |        | x      |
 | combined_cache_memory.sv           | Pipelined and Cache |       | p/t |        |        |
 | data_memory.sv                     | Pipelined and Cache |       | x/t |        |        |
@@ -100,7 +100,7 @@ The result of this coursework is two CPUs: a pipelined, and a single-cycle CPU .
 
 | Name           | CID      | GitHub   | Email                     | Link to Personal Statement|
 |----------------|----------|----------|---------------------------|--------------|
-| Steve Nimo      | 02254814 | **Nimosteve88**  | sn722@imperial.ac.uk   &nbsp; &nbsp; &nbsp; &nbsp;   | 
+| Steve Nimo      | 02254814 | **Nimosteve88**  | sn722@imperial.ac.uk   &nbsp; &nbsp; &nbsp; &nbsp;   | [Statement](statements/Steve.md)
 | Sne Samal   | 02201807 | **sne-samal** | ss5322@ic.ac.uk | 
 | Divine Wodi | 02208866 | **CB-W03** | dw722@ic.ac.uk | 
 | Yannis Zioulis | 02223077 | **yanniszioullis**  | yz9722@ic.ac.uk | 

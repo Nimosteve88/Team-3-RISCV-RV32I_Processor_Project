@@ -130,6 +130,12 @@ Additionally, CSV files with output data were generated for each distribution in
 
 ![Single_Triangle](../graph/output/single_triangle_graph.png)
 
+
+| Gaussian                                                      | Noisy                                                   | Sine                                                  | Triangle                                                      |
+|---------------------------------------------------------------|---------------------------------------------------------|-------------------------------------------------------|---------------------------------------------------------------|
+| ![Single_Gaussian](../graph/output/single_gaussian_graph.png) | ![Single_Noisy](../graph/output/single_noisy_graph.png) | ![Single_Sine](../graph/output/single_sine_graph.png) | ![Single_Triangle](../graph/output/single_triangle_graph.png) |
+
+
 ## Documentation
 There are number of changes required from Lab 4: From looking at both the reference program and out F1 RISC-V code, there a number of changes that must be implemented to successfully execute the new instructions found in these programs. The processor needs to be updated to include the following instructions:
 - ADDI (already done from lab4)

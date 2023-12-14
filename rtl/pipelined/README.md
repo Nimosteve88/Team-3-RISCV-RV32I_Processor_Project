@@ -120,9 +120,8 @@ source ./pipelined.sh
 ## Test Results
 
 ## Documentation
-    
-## Pipelining proposal:
-This is the single cycle processor from before:
+This is the single cycle processor from before:  
+![Alt text](image-5.png)
 
 In order to successfully implement pipelining, the processor must be split into 5 stages. Each stage is associated with a particular part of the processor
 | **Stage**  | **Abbreviation** | **Role**                                                                                                               |

@@ -116,6 +116,19 @@ source ./single.sh
 8. The program will run automatically. Wait for a couple of seconds while the distribution is being built, then the display will plot the pdf. You should see pdfs that resemble that of those in the test results.
 
 ## Test Results
+#### F1 Program
+
+#### Reference Program
+Videos for the reference program can be seen below
+
+Additionally, CSV files with output data were generated for each distribution in the test bench. These were plotted and are as follows:
+![Single_Gaussian](../graph/output/single_gaussian_graph.png)
+
+![Single_Noisy](../graph/output/single_noisy_graph.png)
+
+![Single_Sine](../graph/output/single_sine_graph.png)
+
+![Single_Triangle](../graph/output/single_triangle_graph.png)
 
 ## Documentation
 There are number of changes required from Lab 4: From looking at both the reference program and out F1 RISC-V code, there a number of changes that must be implemented to successfully execute the new instructions found in these programs. The processor needs to be updated to include the following instructions:

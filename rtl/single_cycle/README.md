@@ -163,4 +163,4 @@ To correctly choose the value we want to write to the register, we implement a m
 ![Alt text](images/image-1.png)
 
 ### Upadted top level diagram:
-![Alt text](images/image-2.png)
+![Alt text](image-2.png)

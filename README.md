@@ -32,9 +32,9 @@ In the table below, you can directly access the source code for the different pr
 
 | Processor Version         | Test Results | Testing Instructions |
 |---------------------------|--------------|----------------------|
-| Single Cycle              |              |                      |
-| Pipelined                 |              |                      |
-| Pipelined with Data Cache |              |                      |
+| [Single Cycle](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle#readme)              |              |                      |
+| [Pipelined](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/README.md)                 |              |                      |
+| [Pipelined with Data Cache](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/cache/README.md) |              |                      |
 
 ## Combined File Listing
 This is the file listing for all the files that were used in each processor version. The listing has the file name and the version in which they were first used alongside the relevant contributors.

@@ -1,4 +1,36 @@
-# Stretch Goal 1: Pipelined Processor
+# Pipelined Processor
+## Contents
+[File Listing](#file-listing)  
+[Testing Instructions](#testing-instructions)  
+[Test Results](#test-results)   
+[Documentation](#documentation)  
+
+## File Listing
+> NB: This file listing contains only the components that required changing for this version, components that are in the top level, but aren't listed stayed the same in terms of individual functonality to that of the single cycle processor. You can see the file listing for those parts on the single cycle file listing. Alternatively, you can also view a combined file listing, with files from all goals.
+
+Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
+
+| File Name                 | Steve | Sne | Divine | Yannis |
+|---------------------------|-------|-----|--------|--------|
+| control_unit_pipelined.sv |       | t   |        |        |
+| decode.sv                 |       | t   |        |        |
+| execute.sv                |       | t   |        |        |
+| fetch.sv                  |       | t   |        |        |
+| hazard.sv                 |       | t   |        |        |
+| memory.sv                 |       | t   |        |        |
+| pc_reg.sv                 |       |     |        |        |
+| PCSrclogic.sv             |       | t   |        |        |
+| rd1emux.sv                |       |     |        |        |
+| rd2emux.sv                |       |     |        |        |
+| top_level.sv              |       | x   |        |        |
+| write_back.sv             |       | t   |        |        |
+
+## Testing Instructions
+
+## Test Results
+
+## Documentation
+    
 ## Pipelining proposal:
 This is the single cycle processor from before:
 

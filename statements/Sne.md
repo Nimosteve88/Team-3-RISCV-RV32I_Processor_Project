@@ -80,6 +80,7 @@ I feel more confident using GTKWave. When debugging the top level, I had a lot o
 I learnt several useful features of Git and GitHub that allowed me to effectively collaborate with my team members. I am now more competent in writing well formatted markdown files as well. 
 
 ## Mistakes
+Some mistakes I made included applying test bench inputs in the wrong place - i.e. sometimes halfway through a clock cycle. This would often confuse me and delayed development, until I realised my mistake. Additionaly, there were cases in my tests where I didn't consider every default cases and corner cases, this proved to be costly when debugging the pipelined processor when the error was with the control unit didn't consider 0x0 as an input (result of a flush).
 
 ## Special design decisions
 #### Byte Addressing in Data Memory:

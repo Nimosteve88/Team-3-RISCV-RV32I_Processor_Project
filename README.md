@@ -13,7 +13,7 @@
 
 ## Contributors and Personal Statements
 
-| Name           | CID      | GitHub Username    | Email           | Link to Personal Statement |
+| Name           | CID      | GitHub Username    | Email           | Personal Statement |
 |----------------|----------|--------------------|-----------------|----------------------------|
 | Steve Nimo     | 02254814 | **Nimosteve88**    | sn722@ic.ac.uk  |                            |
 | Sne Samal      | 02201807 | **sne-samal**      | ss5322@ic.ac.uk |                            |

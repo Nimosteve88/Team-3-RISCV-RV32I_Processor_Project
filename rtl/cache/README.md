@@ -110,7 +110,20 @@ source ./cache.sh
 ```
 
 8. The program will run automatically. Wait for a couple of seconds while the distribution is being built, then the display will plot the pdf. You should see pdfs that resemble that of those in the test results.
+> [!NOTE]
+> The testbench has lines to write output data to a csv file. If you want to do this, ensure that all lines related to csv file generation are uncommented.
+
 ## Test Results
+#### F1 Program
+
+#### Reference Program
+Videos for the reference program can be seen below
+
+Additionally, CSV files with output data were generated for each distribution in the test bench. These were plotted and are as follows:
+
+| ![cache_Gaussian](../graph/output/cache_gaussian_graph.png) | ![cache_Noisy](../graph/output/cache_noisy_graph.png)       |
+|---------------------------------------------------------------|---------------------------------------------------------------|
+| ![cache_Sine](../graph/output/cache_sine_graph.png)         | ![cache_Triangle](../graph/output/cache_triangle_graph.png) |
 
 ## Documentation
     

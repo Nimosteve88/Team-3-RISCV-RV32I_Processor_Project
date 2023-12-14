@@ -117,7 +117,20 @@ source ./pipelined.sh
 ```
 
 8. The program will run automatically. Wait for a couple of seconds while the distribution is being built, then the display will plot the pdf. You should see pdfs that resemble that of those in the test results.
+> [!NOTE]
+> The testbench has lines to write output data to a csv file. If you want to do this, ensure that all lines related to csv file generation are uncommented.
+
 ## Test Results
+#### F1 Program
+
+#### Reference Program
+Videos for the reference program can be seen below
+
+Additionally, CSV files with output data were generated for each distribution in the test bench. These were plotted and are as follows:
+
+| ![pipelined_Gaussian](../graph/output/pipelined_gaussian_graph.png) | ![pipelined_Noisy](../graph/output/pipelined_noisy_graph.png)       |
+|---------------------------------------------------------------|---------------------------------------------------------------|
+| ![pipelined_Sine](../graph/output/pipelined_sine_graph.png)         | ![pipelined_Triangle](../graph/output/pipelined_triangle_graph.png) |
 
 ## Documentation
 This is the single cycle processor from before:  

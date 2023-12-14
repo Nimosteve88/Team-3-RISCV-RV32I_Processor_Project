@@ -9,9 +9,11 @@
 *  Built the Hazard Detection Unit and helped in the design, debugging and testing of the Pipeline Registers
 * Helped in building the Cache, and helped test our Cache Memory system
 
-## Statement
+## Contributions
 ### Program Counter
-My first contribution was building the Program Counter (a task which was randomly assigned to me for Lab 4. I continued modifying the PC to make sure it works for the single-cycle, pipelined and cache versions of our CPU). My final design of the PC for Lab 4 can by seen by Sne's commit [824c2c3](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/824c2c392575be7485710e18ccce1e39f5f9e49a) where the files were copied over. The development of the Program Counter then continued with my design choice to include a 2-bit PCSrc input signal (although only 3 of the 4 inputs were needed to implement the instructions necessary to run the reference and f1 programs).  
+My first contribution was building the Program Counter (a task which was randomly assigned to me for Lab 4. I continued modifying the PC to make sure it works for the single-cycle, pipelined and cache versions of our CPU). 
+
+My final design of the PC for Lab 4 can by seen by Sne's commit [824c2c3](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/824c2c392575be7485710e18ccce1e39f5f9e49a) where the files were copied over. The development of the Program Counter then continued with my design choice to include a 2-bit PCSrc input signal (although only 3 of the 4 inputs were needed to implement the instructions necessary to run the reference and f1 programs).  
 
 | PCSrc [1:0] | Use Case | Instruction Types | Instructions Used
 | --------------- | --------------- | --------------- | --------------- |
@@ -20,8 +22,14 @@ My first contribution was building the Program Counter (a task which was randoml
 | 10 | PC <- Rs1 + Imm | (only used jalr, technically I-type) | jalr (ret)
 | 11 | ~~not used~~ | - | - |
 
+See commit [05291c3](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/05291c32b537287012723846c5f68ebc26844e28) for the adjustments made to the Program Counter, the Control Unit, the Datapath and the Top Level to accommodate for the JALR instruction. 
 
+Finally, as a result of Sne's testing, we found that the Program Counter would would take **2 clock cycles to resume normal operation after a reset input.**
 
+![[pc_reset_error.jpg]]
+This issue was caused by the fact that both pc_module.sv (the pc 'top')  would set pc_next to 0, and pc_reg.sv (the register itself) would set the stored value to 0. This would effectively create a two-cycle bubble which was resolved with commit [ac768a0](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/ac768a058ef602ffd99314098295a2d83d68e19b). 
+
+By overcoming this error, we arrived at the final version of the PC module which is used by the single cycle version of our CPU. The pipelined and pipelined+cache versions of the CPU saw pc_module.sv evolve to fetch.sv which I will cover below. [Final Version of Single Cycle Program Counter](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle/program_counter).
 
 
 > [Include any additional statements or reflections you have about your work, challenges faced, and how you overcame them.]

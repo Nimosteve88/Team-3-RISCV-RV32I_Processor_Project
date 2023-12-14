@@ -128,6 +128,18 @@ Videos for the reference program can be seen below
 https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/assets/66144849/e2467acb-1db6-473e-b374-a0244b811c4e
 
 
+https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/assets/66144849/43d47c97-a094-42e9-8363-1cf7bca31c15
+
+
+https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/assets/66144849/0994fbe8-5a79-4fb0-af32-36b7b1925aa2
+
+
+https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/assets/66144849/232581d0-de47-4ffb-ac0e-3463a5412a0b
+
+
+
+
+
 Additionally, CSV files with output data were generated for each distribution in the test bench. These were plotted and are as follows:
 
 | ![Single_Gaussian](../graph/output/single_gaussian_graph.png) | ![Single_Noisy](../graph/output/single_noisy_graph.png)       |

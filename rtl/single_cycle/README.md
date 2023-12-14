@@ -115,6 +115,9 @@ source ./single.sh
 
 8. The program will run automatically. Wait for a couple of seconds while the distribution is being built, then the display will plot the pdf. You should see pdfs that resemble that of those in the test results.
 
+> [!NOTE]
+> The testbench has lines to write output data to a csv file. If you want to do this, ensure that all lines related to csv file generation are uncommented.
+
 ## Test Results
 #### F1 Program
 
@@ -122,14 +125,6 @@ source ./single.sh
 Videos for the reference program can be seen below
 
 Additionally, CSV files with output data were generated for each distribution in the test bench. These were plotted and are as follows:
-![Single_Gaussian](../graph/output/single_gaussian_graph.png)
-
-![Single_Noisy](../graph/output/single_noisy_graph.png)
-
-![Single_Sine](../graph/output/single_sine_graph.png)
-
-![Single_Triangle](../graph/output/single_triangle_graph.png)
-
 
 | ![Single_Gaussian](../graph/output/single_gaussian_graph.png) | ![Single_Noisy](../graph/output/single_noisy_graph.png)       |
 |---------------------------------------------------------------|---------------------------------------------------------------|

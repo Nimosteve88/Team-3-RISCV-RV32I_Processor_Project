@@ -1,12 +1,13 @@
 # Team-3-RISCV-RV32I_Processor_Project
 
 ## Contents:
-[Joint Statement](#joint-statement)
-[Contributors and Personal Statements](#contributors-and-personal-statements)
-[High Level Description](#high-level-description)
-[Repository Structure](#repository-structure)
-[Source Code](#source-code)
-[References](#references)
+[Joint Statement](#joint-statement)  
+[Contributors and Personal Statements](#contributors-and-personal-statements)  
+[High Level Description](#high-level-description)  
+[Repository Structure](#repository-structure)  
+[Source Code](#source-code)  
+[Combined File Listing](#combined-file-listing)  
+[References](#references)  
 
 ## Joint Statement
 >TODO: Insert Joint Statement Here
@@ -35,6 +36,42 @@ In the table below, you can directly access the source code for the different pr
 | Pipelined                 |              |                      |
 | Pipelined with Data Cache |              |                      |
 
+## Combined File Listing
+This is the file listing for all the files that were used in each processor version. The listing has the file name and the version in which they were first used alongside the relevant contributors.
+
+Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
+
+| File Name                          | First Seen          | Steve | Sne | Divine | Yannis |
+|------------------------------------|---------------------|-------|-----|--------|--------|
+| alu.sv                             | Single Cycle        |       | t   |        |        |
+| alu_src_mux.sv                     | Single Cycle        |       |     |        |        |
+| control_unit.sv                    | Single Cycle        |       | t   |        |        |
+| data_memory.sv                     | Single Cycle        |       | x   |        |        |
+| data_top_level.sv                  | Single Cycle        |       | t   |        |        |
+| extend.sv                          | Single Cycle        |       | p   |        |        |
+| instruction_memory.sv              | Single Cycle        |       |     |        |        |
+| pc_module.sv                       | Single Cycle        |       | t   |        |        |
+| pc_reg.sv                          | Single Cycle        |       |     |        |        |
+| register_file.sv                   | Single Cycle        |       | t   |        |        |
+| result_mux.sv                      | Single Cycle        |       | x   |        |        |
+| toplevel.sv (single cycle)         | Single Cycle        |       | x/t |        |        |
+| control_unit_pipelined.sv          | Pipelined           |       | t   |        |        |
+| decode.sv                          | Pipelined           |       | t   |        |        |
+| execute.sv                         | Pipelined           |       | t   |        |        |
+| fetch.sv                           | Pipelined           |       | t   |        |        |
+| hazard.sv                          | Pipelined           |       | t   |        |        |
+| memory.sv                          | Pipelined           |       | t   |        |        |
+| pc_reg.sv                          | Pipelined           |       |     |        |        |
+| PCSrclogic.sv                      | Pipelined           |       | t   |        |        |
+| rd1emux.sv                         | Pipelined           |       |     |        |        |
+| rd2emux.sv                         | Pipelined           |       |     |        |        |
+| top_level.sv (pipelined)           | Pipelined           |       | x/t |        |        |
+| write_back.sv                      | Pipelined           |       | t   |        |        |
+| cache.sv                           | Pipelined and Cache |       |     |        |        |
+| combined_cache_memory.sv           | Pipelined and Cache |       | p/t |        |        |
+| data_memory.sv                     | Pipelined and Cache |       | x/t |        |        |
+| rd_mux.sv                          | Pipelined and Cache |       | x   |        |        |
+| top_level.sv (pipelined and cache) | Pipelined and Cache |       | x/t |        |        |
 
 ## References
 Our CPU was an extension of the processor outlined in Prof. Peter Cheung's lecture notes and in the textbook: _"Digital Design and Computer Architecture (RISC-V Edition)"_ by Sarah Harris and David Harris. 

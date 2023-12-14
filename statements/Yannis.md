@@ -1,15 +1,16 @@
-# Yannis Zioulis's Personal Statement
+# Yannis Zioulis' Personal Statement
 ### CID: 02223077  |  GitHub username: yanniszioulis
 
 ---
 
 ##  Summary of Contributions
-*  Built the Program Counter 
-*  Wrote and tested the F1 light sequence assembly code
-*  Made adjustments to the control unit, and assisted in the implementation of the JALR instruction
+*  Built and tested the Program Counter 
+*  Wrote and tested the F1 Light Sequence assembly code program
+*  Built the Hazard Detection Unit and helped in the design, debugging and testing of the Pipeline Registers
+* Helped in building the Cache, and helped test our Cache Memory system
 
 ## Statement
-[Provide a detailed explanation of your contributions, responsibilities, and experiences during the project. Use links to relevant branches and commits. Highlight your role in the development, testing, and debugging of specific modules.]
+My first contribution was building the Program Counter (a task which was randomly assigned to me for Lab 4. I continued modifying the PC to make sure it works for the single-cycle, pipelined and cache versions of our CPU). 
 
 > [Include any additional statements or reflections you have about your work, challenges faced, and how you overcame them.]
 

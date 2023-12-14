@@ -82,7 +82,7 @@
 As the primary tester and debugger, I learnt to write effectvie test benches whils covering as many corner cases as I could. I also automated some of the test results, making use of the terminal to view my test results. In cases where I would have view and manually verify multiple signals with GTKWave, I found this tactic useful. Additionally I feel more confident looking at code written by other people and debugging it when the code failed my tests.
 
 #### Computer Architecture:
-By working on the top level and testing of some individual parts, I gained a deeper understanding into computer architecture and how processors work. I also developed an understanding of the role of each part in the processor and how it works. Through the stretch goals, I enhanced my knowledge of pipelining and the importance of caching within processors. 
+By working on the top level and testing of some individual parts, I gained a deeper understanding into computer architecture and how processors work. I also developed an understanding of the role of each part in the processor and how it works. Through the stretch goals, I enhanced my knowledge of pipelining and the importance of caching within processors. I also managed to get a more detailed insight into other components like data memory and data cache whilst working on them.
 
 #### System Verilog
 Throughout this project, I have felt increasingly confident in my ability to specify digital logic with System Verilog whilst also ensuring that my code is readable and reusable.

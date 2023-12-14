@@ -26,14 +26,14 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 ## Testing Instructions
 #### Testing the Formula 1 Program
 1. Set up a connection to Vbuddy.
-2. `cd` into the single_cycle directory
+2. `cd` into the `single_cycle` directory
 3. Open the directory in VSCode - this is to edit the code so that correct instructions are run.
 4. In `instruction_memory.sv` (located in the control folder) edit line 13 to the following:
 ```verilog
     $readmemh("f1.mem", instr_array);
 ```
 
-5. In `data_memory.sv` (located in the data folder) comment out line 14 (we do not need to read anything into data memory for the F1 program):
+5. In `data_memory.sv` (located in the data folder) comment out line 24 (we do not need to read anything into data memory for the F1 program):
 ```verilog
     //$readmemh("gaussian.mem", data_array, 17'h10000);
 ```
@@ -70,14 +70,14 @@ source ./single.sh
 
 #### Testing the reference program
 1. Set up a connection to Vbuddy.
-2. `cd` into the single_cycle directory
+2. `cd` into the `single_cycle` directory
 3. Open the directory in VSCode - this is to edit the code so that correct instructions are run.
 4. In `instruction_memory.sv` (located in the control folder) edit line 13 to the following:
 ```verilog
     $readmemh("pdf.mem", instr_array);
 ```
 
-5. In `data_memory.sv` (located in the data folder) add the memory file for the desired probability distribution function e.g:
+5. In `data_memory.sv` (located in the data folder), make sure line 24 is uncommented and add the memory file for the desired probability distribution function e.g:
 ```verilog
     $readmemh("gaussian.mem", data_array, 17'h10000);
 ```

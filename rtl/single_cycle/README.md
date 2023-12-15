@@ -22,7 +22,7 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 | register_file.sv      |       | t   |        |        |
 | result_mux.sv         |       | x   |        |        |
 | toplevel.sv           |       | x/t |        |        |
-| f1_lights_assembly.s  |       |     |        | x      |
+| F1.s                  |       |     |        | x      |
 
 ## Testing Instructions
 #### Testing the Formula 1 Program

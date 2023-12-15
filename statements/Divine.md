@@ -21,16 +21,16 @@ Single_Cycle Overview:
 
 ![Alt text](Resources/control_decoder.png)
 
-- And studied the different instructions we would use, in our assembly code, to properly program control unit.
+- And studied the different instructions we would use, in our assembly code, and how they affected the different parts of the RV CPU, to properly program control unit.
 
 
 ### Pipelining ([Evidence]())
 
-- Made changes to the Control Unit to generate Jump and Branch signals based on the instruction word (in bold below)
+- In the pipelining I continued to oversee and modify the control unit, adding new Jump and Branch signals which would then be used by the PCSrc block to determine the next value of PC.
 
 ![Alt text](Resources/pipelinedctrl.png)
 
-- These tables used to generate Jump and Branch signals depending on the instruction word: 
+- I was able to properly program the logic for these signals based on the instruction word, using these tables with Sne's assistance: 
 
 JumpType [1:0]:                            
 | JumpType[1] | JumpType[0] | Instruction |
@@ -47,14 +47,16 @@ BranchType [1:0]:
 | 1           | 0           | BNE        |
 
 
-- Constructed to PCSrc logic block which would determine the value of PCSrc, which would determine whether the next value of PC will be PC + 4, PC + offset, or rs1 + offset.
+- Constructed to PCSrc logic block which would determine the value of PCSrc, which would determine the next value of PC. Either:
+ - PC = PC + 4
+ - PC = PC + offset
+ - PC = rs1 + offset
 
-![Alt text](Resources/PCSrcBlock.png)
+![Alt text](Resources/PCSrcBlock.jpg)
 
 - Value of PCSrc was determined by the Jump and Branch flags from the Control Unit, and the EQ flag from the ALU.
 
-
-- PCSrc output logic determined by this table: 
+- Using this table, I was able to properly program the PCSrc block output logic for the PCSrc signal: 
 
 | BranchType[1] | BranchType[0] | JumpType[1] | JumpType[0] | EQ | PCSrc[1] | PCSrc[0] |
 |---------------|--------------|-------------|-------------|----|----------|---------|
@@ -67,8 +69,6 @@ BranchType [1:0]:
 | 1             | 0            | 0           | 0           | 1  | 0        | 0       |
 
 
-
-### Cache ([Evidence]())
 
 ## Reflection
 

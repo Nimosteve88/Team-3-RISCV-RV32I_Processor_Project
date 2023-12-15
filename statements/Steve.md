@@ -16,7 +16,7 @@
 
 ## Contributions
 
-### ALU  
+### ALU([Evidence](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/7bd0223fbc57d3a98a63f5599ca5c38eabbd1480))  
 
 Single_Cycle Overview:
 
@@ -26,20 +26,22 @@ Single_Cycle Overview:
 - Took the role of overseeing and maintaining the construction and operation of the ALU.
 - Considered the different type of Instructions (I, S, B, J  and U) and how they can affect the different operations and results the ALU produces.
 - As we were initially told that we didn't have to use every single instruction, I prioritised my time studying the instructions we utilised in order to achieve the outputs. This allowed me to make my very own modifications to the ALU, most notably the ALUctrl since we were able to tailor its behaviour to operate in a way in which allowed our instructions to work smoothly.
+![Alt text](Resources/ALU_Breakdown.png)
+
 - Main operations utilised in the ALU were ADD, SUB, AND and XOR. We made the decision to handle B and J type instructions within the control unit in order improve use of ALUctrl (more bits are available to use on wider range of instructions/operations).
 
 
-### Register File 
+### Register File ([Evidence](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/81a6816e6a2d3d2f069946fd1a11e43a31ca711b))
 
 - Constructed the Register File in order to store memory addresses and it's corresponding contents within a RAM of suitable size.
 - As required the data is always read asynchronously to ensure the required data is always up to date while the data is writing synchronously at every rising edge of the clock.
 
-### Pipelining 
+### Pipelining ([Evidence](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/a9ca06775a54a9afe55dc9e53e25b22ae43203df))
 Piplined Overview:
 ![Alt text](Resources/image-6.png)
 - Studied the behaviour of the pipeline registers and first attempted to construct the Pipeline registers. I later on recieved support from Yannis Zioulis in order to solidify the operation of the Pipelines so that it can also accomodate the Hazard Unit.
 
-### Github Repository Master
+### Github Repository Master ([Evidence](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/64a4d479a15c6e1f0df349cbde4df7dc07b7c29b))
 - Took the role of 'Repo Master', setting up and overseeing the structure of the overall repository.
 
 ## Reflection 
@@ -50,7 +52,7 @@ Piplined Overview:
 
 ## Special Design Decisions
 
--  Made modifications on ALUctrl to perform the operations we requested, instead of relying the traditional ALUctrl codes for every instruction.
+-  Made modifications on ALUctrl to perform the operations we requested, instead of relying the traditional ALUctrl codes for every instruction. 
 - With the help of Sne Samal, testbenches were produced for the different areas I contributed in order to verify whether my work was successful.
 
 ## Given more time

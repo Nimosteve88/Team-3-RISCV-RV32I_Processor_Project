@@ -40,6 +40,7 @@ Vtoplevel::~Vtoplevel() {
 void Vtoplevel___024root___eval_initial(Vtoplevel___024root* vlSelf);
 void Vtoplevel___024root___eval_settle(Vtoplevel___024root* vlSelf);
 void Vtoplevel___024root___eval(Vtoplevel___024root* vlSelf);
+QData Vtoplevel___024root___change_request(Vtoplevel___024root* vlSelf);
 #ifdef VL_DEBUG
 void Vtoplevel___024root___eval_debug_assertions(Vtoplevel___024root* vlSelf);
 #endif  // VL_DEBUG
@@ -49,12 +50,27 @@ static void _eval_initial_loop(Vtoplevel__Syms* __restrict vlSymsp) {
     vlSymsp->__Vm_didInit = true;
     Vtoplevel___024root___eval_initial(&(vlSymsp->TOP));
     // Evaluate till stable
+    int __VclockLoop = 0;
+    QData __Vchange = 1;
     vlSymsp->__Vm_activity = true;
     do {
         VL_DEBUG_IF(VL_DBG_MSGF("+ Initial loop\n"););
         Vtoplevel___024root___eval_settle(&(vlSymsp->TOP));
         Vtoplevel___024root___eval(&(vlSymsp->TOP));
-    } while (0);
+        if (VL_UNLIKELY(++__VclockLoop > 100)) {
+            // About to fail, so enable debug to see what's not settling.
+            // Note you must run make with OPT=-DVL_DEBUG for debug prints.
+            int __Vsaved_debug = Verilated::debug();
+            Verilated::debug(1);
+            __Vchange = Vtoplevel___024root___change_request(&(vlSymsp->TOP));
+            Verilated::debug(__Vsaved_debug);
+            VL_FATAL_MT("toplevel.sv", 18, "",
+                "Verilated model didn't DC converge\n"
+                "- See https://verilator.org/warn/DIDNOTCONVERGE");
+        } else {
+            __Vchange = Vtoplevel___024root___change_request(&(vlSymsp->TOP));
+        }
+    } while (VL_UNLIKELY(__Vchange));
 }
 
 void Vtoplevel::eval_step() {
@@ -66,11 +82,26 @@ void Vtoplevel::eval_step() {
     // Initialize
     if (VL_UNLIKELY(!vlSymsp->__Vm_didInit)) _eval_initial_loop(vlSymsp);
     // Evaluate till stable
+    int __VclockLoop = 0;
+    QData __Vchange = 1;
     vlSymsp->__Vm_activity = true;
     do {
         VL_DEBUG_IF(VL_DBG_MSGF("+ Clock loop\n"););
         Vtoplevel___024root___eval(&(vlSymsp->TOP));
-    } while (0);
+        if (VL_UNLIKELY(++__VclockLoop > 100)) {
+            // About to fail, so enable debug to see what's not settling.
+            // Note you must run make with OPT=-DVL_DEBUG for debug prints.
+            int __Vsaved_debug = Verilated::debug();
+            Verilated::debug(1);
+            __Vchange = Vtoplevel___024root___change_request(&(vlSymsp->TOP));
+            Verilated::debug(__Vsaved_debug);
+            VL_FATAL_MT("toplevel.sv", 18, "",
+                "Verilated model didn't converge\n"
+                "- See https://verilator.org/warn/DIDNOTCONVERGE");
+        } else {
+            __Vchange = Vtoplevel___024root___change_request(&(vlSymsp->TOP));
+        }
+    } while (VL_UNLIKELY(__Vchange));
     // Evaluate cleanup
 }
 

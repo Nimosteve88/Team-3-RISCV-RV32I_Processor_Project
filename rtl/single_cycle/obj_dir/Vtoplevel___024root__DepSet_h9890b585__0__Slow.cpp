@@ -48,89 +48,6 @@ VL_ATTR_COLD void Vtoplevel___024root___settle__TOP__0(Vtoplevel___024root* vlSe
     vlSelf->toplevel__DOT__write_data = vlSelf->toplevel__DOT__data__DOT__register__DOT__registers
         [(0x1fU & (vlSelf->toplevel__DOT__instruction 
                    >> 0x14U))];
-    if ((0x63U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
-        vlSelf->toplevel__DOT__result_src = 0U;
-        vlSelf->toplevel__DOT__reg_write = 0U;
-        vlSelf->toplevel__DOT__byte_addr = 0U;
-        vlSelf->toplevel__DOT__mem_write = 0U;
-        vlSelf->toplevel__DOT__ALUctrl = 1U;
-        vlSelf->toplevel__DOT__ALUsrc = 0U;
-        vlSelf->toplevel__DOT__imm_src = 2U;
-    } else if ((0x13U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
-        vlSelf->toplevel__DOT__result_src = 0U;
-        vlSelf->toplevel__DOT__reg_write = 1U;
-        vlSelf->toplevel__DOT__byte_addr = 0U;
-        vlSelf->toplevel__DOT__mem_write = 0U;
-        vlSelf->toplevel__DOT__ALUctrl = 0U;
-        vlSelf->toplevel__DOT__ALUsrc = 1U;
-        vlSelf->toplevel__DOT__imm_src = 0U;
-    } else if ((0x33U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
-        vlSelf->toplevel__DOT__result_src = 0U;
-        vlSelf->toplevel__DOT__reg_write = 1U;
-        vlSelf->toplevel__DOT__byte_addr = 0U;
-        vlSelf->toplevel__DOT__mem_write = 0U;
-        vlSelf->toplevel__DOT__ALUctrl = ((0U == (7U 
-                                                  & (vlSelf->toplevel__DOT__instruction 
-                                                     >> 0xcU)))
-                                           ? ((0x40000000U 
-                                               & vlSelf->toplevel__DOT__instruction)
-                                               ? 1U
-                                               : 0U)
-                                           : ((4U == 
-                                               (7U 
-                                                & (vlSelf->toplevel__DOT__instruction 
-                                                   >> 0xcU)))
-                                               ? 4U
-                                               : ((7U 
-                                                   == 
-                                                   (7U 
-                                                    & (vlSelf->toplevel__DOT__instruction 
-                                                       >> 0xcU)))
-                                                   ? 2U
-                                                   : 0U)));
-        vlSelf->toplevel__DOT__ALUsrc = 0U;
-        vlSelf->toplevel__DOT__imm_src = 0U;
-    } else if ((0x6fU == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
-        vlSelf->toplevel__DOT__result_src = 2U;
-        vlSelf->toplevel__DOT__reg_write = 1U;
-        vlSelf->toplevel__DOT__byte_addr = 0U;
-        vlSelf->toplevel__DOT__mem_write = 0U;
-        vlSelf->toplevel__DOT__ALUctrl = 0U;
-        vlSelf->toplevel__DOT__ALUsrc = 0U;
-        vlSelf->toplevel__DOT__imm_src = 3U;
-    } else if ((0x67U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
-        vlSelf->toplevel__DOT__result_src = 2U;
-        vlSelf->toplevel__DOT__reg_write = 1U;
-        vlSelf->toplevel__DOT__byte_addr = 0U;
-        vlSelf->toplevel__DOT__mem_write = 0U;
-        vlSelf->toplevel__DOT__ALUctrl = 0U;
-        vlSelf->toplevel__DOT__ALUsrc = 1U;
-        vlSelf->toplevel__DOT__imm_src = 0U;
-    } else if ((0x37U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
-        vlSelf->toplevel__DOT__result_src = 3U;
-        vlSelf->toplevel__DOT__reg_write = 1U;
-        vlSelf->toplevel__DOT__byte_addr = 0U;
-        vlSelf->toplevel__DOT__mem_write = 0U;
-        vlSelf->toplevel__DOT__ALUctrl = 0U;
-        vlSelf->toplevel__DOT__ALUsrc = 0U;
-        vlSelf->toplevel__DOT__imm_src = 4U;
-    } else if ((0x23U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
-        vlSelf->toplevel__DOT__result_src = 0U;
-        vlSelf->toplevel__DOT__reg_write = 0U;
-        vlSelf->toplevel__DOT__byte_addr = 1U;
-        vlSelf->toplevel__DOT__mem_write = 1U;
-        vlSelf->toplevel__DOT__ALUctrl = 0U;
-        vlSelf->toplevel__DOT__ALUsrc = 1U;
-        vlSelf->toplevel__DOT__imm_src = 1U;
-    } else if ((3U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
-        vlSelf->toplevel__DOT__result_src = 1U;
-        vlSelf->toplevel__DOT__reg_write = 1U;
-        vlSelf->toplevel__DOT__byte_addr = 1U;
-        vlSelf->toplevel__DOT__mem_write = 0U;
-        vlSelf->toplevel__DOT__ALUctrl = 0U;
-        vlSelf->toplevel__DOT__ALUsrc = 1U;
-        vlSelf->toplevel__DOT__imm_src = 0U;
-    }
     vlSelf->toplevel__DOT__sign_extend_immediate = 
         ((4U & (IData)(vlSelf->toplevel__DOT__imm_src))
           ? ((2U & (IData)(vlSelf->toplevel__DOT__imm_src))
@@ -213,26 +130,117 @@ VL_ATTR_COLD void Vtoplevel___024root___settle__TOP__0(Vtoplevel___024root* vlSe
                           >> 0xcU)))) {
             vlSelf->toplevel__DOT__PCSrc = ((IData)(vlSelf->toplevel__DOT__EQ)
                                              ? 1U : 0U);
-        } else if ((1U == (7U & (vlSelf->toplevel__DOT__instruction 
-                                 >> 0xcU)))) {
+        } else if (VL_LIKELY((1U == (7U & (vlSelf->toplevel__DOT__instruction 
+                                           >> 0xcU))))) {
             vlSelf->toplevel__DOT__PCSrc = ((IData)(vlSelf->toplevel__DOT__EQ)
                                              ? 0U : 1U);
+        } else {
+            VL_STOP_MT("control/control_unit.sv", 29, "");
         }
+        vlSelf->toplevel__DOT__ALUsrc = 0U;
+        vlSelf->toplevel__DOT__reg_write = 0U;
+        vlSelf->toplevel__DOT__imm_src = 2U;
+        vlSelf->toplevel__DOT__ALUctrl = 1U;
+        vlSelf->toplevel__DOT__mem_write = 0U;
+        vlSelf->toplevel__DOT__result_src = 0U;
+        vlSelf->toplevel__DOT__byte_addr = 0U;
     } else if ((0x13U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
+        vlSelf->toplevel__DOT__ALUctrl = 0U;
+        vlSelf->toplevel__DOT__ALUsrc = 1U;
+        vlSelf->toplevel__DOT__reg_write = 1U;
         vlSelf->toplevel__DOT__PCSrc = 0U;
+        vlSelf->toplevel__DOT__imm_src = 0U;
+        vlSelf->toplevel__DOT__mem_write = 0U;
+        vlSelf->toplevel__DOT__result_src = 0U;
+        vlSelf->toplevel__DOT__byte_addr = 0U;
     } else if ((0x33U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
+        vlSelf->toplevel__DOT__ALUctrl = ((0U == (7U 
+                                                  & (vlSelf->toplevel__DOT__instruction 
+                                                     >> 0xcU)))
+                                           ? ((0x40000000U 
+                                               & vlSelf->toplevel__DOT__instruction)
+                                               ? 1U
+                                               : 0U)
+                                           : ((4U == 
+                                               (7U 
+                                                & (vlSelf->toplevel__DOT__instruction 
+                                                   >> 0xcU)))
+                                               ? 4U
+                                               : ((7U 
+                                                   == 
+                                                   (7U 
+                                                    & (vlSelf->toplevel__DOT__instruction 
+                                                       >> 0xcU)))
+                                                   ? 2U
+                                                   : 0U)));
+        vlSelf->toplevel__DOT__reg_write = 1U;
+        vlSelf->toplevel__DOT__ALUsrc = 0U;
+        vlSelf->toplevel__DOT__imm_src = 0U;
         vlSelf->toplevel__DOT__PCSrc = 0U;
+        vlSelf->toplevel__DOT__result_src = 0U;
+        vlSelf->toplevel__DOT__mem_write = 0U;
+        vlSelf->toplevel__DOT__byte_addr = 0U;
     } else if ((0x6fU == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
+        vlSelf->toplevel__DOT__reg_write = 1U;
+        vlSelf->toplevel__DOT__ALUsrc = 0U;
+        vlSelf->toplevel__DOT__ALUctrl = 0U;
+        vlSelf->toplevel__DOT__imm_src = 3U;
+        vlSelf->toplevel__DOT__mem_write = 0U;
+        vlSelf->toplevel__DOT__result_src = 2U;
         vlSelf->toplevel__DOT__PCSrc = 1U;
+        vlSelf->toplevel__DOT__byte_addr = 0U;
     } else if ((0x67U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
+        vlSelf->toplevel__DOT__reg_write = 1U;
+        vlSelf->toplevel__DOT__ALUsrc = 1U;
+        vlSelf->toplevel__DOT__ALUctrl = 0U;
+        vlSelf->toplevel__DOT__imm_src = 0U;
+        vlSelf->toplevel__DOT__mem_write = 0U;
+        vlSelf->toplevel__DOT__result_src = 2U;
         vlSelf->toplevel__DOT__PCSrc = 2U;
+        vlSelf->toplevel__DOT__byte_addr = 0U;
     } else if ((0x37U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
+        vlSelf->toplevel__DOT__reg_write = 1U;
+        vlSelf->toplevel__DOT__ALUsrc = 0U;
+        vlSelf->toplevel__DOT__ALUctrl = 0U;
+        vlSelf->toplevel__DOT__imm_src = 4U;
+        vlSelf->toplevel__DOT__mem_write = 0U;
+        vlSelf->toplevel__DOT__result_src = 3U;
         vlSelf->toplevel__DOT__PCSrc = 0U;
+        vlSelf->toplevel__DOT__byte_addr = 0U;
     } else if ((0x23U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
+        vlSelf->toplevel__DOT__reg_write = 0U;
+        vlSelf->toplevel__DOT__ALUsrc = 1U;
+        vlSelf->toplevel__DOT__ALUctrl = 0U;
+        vlSelf->toplevel__DOT__imm_src = 1U;
+        vlSelf->toplevel__DOT__mem_write = 1U;
+        vlSelf->toplevel__DOT__result_src = 0U;
         vlSelf->toplevel__DOT__PCSrc = 0U;
+        vlSelf->toplevel__DOT__byte_addr = 1U;
     } else if ((3U == (0x7fU & vlSelf->toplevel__DOT__instruction))) {
+        vlSelf->toplevel__DOT__reg_write = 1U;
+        vlSelf->toplevel__DOT__ALUsrc = 1U;
+        vlSelf->toplevel__DOT__ALUctrl = 0U;
+        vlSelf->toplevel__DOT__imm_src = 0U;
+        vlSelf->toplevel__DOT__mem_write = 0U;
+        vlSelf->toplevel__DOT__result_src = 1U;
         vlSelf->toplevel__DOT__PCSrc = 0U;
+        vlSelf->toplevel__DOT__byte_addr = 1U;
     }
+    vlSelf->toplevel__DOT__program_counter__DOT__next_PC 
+        = ((IData)(vlSelf->rst) ? 0U : ((0U == (IData)(vlSelf->toplevel__DOT__PCSrc))
+                                         ? ((IData)(4U) 
+                                            + vlSelf->toplevel__DOT__program_counter__DOT__mypc_reg__DOT__PCreg)
+                                         : ((1U == (IData)(vlSelf->toplevel__DOT__PCSrc))
+                                             ? (vlSelf->toplevel__DOT__program_counter__DOT__mypc_reg__DOT__PCreg 
+                                                + vlSelf->toplevel__DOT__sign_extend_immediate)
+                                             : ((2U 
+                                                 == (IData)(vlSelf->toplevel__DOT__PCSrc))
+                                                 ? 
+                                                (vlSelf->toplevel__DOT__register_data_1 
+                                                 + vlSelf->toplevel__DOT__sign_extend_immediate)
+                                                 : 
+                                                ((IData)(4U) 
+                                                 + vlSelf->toplevel__DOT__program_counter__DOT__mypc_reg__DOT__PCreg)))));
     if (vlSelf->toplevel__DOT__byte_addr) {
         if ((1U & (~ (IData)(vlSelf->toplevel__DOT__mem_write)))) {
             vlSelf->toplevel__DOT__read_data = vlSelf->toplevel__DOT__data_memory__DOT__data_array
@@ -260,21 +268,6 @@ VL_ATTR_COLD void Vtoplevel___024root___settle__TOP__0(Vtoplevel___024root* vlSe
                                                   (0x1ffffU 
                                                    & vlSelf->toplevel__DOT__ALU_result)])));
     }
-    vlSelf->toplevel__DOT__program_counter__DOT__next_PC 
-        = ((IData)(vlSelf->rst) ? 0U : ((0U == (IData)(vlSelf->toplevel__DOT__PCSrc))
-                                         ? ((IData)(4U) 
-                                            + vlSelf->toplevel__DOT__program_counter__DOT__mypc_reg__DOT__PCreg)
-                                         : ((1U == (IData)(vlSelf->toplevel__DOT__PCSrc))
-                                             ? (vlSelf->toplevel__DOT__program_counter__DOT__mypc_reg__DOT__PCreg 
-                                                + vlSelf->toplevel__DOT__sign_extend_immediate)
-                                             : ((2U 
-                                                 == (IData)(vlSelf->toplevel__DOT__PCSrc))
-                                                 ? 
-                                                (vlSelf->toplevel__DOT__register_data_1 
-                                                 + vlSelf->toplevel__DOT__sign_extend_immediate)
-                                                 : 
-                                                ((IData)(4U) 
-                                                 + vlSelf->toplevel__DOT__program_counter__DOT__mypc_reg__DOT__PCreg)))));
 }
 
 VL_ATTR_COLD void Vtoplevel___024root___eval_initial(Vtoplevel___024root* vlSelf) {
@@ -292,6 +285,7 @@ VL_ATTR_COLD void Vtoplevel___024root___eval_settle(Vtoplevel___024root* vlSelf)
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtoplevel___024root___eval_settle\n"); );
     // Body
     Vtoplevel___024root___settle__TOP__0(vlSelf);
+    vlSelf->__Vm_traceActivity[2U] = 1U;
     vlSelf->__Vm_traceActivity[1U] = 1U;
     vlSelf->__Vm_traceActivity[0U] = 1U;
 }
@@ -339,7 +333,10 @@ VL_ATTR_COLD void Vtoplevel___024root___ctor_var_reset(Vtoplevel___024root* vlSe
     for (int __Vi0=0; __Vi0<131072; ++__Vi0) {
         vlSelf->toplevel__DOT__data_memory__DOT__data_array[__Vi0] = VL_RAND_RESET_I(8);
     }
-    for (int __Vi0=0; __Vi0<2; ++__Vi0) {
+    vlSelf->__Vchglast__TOP__toplevel__DOT__ALUsrc = VL_RAND_RESET_I(1);
+    vlSelf->__Vchglast__TOP__toplevel__DOT__ALUctrl = VL_RAND_RESET_I(3);
+    vlSelf->__Vchglast__TOP__toplevel__DOT__imm_src = VL_RAND_RESET_I(3);
+    for (int __Vi0=0; __Vi0<3; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = VL_RAND_RESET_I(1);
     }
 }

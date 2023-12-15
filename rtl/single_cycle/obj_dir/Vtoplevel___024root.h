@@ -26,6 +26,9 @@ class Vtoplevel___024root final : public VerilatedModule {
     CData/*2:0*/ toplevel__DOT__imm_src;
     CData/*0:0*/ toplevel__DOT__byte_addr;
     CData/*0:0*/ __Vclklast__TOP__clk;
+    CData/*0:0*/ __Vchglast__TOP__toplevel__DOT__ALUsrc;
+    CData/*2:0*/ __Vchglast__TOP__toplevel__DOT__ALUctrl;
+    CData/*2:0*/ __Vchglast__TOP__toplevel__DOT__imm_src;
     VL_OUT(a0,31,0);
     VL_IN(seed,31,0);
     IData/*31:0*/ toplevel__DOT__sign_extend_immediate;
@@ -40,7 +43,7 @@ class Vtoplevel___024root final : public VerilatedModule {
     VlUnpacked<CData/*7:0*/, 256> toplevel__DOT__instruction_memory__DOT__instr_array;
     VlUnpacked<IData/*31:0*/, 32> toplevel__DOT__data__DOT__register__DOT__registers;
     VlUnpacked<CData/*7:0*/, 131072> toplevel__DOT__data_memory__DOT__data_array;
-    VlUnpacked<CData/*0:0*/, 2> __Vm_traceActivity;
+    VlUnpacked<CData/*0:0*/, 3> __Vm_traceActivity;
 
     // INTERNAL VARIABLES
     Vtoplevel__Syms* const vlSymsp;

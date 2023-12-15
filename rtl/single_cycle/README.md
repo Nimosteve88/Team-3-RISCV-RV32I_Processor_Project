@@ -11,16 +11,16 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 
 | File Name             | Steve | Sne | Divine | Yannis |
 |-----------------------|-------|-----|--------|--------|
-| alu.sv                |       | t   |        |        |
-| alu_src_mux.sv        |       |     |        |        |
-| control_unit.sv       |       | t   |        |        |
+| alu.sv                |   x   | t   |        |        |
+| alu_src_mux.sv        |   x   |     |        |        |
+| control_unit.sv       |       | t   |   x    |        |
 | data_memory.sv        |       | x   |        |        |
-| data_top_level.sv     |       |     |        |        |
-| extend.sv             |       | p   |        |        |
-| instruction_memory.sv |       |     |        |        |
+| data_top_level.sv     |   x   |     |        |        |
+| extend.sv             |       | p   |   p    |        |
+| instruction_memory.sv |       |     |   x    |        |
 | pc_module.sv          |       | t   |        | x      |
 | pc_reg.sv             |       |     |        | x      |
-| register_file.sv      |       | t   |        |        |
+| register_file.sv      |   x   | t   |        |        |
 | result_mux.sv         |       | x   |        |        |
 | toplevel.sv           |       | x/t |        |        |
 | F1.s                  |       |     |        | x      |

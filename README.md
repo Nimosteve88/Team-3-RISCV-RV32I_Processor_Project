@@ -64,8 +64,7 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 | register_file.sv                                                  | Single Cycle        |   x   | t   |        |        |
 | result_mux.sv                                                     | Single Cycle        |       | x   |        |        |
 | toplevel.sv (single cycle)                                        | Single Cycle        |       | x/t |        |        |
-| f1_lights_assembly.s                                              | Single Cycle        |       |     |        | x      |
-| f1_lights_complex.s (version with jump instructions)| Single Cycle|                     |       |     | x      |
+| F1.s                                                              | Single Cycle        |       |     |        | x      |
 | control_unit_pipelined.sv                                         | Pipelined           |       | t   |        |        |
 | decode.sv                                                         | Pipelined           |    p   | t   |        | x      |
 | execute.sv                                                        | Pipelined           |   p    | t   |        | x      |

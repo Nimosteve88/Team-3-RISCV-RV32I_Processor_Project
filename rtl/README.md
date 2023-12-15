@@ -42,6 +42,8 @@ To correctly choose the value we want to write to the register, we implement a m
 - PCTargetSrc: A mux select line to determine PCTarget, depending on `BNE`, `JAL` and `JALR` instruction types.
 - ByteAddr: A control input to determine how we modify outputs and inputs of data memory when we only want to focus on the least significant byte.
 
+7. **Program Counter:** The program counter needs to be extended from Lab 4 in order to be able to run `JALR` instructions - a third source (`PC <- Rs1 + ImmExt`) for `PC_next` other than: `PC <- PC + 4` and `PC <- PC + ImmExt` which were already used in Lab 4.
+
 ### Control Decode Table:
 ![Alt text](image-1.png)
 

@@ -1,9 +1,10 @@
 # Single Cycle
 ## Contents
-[File Listing](#file-listing)  
-[Testing Instructions](#testing-instructions)  
-[Test Results](#test-results)   
-[Documentation](#documentation)  
+1. [File Listing](#file-listing)  
+2. [Testing Instructions](#testing-instructions)  
+3. [Test Results](#test-results)   
+4. [Documentation](#documentation)  
+5. [Unit Testing Documentation](#unit-testing)
 
 ## File Listing
 Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
@@ -14,7 +15,7 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 | alu_src_mux.sv        |       |     |        |        |
 | control_unit.sv       |       | t   |        |        |
 | data_memory.sv        |       | x   |        |        |
-| data_top_level.sv     |       | t   |        |        |
+| data_top_level.sv     |       |     |        |        |
 | extend.sv             |       | p   |        |        |
 | instruction_memory.sv |       |     |        |        |
 | pc_module.sv          |       | t   |        | x      |
@@ -152,7 +153,7 @@ Additionally, CSV files with output data were generated for each distribution in
 | ![Single_Sine](../graph/output/single_sine_graph.png)         | ![Single_Triangle](../graph/output/single_triangle_graph.png) |
 
 ## Documentation
-There are number of changes required from Lab 4: From looking at both the reference program and out F1 RISC-V code, there a number of changes that must be implemented to successfully execute the new instructions found in these programs. The processor needs to be updated to include the following instructions:
+There are number of changes required from Lab 4: From looking at both the reference program and our F1 RISC-V code, there a number of changes that must be implemented to successfully execute the new instructions found in these programs. The processor needs to be updated to include the following instructions:
 - ADDI (already done from lab4)
 - BNE (already done from lab4)
 - ADD
@@ -199,3 +200,88 @@ To correctly choose the value we want to write to the register, we implement a m
 
 ### Upadted top level diagram:
 ![Alt text](images/image-2.png)
+
+## Unit Testing Documentation
+The following parts were tested individually with more detail on their testing process provided below:
+- ALU
+- Control unit
+- Sign extension unit
+- Program counter
+
+> [!NOTE]
+> The other major components - register file, instruction memory and data memory were tested in the context of the top level component. This was primarily due to time purposes, I thought parts that ended up being tested were relatively more crucial to the correct functionality of the CPU and if something didn't work correctly, I could narrow it down to the parts that weren't tested.
+
+#### ALU testing
+- In the testbench I wrote functions to compare the output of the ALU with the expected result of the arithmetic operation, for example:
+```cpp
+bool check_addition(Valu *top, int a, int b, int expected)
+{
+    top->SrcA = a;
+    top->SrcB = b;
+    top->ALUctrl = 0;
+    top->eval();
+    return(top->ALUResult == expected);
+}
+```
+
+- Similar functions were written for the following arithmetic functions: ADD, SUB, XOR, AND, EQ
+- The check would be performed by all ALU functions, I decided to write a separate test case for this, just to make sure the equality check was working for a random ALU function.
+- All test cases were passed.
+
+#### Control unit testing
+- To test the control unit, I wanted to evaluate the outputs of the control unit for the following test cases/ instructions:
+    - ADD
+    - JAL
+    - JALR
+    - LBU
+    - ADDI
+    - BNE (with EQ)
+    - BNE (without EQ)
+    - LUI
+    - SB
+    - XOR
+    - AND
+    - SUB
+    - BEQ (with EQ)
+    - BEQ (without EQ)
+
+- I tested each instruction by passing an instruction of the correct type to function that passed it into the control unit under test. The outputs were taken and stored in a vector. Into this function, I also passed in the correct answers, which I determined myself and verified with team members. If every term matched then the test passed. This function can be seen in the [control unit test bench](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/single_cycle/tests/control_unit_tb.cpp)
+- For BEQ and BNE, where the output determined on the EQ flag, I passed the value of this flag to the function as well.
+- All test cases were passed
+
+#### Sign extension unit testing
+- I tested the sign extension unit for I, S, B, J and U type instructions.
+- Similar to the ALU and control unit, I wrote functions that compared an instruction's extended immediate to its expected value:
+```cpp
+bool check_I_type(Vextend *top, int instruction, int expected)
+{
+    top->Immsrc = 0;
+    top->instr = instruction; 
+    top->eval();
+    return(top->Immop == expected);
+}
+```
+
+- All test cases were passed.
+
+#### PC module testing
+- This followed a similar pattern to before. 
+- I passed inputs to the PC module in vector form, stored the actual output and checked it agains the expected output.
+```cpp
+// define inputs for simulation
+    std::vector<int> resets = {0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0};
+    std::vector<int> pc_src = {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 2, 2, 2, 0, 1, 2};
+    std::vector<int> imm_op = {0, 4, 8, 12, 16, 20, 24, -4, 12, 36, -12, 64, 40, 44, 16, -4};
+    std::vector<int> reg_in = {0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, -8, 32, 36, 32, 32};
+
+    // define expected outputs:
+    // std::vector<int> expected_next_pc = {4, 8, 12, 0, 4, 24, 48, 44, 0, 36, 68, 56, 0, 4, 20, 28};
+    std::vector<int> expected_pc = {0, 4, 8, 12, 0, 4, 24, 48, 44, 0, 36, 68, 56, 0, 4, 20};
+
+    // initialise output vectors
+    // std::vector<int> output_next_pc;
+    std::vector<int> output_pc;
+```
+
+- If the test failed, I also wrote code to highlight in which cycle the program failed, so I knew what kind of case the program counter tripped up on.
+- All test cases were passed.

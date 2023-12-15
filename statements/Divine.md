@@ -91,4 +91,8 @@ BranchType [1:0]:
 
 - Chose this way as it made writing the code and managing it much easier.
 
+- (Single Cycle) When working with branching instructions, we chose to use the EQ flag to determine whether the branching condition was satisfied. This flag comes from the ALU and was the 'Zero' in the control unit.
+
 ## Given more time
+
+- Given more time I think it would have been great to research different methods used to make the CPU more efficient and eventually implement said methods. 

@@ -12,7 +12,6 @@
 ### If you'd like to skip ahead:
 
 * [What I learned](#learn)
-* [Mistakes](#mistakes)
 * [Design Decisions](#decisions)
 * [Next time](#next_time)
 ## Contributions
@@ -397,20 +396,17 @@ I believe we maintained a good dynamic as a group throughout the assignment and 
 
 ---
 
-<div id="mistakes"/>
-
-## Mistakes
-
-* [Reflect on any mistakes made during the project and what you learned from them.]
-
----
-
 <div id="desicions"/>
 
 ## Design Decisions
-* [Outline any design decisions you made during the project, including why you chose specific approaches.]
 
-> [Include visuals or diagrams if necessary.]
+My contributions to our processor involved me making the following design decisions:
+
+* The F1 program was left entirely up-to me and I made several decisions to try and emulate the real Formula 1 light sequence as closely as possible. This includes the pseudo-randomness of having the delay be determined by running a seed set by vBuddy's rotary value through a 7-bit LSFR and keeping the 5 least significant bits. This, in my eyes, was random enough to a satisfactory level. Another decision was to include the somewhat 'glitchy' reaction time counter which mirrors the point of the actual F1 light sequence - to try and get the quickest reaction possible and gain an advantage on other racers. 
+
+* Another deisgn decision of mine was the type of cache to be implemented. I ended up picking one that mirrors that in [Lecture 9 Slide 18,](#cache) only I thought we should increase the set size. This specific set of specifications was chosen as our programs are quite small and I thought it would be effective. 
+
+* My final design decision was to increase `PCSrc` from 1 bit to 2 bits rather than having `PCSrcE = (ZeroE AND BranchE) OR JumpE` which was suggested. I made this decision as I thought it would make our design more simple and elegant.
 
 ---
 
@@ -418,6 +414,10 @@ I believe we maintained a good dynamic as a group throughout the assignment and 
 
 ## Next time
 
-My goals for 'next time' are to 
+The two things I think have been left undone and I would want to finish if there were a 'next time'  are:
+
+1. To resolve the 'glitchy' trigger and perhaps have the reaction time be displayed on the vBuddy screen in bcd rather than hex.
+
+2. To find a way to implement an effective eviction policy to the cache and increase its number of 'ways'.
 
 ---

@@ -70,7 +70,7 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 | alu_src_mux.sv                                                    | Single Cycle        |   x    |     |       |       |
 | control_unit.sv                                                   | Single Cycle        |       | t   |    x    |        |
 | data_memory.sv                                                    | Single Cycle        |       | x   |        |        |
-| data_top_level.sv                                                 | Single Cycle        |   x   | t   |        |        |
+| data_top_level.sv                                                 | Single Cycle        |   x   |    |        |        |
 | extend.sv                                                         | Single Cycle        |       | p   |    p    |        |
 | instruction_memory.sv                                             | Single Cycle        |       |     |     x   |        |
 | pc_module.sv                                                      | Single Cycle        |       | t   |        | x      |

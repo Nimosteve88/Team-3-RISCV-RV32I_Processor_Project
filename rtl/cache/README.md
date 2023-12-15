@@ -14,8 +14,8 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 
 | File Name                | Steve | Sne | Divine | Yannis |
 |--------------------------|-------|-----|--------|--------|
-| cache.sv                 |       |     |        |        |
-| combined_cache_memory.sv |       | p/t |        |        |
+| cache.sv                 |       |     |        |   x    |
+| combined_cache_memory.sv |       | x/t |        |        |
 | data_memory.sv           |       | x/t |        |        |
 | rd_mux.sv                |       | x   |        |        |
 | top_level.sv             |       | x/t |        |        |

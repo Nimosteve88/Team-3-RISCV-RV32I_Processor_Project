@@ -4,6 +4,7 @@
 [Testing Instructions](#testing-instructions)  
 [Test Results](#test-results)   
 [Documentation](#documentation)  
+[Unit Testing Documentation](#unit-testing-documentation)
 
 ## File Listing
 > [!IMPORTANT] 
@@ -234,3 +235,33 @@ TODO: Fill out documentation for hazard unit development.
 
 ### Updated diagram with general fetch stage:
 ![Alt text](images/image-4.png)
+
+## Unit Testing Documentation
+The following parts were tested individually with more detail on their testing process provided below:
+- Updated Control Unit
+- Hazard Unit
+- PCSrc Logic
+- Pipeline Registers
+
+> [!NOTE]
+> The other components in the pipelined processor either remained the same from the single cycle version - so they didn't require additional testing, or they were tested in the top level.
+
+#### Updated Control Unit
+- This followed an almost identical approach to that of the single cycle control unit. 
+- Added cases for the new control signals - branch type and jump type
+- The test bench can be found [here](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/control_unit_pipelined_tb.cpp)
+- All test cases were passed
+
+#### Hazard unit
+- I generated a multiple test cases, defined from different potential hazards which would require forwarding or stalling.
+- The complete test bench can be found [here](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/tests/hazard_tb.cpp)
+- Like with previous tests, I passed in inputs as a vector and expected outputs and checked whether they match the actual results. 
+- All test cases were passed.
+
+#### PCSrc Logic
+- Followed a similar pattern to previous testing. 
+- Tested all the cases for PCSrc with input conditions
+- All test cases were passed.
+
+#### Pipeline registers
+- For pipeline registers, I chose to use GTKWave instead, with multiple signals, I thought it would be easier to just look at the waveform and see input transition to output on the next clock cycle.

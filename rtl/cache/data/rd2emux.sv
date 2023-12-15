@@ -11,13 +11,13 @@ module rd2emux #(
     always_comb begin
     case (ForwardBE)
       2'b00: begin
-        SrcBE <= RD2E;
+        SrcBE = RD2E;
       end
       2'b01: begin
-        SrcBE <= WD3;
+        SrcBE = WD3;
       end
       2'b10: begin
-        SrcBE <= ALUResult;
+        SrcBE = ALUResult;
       end
       default: $stop;
     endcase

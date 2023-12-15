@@ -1,6 +1,5 @@
 module cache #(
-    DATA_WIDTH = 32,
-    WIDTH = 8
+    DATA_WIDTH = 32
 ) (
     input logic                             clk,
     /* verilator lint_off UNUSED */
@@ -69,70 +68,72 @@ logic WEN_cache = ~(Hit);
 
 
 // reading is asynchronous (loading)
+/* verilator lint_off LATCH */
 always_comb
 begin
     //if (WEN_cache == 0) begin
         case (set_number)
                 2'b00: begin
                     if ((tag == cache_array[0][153:128]) && (cache_array[0][154] == 1)) begin
-                        Hit <= 1;
+                        Hit = 1;
                         case (block_offset)
-                            2'b00:          pre_dout <= cache_array[0][31:0];
-                            2'b01:          pre_dout <= cache_array[0][63:32];
-                            2'b10:          pre_dout <= cache_array[0][95:64];
-                            2'b11:          pre_dout <= cache_array[0][127:96];
+                            2'b00:          pre_dout = cache_array[0][31:0];
+                            2'b01:          pre_dout = cache_array[0][63:32];
+                            2'b10:          pre_dout = cache_array[0][95:64];
+                            2'b11:          pre_dout = cache_array[0][127:96];
                         endcase
                     end
                     else begin
-                        Hit <= 0;
+                        Hit = 0;
                     end
                 end
                 2'b01: begin
                     if ((tag == cache_array[1][153:128]) && (cache_array[1][154] == 1)) begin
-                        Hit <= 1;
+                        Hit = 1;
                         case (block_offset)
-                            2'b00:          pre_dout <= cache_array[1][31:0];
-                            2'b01:          pre_dout <= cache_array[1][63:32];
-                            2'b10:          pre_dout <= cache_array[1][95:64];
-                            2'b11:          pre_dout <= cache_array[1][127:96];
+                            2'b00:          pre_dout = cache_array[1][31:0];
+                            2'b01:          pre_dout = cache_array[1][63:32];
+                            2'b10:          pre_dout = cache_array[1][95:64];
+                            2'b11:          pre_dout = cache_array[1][127:96];
                         endcase
                     end
                     else begin
-                        Hit <= 0;
+                        Hit = 0;
                     end
                 end
                 2'b10: begin
                     if ((tag == cache_array[2][153:128]) && (cache_array[2][154] == 1)) begin
-                        Hit <= 1;
+                        Hit = 1;
                         case (block_offset)
-                            2'b00:          pre_dout <= cache_array[2][31:0];
-                            2'b01:          pre_dout <= cache_array[2][63:32];
-                            2'b10:          pre_dout <= cache_array[2][95:64];
-                            2'b11:          pre_dout <= cache_array[2][127:96];
+                            2'b00:          pre_dout = cache_array[2][31:0];
+                            2'b01:          pre_dout = cache_array[2][63:32];
+                            2'b10:          pre_dout = cache_array[2][95:64];
+                            2'b11:          pre_dout = cache_array[2][127:96];
                         endcase
                     end
                     else begin
-                        Hit <= 0;
+                        Hit = 0;
                     end
                 end
                 2'b11: begin
                     if ((tag == cache_array[3][153:128]) && (cache_array[3][154] == 1)) begin
-                        Hit <= 1;
+                        Hit = 1;
                         case (block_offset)
-                            2'b00:          pre_dout <= cache_array[3][31:0];
-                            2'b01:          pre_dout <= cache_array[3][63:32];
-                            2'b10:          pre_dout <= cache_array[3][95:64];
-                            2'b11:          pre_dout <= cache_array[3][127:96];
+                            2'b00:          pre_dout = cache_array[3][31:0];
+                            2'b01:          pre_dout = cache_array[3][63:32];
+                            2'b10:          pre_dout = cache_array[3][95:64];
+                            2'b11:          pre_dout = cache_array[3][127:96];
                         endcase
                     end
                     else begin
-                        Hit <= 0;
+                        Hit = 0;
                     end
                 end  
         endcase
-        dout_cache <= ByteAddr ? {24'b0, pre_dout[7:0]} : pre_dout;
+        dout_cache = ByteAddr ? {24'b0, pre_dout[7:0]} : pre_dout;
     //end
 end
+/* verilator lint_on LATCH */
 
 
 // writing is synchronous (storing)

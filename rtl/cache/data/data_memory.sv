@@ -32,6 +32,7 @@ end
 // reading is asynchronous (loading)
 // need to check if bits are correctly alligned - i.e. need to determine whether big endian or little endian
 // reading is now controlled by read enable signal - REN
+/* verilator lint_off LATCH */
 always_comb
 begin
     if (REN) begin
@@ -74,6 +75,7 @@ begin
         end
     end    
 end
+/* verilator lint_on LATCH */
 
 
 // writing is synchronous (storing)

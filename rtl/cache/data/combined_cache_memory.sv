@@ -43,7 +43,7 @@ data_memory main_memory (
     .read_data_mem(memory_output)
 );
 
-rd_mux read_data_output (
+rd_mux read_data_output_val (
     .read_data_memory(memory_output),
     .read_data_cache(cache_output),
     .hit(hit),

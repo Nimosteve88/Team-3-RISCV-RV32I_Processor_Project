@@ -273,7 +273,7 @@ The program is exactly the same as the prototype other than these minor differen
 
 * Finally a set of NoOps was added to the ending before returning to the main_loop. 
 
-> Important to note that the program uses a nested subroutine jumps in the `main_loop_idle` subroutine which requires storing and recovering of the return address. (This was done by using register `t6`.)
+> Important to note that the program uses a nested subroutine jumps in the `main_loop_idle` subroutine which requires storing and recovering the return address. (This was done by using register `t6`.)
 
 
 ---

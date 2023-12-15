@@ -153,6 +153,9 @@ Additionally, CSV files with output data were generated for each distribution in
 | ![Single_Sine](../graph/output/single_sine_graph.png)         | ![Single_Triangle](../graph/output/single_triangle_graph.png) |
 
 ## Documentation
+This is the processor we built in Lab 4:
+![Alt text](images/image-3.png)
+
 There are number of changes required from Lab 4: From looking at both the reference program and our F1 RISC-V code, there a number of changes that must be implemented to successfully execute the new instructions found in these programs. The processor needs to be updated to include the following instructions:
 - ADDI (already done from lab4)
 - BNE (already done from lab4)
@@ -163,6 +166,9 @@ There are number of changes required from Lab 4: From looking at both the refere
 - JALR 
 - LBU
 - XOR
+- AND 
+- BEQ
+- SUB
 
 The following changes to the processor are highlighted in the diagram and further explained below:
 ![Alt text](images/image.png)

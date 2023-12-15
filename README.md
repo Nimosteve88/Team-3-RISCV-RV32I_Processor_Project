@@ -53,7 +53,49 @@ You can also view all our test instructions and results in the `test` folder und
 ![Alt text](images/image-2.png)
 
 ## Repository Structure
-> TODO: Insert a tree diagram of the structure of this repository so that the marker has a broad overview of files and where they are located. Also include a list of important files and folders and explain their purpose - don't want the marker to figure it out on their own.
+```
+.
+├── images
+├── rtl
+│   ├── cache
+│   │   ├── control
+│   │   ├── data
+│   │   ├── images
+│   │   ├── obj_dir
+│   │   ├── pipelines
+│   │   └── tests
+│   │       └── obj_dir
+│   ├── graph
+│   │   └── output
+│   ├── pipelined
+│   │   ├── control
+│   │   ├── data
+│   │   ├── images
+│   │   ├── obj_dir
+│   │   ├── pipelines
+│   │   └── tests
+│   │       └── obj_dir
+│   └── single_cycle
+│       ├── control
+│       ├── data
+│       ├── images
+│       ├── obj_dir
+│       ├── program_counter
+│       │   └── obj_dir
+│       └── tests
+│           └── obj_dir
+├── statements
+│   └── Resources
+└── test
+```
+
+#### Important Sub-directories:
+- **rtl**: consists of all the source code for the project
+    - **cache, pipelined and single_cycle**: contains the source code for each version of the processor - corresponding to each goal. Each folder has the top level system verilog and its corresponding test bench with it as well the `.mem` files for instruction and data memory. Each file has its own `README` where you can find: **file listings, test instructions, test results, detailed documentation and unit test documentation**
+        - **tests**: a directory where unit testing was conducted - test system verilog files and their test benches can be found here.
+    - **graphs**: code used to generate the graphs for the reference program generating the pdf.
+- **statements**: each personal statement can be accessed from this folder as well
+- **test**: this directory contains the F1 program we used, **test instructions** as well as **test results** for our processor successfully executing the F1 program and my reference program.
 
 ## Combined File Listing
 This is the file listing for all the files that were used in each processor version. The listing has the file name and the version in which they were first used alongside the relevant contributors.

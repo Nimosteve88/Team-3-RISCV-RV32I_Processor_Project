@@ -4,12 +4,13 @@
 ---
 ##  Summary of Contributions
 
-*  Built and tested the Program Counter 
-*  Wrote and tested the F1 Light Sequence assembly code program
+*  Built and tested the [Program Counter](#pc)
+*  Wrote and tested the[ F1 Light Sequence assembly code program](#f1)
 *  Built the Hazard Detection Unit and helped in the design, debugging and testing of the Pipeline Registers
 * Helped in building the Cache, and helped test our Cache Memory system
 
 ## Contributions
+<div id="pc"/>
 ### Program Counter
 My first contribution was building the Program Counter (a task which was randomly assigned to me for Lab 4. I continued modifying the PC to make sure it works for the single-cycle, pipelined and cache versions of our CPU). 
 
@@ -27,6 +28,7 @@ By overcoming this error, we arrived at the final version of the PC module which
 
 The pipelined and pipelined+cache versions of the CPU saw `pc_module.sv` evolve to `fetch.sv` which I will cover below.
 
+<div id="f1"/>
 ### F1 Assembly Code Program
 
 The initial idea for the F1 light sequence program was to have it resemble the real life F1 light sequence as closely as possible, and add functionality that is able to time one's reaction. In trying to do so I came across several challenges such as:

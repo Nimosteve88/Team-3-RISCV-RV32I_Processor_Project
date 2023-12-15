@@ -79,7 +79,7 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 | write_back.sv                                                     | Pipelined           |    p   | t   |        | x      |
 | cache.sv                                                          | Pipelined and Cache |       |     |        | x      |
 | combined_cache_memory.sv                                          | Pipelined and Cache |       | x/t |        |        |
-| data_memory.sv                                                    | Pipelined and Cache |       | x/t |        |        |
+| data_memory.sv (updated for data cache)                           | Pipelined and Cache |       | x/t |        |        |
 | rd_mux.sv                                                         | Pipelined and Cache |       | x   |        |        |
 | top_level.sv (pipelined and cache)                                | Pipelined and Cache |       | x/t |        |        |
 ## References

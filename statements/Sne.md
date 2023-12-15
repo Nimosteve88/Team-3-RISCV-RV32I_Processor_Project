@@ -1,13 +1,13 @@
 # Personal Statement: Sne Samal
-**CID:** 02201807
+**CID:** 02201807  
 **GitHub Username:** sne-samal
 
 ## Contents
-- [Contributions](#contributions)
-- [Reflection](#reflection)
-- [Mistakes](#mistakes)
-- [Special design decisions](#special-design-decisions)
-- [Given more time](#given-more-time)
+1. [Contributions](#contributions)
+2. [Reflection](#reflection)
+3. [Mistakes](#mistakes)
+4. [Special design decisions](#special-design-decisions)
+5. [Given more time](#given-more-time)
 
 ## Contributions
 #### Single Cycle: Sign Extend: [4008b9c](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/4008b9cfe27fa0b299804222230f8b3731e6cacc)

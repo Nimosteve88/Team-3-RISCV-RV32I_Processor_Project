@@ -84,6 +84,10 @@
 - Using a python file, I generated graphs from the CSVs to better visualise the output pdfs.
 - These graphs can be seen under the reference program test results for each version of the processor.
 
+#### General: Diagrams:
+- All the diagrams of top level views and ones were data cache were drawn up by myself using [Draw.io](https://app.diagrams.net/).
+- From a top level point of view, I found making these diagrams to be very useful - when making these diagrams, I would get a good overview of what signals go where and why.
+
 > [!IMPORTANT]
 > For more details on the individual tests I did, you can view my documentation for the following sections:  
 > - [Single Cycle Unit Testing Documentation](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle#unit-testing-documentation)  

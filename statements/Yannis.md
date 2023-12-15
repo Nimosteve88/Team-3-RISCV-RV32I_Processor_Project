@@ -11,6 +11,7 @@
 
 ## Contributions
 <div id="pc"/>
+
 ### Program Counter 
 My first contribution was building the Program Counter (a task which was randomly assigned to me for Lab 4. I continued modifying the PC to make sure it works for the single-cycle, pipelined and cache versions of our CPU). 
 
@@ -29,6 +30,7 @@ By overcoming this error, we arrived at the final version of the PC module which
 The pipelined and pipelined+cache versions of the CPU saw `pc_module.sv` evolve to `fetch.sv` which I will cover below.
 
 <div id="f1"/>
+
 ### F1 Assembly Code Program
 
 The initial idea for the F1 light sequence program was to have it resemble the real life F1 light sequence as closely as possible, and add functionality that is able to time one's reaction. In trying to do so I came across several challenges such as:

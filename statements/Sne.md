@@ -77,6 +77,11 @@
 - Created the final version of the processor:  
 ![Alt text](Resources/image-7.png)
 
+#### PDF Graph Generation: [a4bdd29](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/a4bdd29dbd5cf58a4305049d7141889d185cadc6)
+- To help with visualisation of PDFs, I modified the test benches to write pdf data to a CSV file while the pdf was being plotted on the Vbuddy. 
+- Using a python file, I generated graphs from the CSVs to better visualise the output pdfs.
+- These graphs can be seen under the reference program test results for each version of the processor.
+
 > [!IMPORTANT]
 > For more details on the individual tests I did, you can view my documentation for the following sections:  
 > - [Single Cycle Unit Testing Documentation](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle#unit-testing-documentation)  

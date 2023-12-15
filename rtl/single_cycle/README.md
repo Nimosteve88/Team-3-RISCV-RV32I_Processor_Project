@@ -171,7 +171,7 @@ The following changes to the processor are highlighted in the diagram and furthe
 ```
 SB rs2, imm(rs1) --> the first byte of data at the address specified at (imm + rs1) = the first byte of the value at register rs2
 ```
-The data memory has another control input apart from write enable, ByteAddr, I have added this in to specify when we want to preform a data write/store on the least significant byte (LSB) of a value at a given address (`SB`) or when we want to perform a 0 sign extension on the LSB of a value at a given address (`LBU`). Whilst this covers all cases we need from the data memory unit, it is best practice to still inlcude standard functionality of reading and writing to data memory and using a separate control bit to determine when we want to do reading and/or writing on just the least significant byte.
+    The data memory has another control input apart from write enable, ByteAddr, I have added this in to specify when we want to preform a data write/store on the least significant byte (LSB) of a value at a given address (`SB`) or when we want to perform a 0 sign extension on the LSB of a value at a given address (`LBU`). Whilst this covers all cases we need from the data memory unit, it is best practice to still inlcude standard functionality of reading and writing to data memory and using a separate control bit to determine when we want to do reading and/or writing on just the least significant byte.
 
 2. **Result MUX**: In lab4, when writing to the register file, there was only one source of input data - from the ALU. However, now there are 4 different sources of write data:
     - Directly from the ALU (e.g `ADD`, `ADDI`, `XOR` instructions)

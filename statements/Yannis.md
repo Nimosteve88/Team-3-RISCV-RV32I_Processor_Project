@@ -7,7 +7,7 @@
 *  Built and tested the [Program Counter](#pc)
 *  Wrote and tested the[ F1 Light Sequence assembly code program](#f1)
 *  Built the [Hazard Detection Unit](#hazard) and helped in the [design, debugging and testing of the Pipeline Registers](#pipeline)
-* Built the [Cache](#cache), and helped test our Cache Memory system
+* Built the [Cache](#cache)
 
 ## Contributions
 <div id="pc"/>
@@ -25,7 +25,7 @@ Finally, as a result of Sne's testing, we found that the Program Counter would w
 
 This issue was caused by the fact that both `pc_module.sv` (the pc 'top')  would set `pc_next` to 0, and `pc_reg.sv` (the register itself) would set the stored value to 0. This would effectively create a two-cycle bubble which was resolved with commit [ac768a0](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/ac768a058ef602ffd99314098295a2d83d68e19b). 
 
-By overcoming this error, we arrived at the final version of the PC module which is used by the single cycle version of our CPU. [Single Cycle Program Counter](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle#pc).
+By overcoming this error, we arrived at the final version of the PC module which is used by the single cycle version of our CPU. [Single Cycle Program Counter](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle#pc)
 
 The pipelined and pipelined+cache versions of the CPU saw `pc_module.sv` evolve to `fetch.sv` which I will cover below.
 
@@ -341,8 +341,15 @@ In the image above, we can see a test scenario where the *Fetch and Decode Stage
 <div id="cache"/>
 
 
-### Building the Cache 
+### Cache 
 
+After discussions with the team, we decided to build a cache similar to the one shown on Prof. Peter Cheung's Lecture 9 Slide 18 "Design for Spatial Locality", only we decided to add two more sets (increase the *Set* variable to 2 bits -> thus decreasing the *Tag* from 27 to 26 bits).
+
+The Cache design shown in the lecture:
+
+![Alt text](Resources/cache.pdf)
+
+The documentation for our version of the cache can be found [here.](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/cache/README.md#cache)
 
 ---
 

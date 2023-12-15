@@ -1,5 +1,5 @@
 # Yannis Zioulis' Personal Statement
-### CID: 02223077  |  GitHub username: yanniszioulis
+### CID: 02223077  |  GitHub Username: yanniszioulis
 
 ---
 ##  Summary of Contributions

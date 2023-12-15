@@ -25,7 +25,7 @@ Finally, as a result of Sne's testing, we found that the Program Counter would w
 
 This issue was caused by the fact that both `pc_module.sv` (the pc 'top')  would set `pc_next` to 0, and `pc_reg.sv` (the register itself) would set the stored value to 0. This would effectively create a two-cycle bubble which was resolved with commit [ac768a0](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/ac768a058ef602ffd99314098295a2d83d68e19b). 
 
-By overcoming this error, we arrived at the final version of the PC module which is used by the single cycle version of our CPU. [Final Version of Single Cycle Program Counter](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle#pc).
+By overcoming this error, we arrived at the final version of the PC module which is used by the single cycle version of our CPU. [Single Cycle Program Counter](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle#pc).
 
 The pipelined and pipelined+cache versions of the CPU saw `pc_module.sv` evolve to `fetch.sv` which I will cover below.
 

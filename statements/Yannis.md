@@ -6,7 +6,7 @@
 
 *  Built and tested the [Program Counter](#pc)
 *  Wrote and tested the[ F1 Light Sequence assembly code program](#f1)
-*  Built the Hazard Detection Unit and helped in the design, debugging and testing of the Pipeline Registers
+*  Built the [Hazard Detection Unit](#hazard) and helped in the design, debugging and testing of the Pipeline Registers
 * Helped in building the Cache, and helped test our Cache Memory system
 
 ## Contributions
@@ -61,10 +61,9 @@ init:
     # Initialize useful values
     addi s1, zero, 0x1
     addi s2, zero, 0xff
-
+    
     # 7th degree primitive polynomial
     addi s3, zero, 0x83 
-
 
 idle:
     # Checking for trigger
@@ -165,7 +164,6 @@ init:
     addi s3, zero, 0x83 
 
     # addi t0, t0, 0x1
-
 
 main_loop_idle:
     # Checking for trigger
@@ -282,6 +280,16 @@ The program is exactly the same as the prototype other than these minor differen
   <summary><strong> If I had more time:</strong></summary>
   <p>By testing the program with vBuddy, I have become aware of the 'glitchy-ness' of the trigger in recording the reaction scores. This is something that I would definitely address if I had more time.</p>
 </details>
+
+<div id="hazard"/>
+
+### Hazard Detection Unit
+
+The design of the Hazard Unit relied heavily on section '7.5.3 Hazards' of _"Digital Design and Computer Architecture (RISC-V Edition)"_ by Sarah Harris and David Harris (pages 440 - 447), but still required a deep understanding of how and why stalls and flushes works in order to be implemented for our processor. 
+
+Particularly, I had to have the intuition that branches and jumps create control hazards, and that i had to be checking `PCSrcE [1:0]` for the values that correspond to our processor's jumps and branches. (Namely 01 and 10)
+
+The in-depth documentation of the Hazard Unit and how it was developed based on the textbook is available in [the pipelined version's README.](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/pipelined#hazard)
 
 ---
 

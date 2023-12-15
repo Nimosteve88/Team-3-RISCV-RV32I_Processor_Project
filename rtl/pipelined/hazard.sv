@@ -84,7 +84,7 @@ always_comb begin
 
 
 
-    // ** Flush decode and execute staged when a branch is taken or a load introduces a bubble:
+    // ** Flush decode and execute stages when a branch is taken or a load introduces a bubble:
     // 2 cycle stall for lw instructions, avoiding execute for instructions following taken jumps or branches
     branch_or_jump = ((PCSrcE == 2'b01) || (PCSrcE == 2'b10));
     FlushD = branch_or_jump;

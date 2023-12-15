@@ -214,18 +214,57 @@ Hazards occur when one instruction's result is needed by a subsequent instructio
 2. Stalls
 3. Flushes
 
-A software solution to hazards would invovle a programmer or compiler to insert `nop` instructions between hazard areas. This software solution is not ideal since it complicates programming and degrades performance.
+> A software solution to hazards would invovle a programmer or compiler to insert `nop` instructions between hazard areas. This software solution is not ideal since it complicates programming and degrades performance.
 
-2 types of hazards:
+2 Types of Hazards:
 1. Data hazard: occurs when an instruction tries to read a register that has not yet been written back by a previous instruction.
 2. Control hazard: occurs when the decision of what instruction to fetch next has not been made by the time the fetch takes place.
 
 #### Forwarding:
 - A method of solving data hazards.
-- Requires adding MUXs infront of the ALU so that it selects its operands from the register file, memory or writeback stage.
+- Requires adding MUXs in front of the ALU so that it selects its operands from the register file, memory or writeback stage.
 - Forwarding is necessary when an instruction in the Execute stage has a source register matching the destination register of an instruction in the Memory or Writeback stage.
 
-TODO: Fill out documentation for hazard unit development.
+<div id="hazard"/>
+#### Hazard Unit:
+
+The development of the hazard unit was completed in accordance with section '7.5.3 Hazards' of _"Digital Design and Computer Architecture (RISC-V Edition)"_ by Sarah Harris and David Harris (pages 440 - 447). 
+
+* **Solving Data Hazards with Forwarding:** 
+In order to detect and solve data hazards, the hazard unit needed to be able to detect whether source registers of instructions currently in the *Execute stage (Rs1E & Rs2E)* the the same as destination registers of previous instructions currently in the *Memory (RdM)* or *Write-back (RdW)* stages, and to detect whether these instructions will actually affect the register file *(RegWriteM & RegWriteW)*. The Hazard Unit - using these inputs - produces *ForwardAE & ForwardBE* to control the MUXs in front of the ALU controlling whether each of the two operands should come from: the register file, the *Memory Stage (WriteDataM)* or the *Write-back stage (ResultW)*. (These connections are shown in the diagram following the end of this section.) 
+
+**The logic implemented is the following (taken from page 443 of the textbook):**
+
+![[Pasted image 20231215185207.png]]
+
+* **Solving Load Data Hazards with Stalls:**
+With 'raw' data hazards, where the desired value exists within some stage of the pipelining - forwarding is effective, but when a load instruction - where the destination register is *RdE (from instruction currently in Execute Stage)* - is followed by any instruction where any of the source registers *Rs1D or Rs2D* are equal to it, a **stall** needs to occur. (The Hazard Unit knows whether the instruction at the execute stage is a `lw` instruction by checking if *ResultSrcE\[0\] == 0*) 
+
+If these conditions are met, and a `lw` instruction has the same destination register as the following instruction's source address, then a **stall** must occur for the new instruction to wait for the value of destination register of the `lw` instruction to be updated. The stall must essentially pause all functionality of the *Fetch & Decode Stages*. Also, to prevent any leakage of instructions flowing through the pipeline from the *Execute Stage* onwards, the *Execute Stage* is **flushed**. 
+
+* Stalls are implemented by adding enable signals to the *Fetch & Decode* pipeline registers, and having them be LOW when stalling.
+* Flushes are implemented by adding CLR functionality to the *Execute Stage*.
+
+Stalls and Flushes are controlled by the Hazard Unit via the outputs *StallF , StallD and FlushE* - corresponding to a stall in the *Fetch Stage*, a stall in the *Decode Stage* and a flush in the *Execute Stage*. (These connections are shown in the diagram following the end of this section.) 
+
+**The logic implemented is the following (taken from page 445 of the textbook):**
+
+![[Pasted image 20231215192151.png]]
+
+* **Solving Control Hazards:**
+Jump type and conditional branch-type instructions also present a problem as whenever a branch or jump is taken, the correct next Program Counter address is only figured out by the *Execute Stage*. This means that whenever a branch or jump instruction is taken, the processor has already began working through two instructions that need to be terminated. This is done by **flushing** both the *Decode and Execute Stages*. 
+
+In our processor, whether the next instructions being loaded into the pipeline is a jump or branch instruction, is indicated by `PCSrcE`. 
+* `PCSrcE == 10  ->  Jump`
+* `PCSrcE == 01  ->  Branch`
+
+This led to the following code used to deal with Control Hazards:
+```
+// Avoiding execute for instructions following taken jumps or branches
+branch_or_jump = ((PCSrcE == 2'b01) || (PCSrcE == 2'b10));
+FlushD = branch_or_jump;
+FlushE = branch_or_jump;
+```
 
 ### Updated Processor with Hazard unit changes:
 ![Alt text](images/image-2.png)

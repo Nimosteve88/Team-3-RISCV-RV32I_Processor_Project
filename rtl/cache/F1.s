@@ -43,7 +43,7 @@ main_loop_idle:
     beq t1, zero, main_loop
 
     # Call subroutine to setup FSM (demonstrating jalr)
-    jal ra, fsm_setup
+    jalr ra, s1, 0x43
 
     # Call subroutine to perform FSM loop
     jal ra, fsm_loop

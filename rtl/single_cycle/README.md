@@ -17,11 +17,12 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 | data_top_level.sv     |       | t   |        |        |
 | extend.sv             |       | p   |        |        |
 | instruction_memory.sv |       |     |        |        |
-| pc_module.sv          |       | t   |        |        |
-| pc_reg.sv             |       |     |        |        |
+| pc_module.sv          |       | t   |        | x      |
+| pc_reg.sv             |       |     |        | x      |
 | register_file.sv      |       | t   |        |        |
 | result_mux.sv         |       | x   |        |        |
-| toplevel.sv           |       | x/t   |        |        |
+| toplevel.sv           |       | x/t |        |        |
+| f1_lights_assembly.s  |       |     |        | x      |
 
 ## Testing Instructions
 #### Testing the Formula 1 Program

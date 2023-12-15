@@ -1,10 +1,10 @@
 # Pipelined Processor
 ## Contents
-[File Listing](#file-listing)  
-[Testing Instructions](#testing-instructions)  
-[Test Results](#test-results)   
-[Documentation](#documentation)  
-[Unit Testing Documentation](#unit-testing-documentation)
+1. [File Listing](#file-listing)  
+2. [Testing Instructions](#testing-instructions)  
+3. [Test Results](#test-results)   
+4. [Documentation](#documentation)  
+5. [Unit Testing Documentation](#unit-testing-documentation)
 
 ## File Listing
 > [!IMPORTANT] 

@@ -22,7 +22,7 @@ init:
     addi s1, zero, 0x1
     addi s2, zero, 0xff
 
-    # 7-bit primitive polynomial
+    # 7th degree primitive polynomial
     addi s3, zero, 0x83 
 
     # addi t0, t0, 0x1

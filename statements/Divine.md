@@ -1,11 +1,13 @@
 # Divine's Personal Statement
 
-**CID:** 02208866                    **GitHub Username:** CB-W03     
+**CID:** 02208866,                    **GitHub Username:** CB-W03     
 
 ## Quick Links
 - [Contributions](#contributions)
 
 - [Reflection](#reflection)
+
+- [Special design decisions](#special-design-decisions)
 
 - [Given more time](#given-more-time)
 
@@ -80,5 +82,13 @@ BranchType [1:0]:
 
 - Through the constant use of GitHub I learnt the importance of constant communication when working as a group to avoid conflicts and to work more efficiently.
 
+
+## Special design decisions
+
+- Programmed the Control Unit with a more high level view compared to a low level view as shown: 
+
+![Alt text](Resources/image-9.png)
+
+- Chose this way as it made writing the code and managing it much easier.
 
 ## Given more time

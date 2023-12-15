@@ -302,13 +302,15 @@ The in-depth documentation of the Hazard Unit and how it was developed based on 
 
 ### Pipeline Registers
 
+My work on the pipeline registers began after Steve's [a9ca067](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/a9ca06775a54a9afe55dc9e53e25b22ae43203df) commit, which I had a look through and attempted to improve since I saw there was formatting and fine-tuning to be done. 
+
 The implementation of the pipeline registers was a fairly simple, yet tedious process as it was comprised of essentially the same functionality for many input and output variables. At every clock cycle, the internal 'register' for each of the variables was updated with the input value, and the output of each register was assigned asynchronously. 
 
 Enable functions (to be used for stalling) were implemented in the *Fetch and Decode Stages* by only allowing the value stored in the internal 'registers' to be updated when EN was HIGH. 
 
 CLR functions (to be used for flushing) were implemented in the *Decode and Execute Stages* by changing the values in the internal 'registers' to zeros of correct length - the length assigned to every variable. 
 
-* The *Fetch Stage* as mentioned above is essentially an evolution of the `pc_module.sv` file. This is because, like its predecessor, `fetch.sv` contains all adders, only this time takes as input `SrcAE, PCE, ImmExtE and PCSrcE` from the *Execute Stage* to cover all of the needs of our programs. 
+* The *Fetch Stage* as mentioned earlier is essentially an evolution of the `pc_module.sv` file. This is because, like its predecessor, `fetch.sv` contains all adders, only this time takes as input `SrcAE, PCE, ImmExtE and PCSrcE` from the *Execute Stage* to cover all of the needs of our programs. 
 
 This is all implemented using the following SystemVerilog code:
 ```

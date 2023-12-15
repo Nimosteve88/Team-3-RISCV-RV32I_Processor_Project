@@ -35,7 +35,7 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
     $readmemh("f1.mem", instr_array);
 ```
 
-5. In `data_memory.sv` (located in the data folder) comment out line 24 (we do not need to read anything into data memory for the F1 program):
+5. In `data_memory.sv` (located in the data folder) comment out line 26 (we do not need to read anything into data memory for the F1 program):
 ```verilog
     //$readmemh("gaussian.mem", data_array, 17'h10000);
 ```
@@ -84,7 +84,7 @@ source ./single.sh
     $readmemh("pdf.mem", instr_array);
 ```
 
-5. In `data_memory.sv` (located in the data folder), make sure line 24 is uncommented and add the memory file for the desired probability distribution function e.g:
+5. In `data_memory.sv` (located in the data folder), make sure line 26 is uncommented and add the memory file for the desired probability distribution function e.g:
 ```verilog
     $readmemh("gaussian.mem", data_array, 17'h10000);
 ```

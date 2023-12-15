@@ -2,7 +2,7 @@
 
 ## Contents:
 1. [Contributors and Personal Statements](#contributors-and-personal-statements)  
-2. [Source Code](#source-code)  
+2. [Source Code and Testing Details](#source-code-and-testing-details)  
 3. [High Level Description](#high-level-description)  
 4. [Repository Structure](#repository-structure)  
 5. [Combined File Listing](#combined-file-listing)  
@@ -17,7 +17,7 @@
 | Divine Wodi    | 02208866 | **CB-W03**         | dw722@ic.ac.uk  | [Statement](statements/Divine.md)                           |
 | Yannis Zioulis | 02223077 | **yanniszioulis** | yz9722@ic.ac.uk | [Statement](statements/Yannis.md)                  |
 
-## Source Code
+## Source Code and Testing Details
 In the table below, you can directly access the source code for the different processor versions.
 
 In the README for each version, there is a file listing covering contributions, instructions to test, results of testing, detailed documentation explaining our design decisions and details of unit testing.

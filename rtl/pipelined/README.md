@@ -236,7 +236,7 @@ In order to detect and solve data hazards, the hazard unit needed to be able to 
 
 **The logic implemented is the following (taken from page 443 of the textbook):**
 
-![[images/Pasted image 20231215185207.png]]
+![Alt text](images/image-6.png)
 
 * **Solving Load Data Hazards with Stalls:**
 With 'raw' data hazards, where the desired value exists within some stage of the pipelining - forwarding is effective, but when a load instruction - where the destination register is *RdE (from instruction currently in Execute Stage)* - is followed by any instruction where any of the source registers *Rs1D or Rs2D* are equal to it, a **stall** needs to occur. (The Hazard Unit knows whether the instruction at the execute stage is a `lw` instruction by checking if *ResultSrcE\[0\] == 0*) 
@@ -250,7 +250,7 @@ Stalls and Flushes are controlled by the Hazard Unit via the outputs *StallF , S
 
 **The logic implemented is the following (taken from page 445 of the textbook):**
 
-![[images/Pasted image 20231215192151.png]]
+![Alt text](images/image-7.png)
 
 * **Solving Control Hazards:**
 Jump type and conditional branch-type instructions also present a problem as whenever a branch or jump is taken, the correct next Program Counter address is only figured out by the *Execute Stage*. This means that whenever a branch or jump instruction is taken, the processor has already began working through two instructions that need to be terminated. This is done by **flushing** both the *Decode and Execute Stages*. 

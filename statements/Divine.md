@@ -13,7 +13,7 @@
 
 ## Contributions
 
-### Control Unit ([Evidence]())
+### Control Unit [Evidence](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/d030a36b21b98ec279fab5ba0ce47d90b93f8791)
 
 Single_Cycle Overview:
 
@@ -28,7 +28,7 @@ Single_Cycle Overview:
 - And studied the different instructions we would use, in our assembly code, and how they affected the different parts of the RV CPU, to properly program control unit.
 
 
-### Pipelining [Evidence](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/d030a36b21b98ec279fab5ba0ce47d90b93f8791)
+### Pipelining [Evidence]()
 
 - In the pipelining I continued to oversee and modify the control unit, adding new Jump and Branch signals which would then be used by the PCSrc block to determine the next value of PC.
 

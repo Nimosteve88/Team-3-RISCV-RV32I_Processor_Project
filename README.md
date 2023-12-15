@@ -18,7 +18,7 @@
 |----------------|----------|--------------------|-----------------|----------------------------|
 | Steve Nimo     | 02254814 | **Nimosteve88**    | sn722@ic.ac.uk  | [Statement](statements/Steve.md)                  |
 | Sne Samal      | 02201807 | **sne-samal**      | ss5322@ic.ac.uk | [Statement](statements/Sne.md)                  |
-| Divine Wodi    | 02208866 | **CB-WO3**         | dw722@ic.ac.uk  |                            |
+| Divine Wodi    | 02208866 | **CB-WO3**         | dw722@ic.ac.uk  | [Statement](statements/Divine.md)                           |
 | Yannis Zioulis | 02223077 | **yanniszioulis** | yz9722@ic.ac.uk | [Statement](statements/Yannis.md)                  |
 
 ## Source Code
@@ -62,25 +62,25 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 |-------------------------------------------------------------------|---------------------|-------|-----|--------|--------|
 | alu.sv                                                            | Single Cycle        |   x    | t   |       |       |
 | alu_src_mux.sv                                                    | Single Cycle        |   x    |     |       |       |
-| control_unit.sv                                                   | Single Cycle        |       | t   |        |        |
+| control_unit.sv                                                   | Single Cycle        |       | t   |    x    |        |
 | data_memory.sv                                                    | Single Cycle        |       | x   |        |        |
 | data_top_level.sv                                                 | Single Cycle        |   x   | t   |        |        |
-| extend.sv                                                         | Single Cycle        |       | p   |        |        |
-| instruction_memory.sv                                             | Single Cycle        |       |     |        |        |
+| extend.sv                                                         | Single Cycle        |       | p   |    p    |        |
+| instruction_memory.sv                                             | Single Cycle        |       |     |     p   |        |
 | pc_module.sv                                                      | Single Cycle        |       | t   |        | x      |
 | pc_reg.sv                                                         | Single Cycle        |       |     |        | x      |
 | register_file.sv                                                  | Single Cycle        |   x   | t   |        |        |
 | result_mux.sv                                                     | Single Cycle        |       | x   |        |        |
 | toplevel.sv (single cycle)                                        | Single Cycle        |       | x/t |        |        |
 | F1.s                                                              | Single Cycle        |       |     |        | x      |
-| control_unit_pipelined.sv                                         | Pipelined           |       | t   |        |        |
+| control_unit_pipelined.sv                                         | Pipelined           |       | t   |    x    |        |
 | decode.sv                                                         | Pipelined           |    p   | t   |        | x      |
 | execute.sv                                                        | Pipelined           |   p    | t   |        | x      |
 | fetch.sv                                                          | Pipelined           |    p   | t   |        | x      |
 | hazard.sv                                                         | Pipelined           |       | t   |        | x      |
 | memory.sv                                                         | Pipelined           |    p   | t   |        | x      |
 | pc_reg.sv                                                         | Pipelined           |   p    |     |        |        |
-| PCSrclogic.sv                                                     | Pipelined           |       | t   |        |        |
+| PCSrclogic.sv                                                     | Pipelined           |       | t   |     x   |        |
 | rd1emux.sv                                                        | Pipelined           |    x   |     |        |        |
 | rd2emux.sv                                                        | Pipelined           |    x  |     |        |        |
 | top_level.sv (pipelined)                                          | Pipelined           |       | x/t |        |        |

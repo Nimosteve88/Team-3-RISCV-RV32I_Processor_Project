@@ -1,4 +1,4 @@
-# Team-3-RISCV-RV32I_Processor_Project
+# Team 3 RISCV CPU: Joint Statement 
 
 ## Contents:
 1. [Contributors and Personal Statements](#contributors-and-personal-statements)  

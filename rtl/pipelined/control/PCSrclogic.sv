@@ -8,13 +8,13 @@ module PCSrclogic(
 always_comb begin
     case(BranchTypeE)
         2'b00: begin
-            PCSrcE <= JumpTypeE;
+            PCSrcE = JumpTypeE;
         end
         2'b01: begin
-            PCSrcE <= (EQ) ? BranchTypeE : JumpTypeE;
+            PCSrcE = (EQ) ? BranchTypeE : JumpTypeE;
         end
         2'b10: begin
-            PCSrcE <= (EQ) ? JumpTypeE : ~(BranchTypeE);
+            PCSrcE = (EQ) ? JumpTypeE : ~(BranchTypeE);
         end
         default: $stop;
     endcase

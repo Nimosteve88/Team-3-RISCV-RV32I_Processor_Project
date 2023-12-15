@@ -11,13 +11,13 @@ module rd1emux #(
     always_comb begin
     case (ForwardAE)
       2'b00: begin
-        SrcAE <= RD1E;
+        SrcAE = RD1E;
       end
       2'b01: begin
-        SrcAE <= WD3;
+        SrcAE = WD3;
       end
       2'b10: begin
-        SrcAE <= ALUResult;
+        SrcAE = ALUResult;
       end
       default: $stop;
     endcase

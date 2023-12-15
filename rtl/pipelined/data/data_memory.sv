@@ -30,6 +30,7 @@ end
 
 // reading is asynchronous (loading)
 // need to check if bits are correctly alligned - i.e. need to determine whether big endian or little endian
+/* verilator lint_off LATCH */
 always_comb
 begin
     if (ByteAddr) begin
@@ -43,6 +44,7 @@ begin
         end
     end
 end
+/* verilator lint_on LATCH */
 
 
 // writing is synchronous (storing)

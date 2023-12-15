@@ -55,12 +55,12 @@ int main(int argc, char **argv, char **env)
 
 
         // reference program
-        if (simcyc > 1300000 && simcyc % 2 == 0)
-        {  
-            vbdPlot(int(top->a0), 0, 255);
+        // if (simcyc > 1300000 && simcyc % 4 == 0)
+        // {  
+        //     vbdPlot(int(top->a0), 0, 255);
             //csvFile << simcyc << "," << top->a0 << std::endl;
-            vbdCycle(simcyc);
-        }
+        //     vbdCycle(simcyc);
+        // }
         // end of reference program
         
 

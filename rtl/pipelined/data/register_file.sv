@@ -22,7 +22,9 @@ logic [DATAWIDTH-1:0] registers [31:0];
 
 
     always_ff @(negedge clk) begin
+        /* verilator lint_off WIDTH */
         registers[5'd5] <= t0;  // F1 program input
+        /* verilator lint_on WIDTH */
         registers[5'd29] <= t4; // F1 program input
         if (WE3 == 1'b1) begin
             if (AD3 != 0'b00000) registers[AD3] <= WD3; //RESULT FROM ALU IS STORED IN ADDRESS 3
@@ -32,8 +34,8 @@ logic [DATAWIDTH-1:0] registers [31:0];
 
     always_comb
     begin
-        RD1 <= registers[AD1]; // DATA IS READ FROM AD1 AND AD2
-        RD2 <= registers[AD2];
+        RD1 = registers[AD1]; // DATA IS READ FROM AD1 AND AD2
+        RD2 = registers[AD2];
        
         // a1 <=  registers[5'b01011];
         // t1 <=  registers[5'b00110];

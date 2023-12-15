@@ -226,6 +226,7 @@ Hazards occur when one instruction's result is needed by a subsequent instructio
 - Forwarding is necessary when an instruction in the Execute stage has a source register matching the destination register of an instruction in the Memory or Writeback stage.
 
 <div id="hazard"/>
+
 #### Hazard Unit:
 
 The development of the hazard unit was completed in accordance with section '7.5.3 Hazards' of _"Digital Design and Computer Architecture (RISC-V Edition)"_ by Sarah Harris and David Harris (pages 440 - 447). 
@@ -235,7 +236,7 @@ In order to detect and solve data hazards, the hazard unit needed to be able to 
 
 **The logic implemented is the following (taken from page 443 of the textbook):**
 
-![[Pasted image 20231215185207.png]]
+![[images/Pasted image 20231215185207.png]]
 
 * **Solving Load Data Hazards with Stalls:**
 With 'raw' data hazards, where the desired value exists within some stage of the pipelining - forwarding is effective, but when a load instruction - where the destination register is *RdE (from instruction currently in Execute Stage)* - is followed by any instruction where any of the source registers *Rs1D or Rs2D* are equal to it, a **stall** needs to occur. (The Hazard Unit knows whether the instruction at the execute stage is a `lw` instruction by checking if *ResultSrcE\[0\] == 0*) 
@@ -249,7 +250,7 @@ Stalls and Flushes are controlled by the Hazard Unit via the outputs *StallF , S
 
 **The logic implemented is the following (taken from page 445 of the textbook):**
 
-![[Pasted image 20231215192151.png]]
+![[images/Pasted image 20231215192151.png]]
 
 * **Solving Control Hazards:**
 Jump type and conditional branch-type instructions also present a problem as whenever a branch or jump is taken, the correct next Program Counter address is only figured out by the *Execute Stage*. This means that whenever a branch or jump instruction is taken, the processor has already began working through two instructions that need to be terminated. This is done by **flushing** both the *Decode and Execute Stages*. 

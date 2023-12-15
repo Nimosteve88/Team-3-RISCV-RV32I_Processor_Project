@@ -40,6 +40,8 @@ The initial idea for the F1 light sequence program was to have it resemble the r
 * Integrating a trigger
 * Working on the code without the ability to test it using our CPU, as it was still in its Lab 4 state when I started.
 
+> *All of the versions of the program were converted into machine code via the [RISC-V Online Assembler](https://riscvasm.lucasteske.dev/) recommended to us by Prof. Peter Cheung.*
+
 #### Prototype Program
 
 In order to address the final challenge, I decided to build a prototype F1 Program that would work without any jumps as I knew these instructions would be implemented and tested last. Also, I decided to use an [Online Interpreter](https://www.cs.cornell.edu/courses/cs3410/2019sp/riscv/interpreter/) to test my code while our processor was still being built and tested. 
@@ -129,6 +131,7 @@ lights_off:
 
 > Important to note that the final line `jal` instruction was added after `jal` instructions were verified to be working as expected.
 
+*See commit [a691311](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/a69131168a8793c8ee18715aecf6f55baf8990f1) for the final version of the prototype f1 program after online interpreter testing. (Minor adjustments followed but this was the last substantial adjustment.)*
 #### Final Version of the F1 Program
 
 The final version of the program is an evolution from the prototype, only this time traditional subroutines were implemented using `jal` and `jalr (ret)` instructions, the program has a `main` and finally - reaction timing has been added.  
@@ -281,8 +284,9 @@ The program is exactly the same as the prototype other than these minor differen
   <p>By testing the program with vBuddy, I have become aware of the 'glitchy-ness' of the trigger in recording the reaction scores. This is something that I would definitely address if I had more time.</p>
 </details>
 
-<div id="hazard"/>
+*See commit [f217b41](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/f217b4190a9913b2947605f286d905f50714ab35) for the commit showing the addition of the cycle count reaction time function. (Minor adjustments to the comments and display time followed)*
 
+<div id="hazard"/>
 
 ### Hazard Detection Unit
 
@@ -291,6 +295,8 @@ The design of the Hazard Unit relied heavily on section '7.5.3 Hazards' of _"Dig
 Particularly, I had to have the intuition that branches and jumps create control hazards, and that i had to be checking `PCSrcE [1:0]` for the values that correspond to our processor's jumps and branches. (Namely 01 and 10)
 
 The in-depth documentation of the Hazard Unit and how it was developed based on the textbook is available in [the pipelined version's README.](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/pipelined#hazard)
+
+*See commit [aab075e](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/aab075ef4697e2541863cd020ac98ff42fbec0ef) for the last edit I made on the hazard unit.*
 
 <div id="pipeline"/>
 
@@ -330,6 +336,8 @@ pc_reg mypc_reg (
 );
 ```
 
+*See commit [80d25e7](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/80d25e79fbdb18bf1c55d909392d126d5b404408) for the final edit I made to any of the pipeline registers, and commit [7e822ad](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/7e822adebda92ae5e249fcae707993b2bc5e5c98) for the first set of 'completed' pipeline registers (before testing).*
+
 **Helping with Testing the Pipeline Registers:**
 
 Our primary tester, Sne, was attempting to test each pipeline register individually. In doing so, he was not able to capture the essence of bubble creation and so was not certain whether we had a working set of pipeline registers. Upon discussing this with him, I realised that perhaps we had to test the effects of *stalling* and *flushing* by testing the entire chain of pipeline registers. I managed to do so by creating a file containing the *Fetch, Decode and Execute Stages* (as these are the stages with flush and stall functionality) [fetch_decode_top.sv.](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/pipelines/fetch_decode_top.sv) This 'pseudo-top' was tested alongside [fetch_decode_test_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/pipelines/fetch_decode_test_tb.cpp) and produced the following results:
@@ -338,8 +346,9 @@ Our primary tester, Sne, was attempting to test each pipeline register individua
 
 In the image above, we can see a test scenario where the *Fetch and Decode Stages* are stalled for 4 and 3 cycles respectively and *Execute Stage* is flushed - followed by a *Decode Stage* flush. In this test, I was checking to see that all of the stages go through all of the sequential PC values and that none were skipped. **The test was passed** and this is what prompted up to put everything together and test our pipelined processor with the full programs.
 
-<div id="cache"/>
+*See commit [8919a7c](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/8919a7c6e04a26ee7cf38011b4a162262a1494d2) for the final update where the Execute Stage was added to be tested. (ignoring housekeeping commits)*
 
+<div id="cache"/>
 
 ### Cache 
 
@@ -350,6 +359,8 @@ The Cache design shown in the lecture:
 ![Alt text](Resources/cache.jpg)
 
 The documentation for our version of the cache can be found [here.](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/cache/README.md#cache)
+
+*See commit [e1c70e0](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/e1c70e03d5ad7a4a129d28e61ef6aa62f871d19a) for the final version of the cache before it was formatted for in-depth testing.*
 
 ---
 

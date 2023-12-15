@@ -207,4 +207,4 @@ The following parts were tested individually with more detail on their testing p
 - I tested this together as one rather than testing the cache individually due to time constraints.
 - Once again, i used the test memory file to help with visualisation.
 - GTK wave was used to plot signals and visualise data being written to the cache on the next clock cycle when there was a miss, as can be seen on the waveform below:
-![Alt text](images/image-2.jpg>)
+![Alt text](images/image-2.jpg)

@@ -72,3 +72,4 @@ BranchType [1:0]:
 
 ## Reflection
 
+- Overseeing the creation and maintanence of the control unit significantly improved my understanding of the CPU as a whole. It has an important role in the CPU and having this role helped me understand the other parts of the CPU, like the ALU, Data Memory and so on.

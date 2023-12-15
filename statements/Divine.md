@@ -5,7 +5,7 @@
 ## Quick Links
 - [Contributions](#contributions)
 
-- [reflection](#reflection)
+- [Reflection](#reflection)
 
 ## Contributions
 
@@ -73,3 +73,5 @@ BranchType [1:0]:
 ## Reflection
 
 - Overseeing the creation and maintanence of the control unit significantly improved my understanding of the CPU as a whole. It has an important role in the CPU and having this role helped me understand the other parts of the CPU, like the ALU, Data Memory and so on.
+
+- Through the stretched goals I gained a deeper understanding of pipelining and caching in computer architecture and how important they are in making a CPU more efficient. This also helped me significantly improve my proficiency in System Verilog and I am more confident in using it now compared to the start of this project.

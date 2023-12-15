@@ -78,10 +78,10 @@
 ![Alt text](Resources/image-7.png)
 
 > [!IMPORTANT]
-> For more details on the individual tests I did, you can view my documentation for the following sections:
-> [Single Cycle Unit Testing Documentation](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle#unit-testing-documentation)
-> [Pipelined Unit Testing Documentation](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/pipelined#unit-testing-documentation)
-> [Pipelined and Cache Unit Testing Documentation](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/cache#unit-testing-documentation)
+> For more details on the individual tests I did, you can view my documentation for the following sections:  
+> - [Single Cycle Unit Testing Documentation](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle#unit-testing-documentation)  
+> - [Pipelined Unit Testing Documentation](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/pipelined#unit-testing-documentation)  
+> - [Pipelined and Cache Unit Testing Documentation](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/cache#unit-testing-documentation)  
 
 ## Reflection 
 #### Testing and Debugging:

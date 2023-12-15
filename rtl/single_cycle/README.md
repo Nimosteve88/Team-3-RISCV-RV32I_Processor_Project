@@ -344,6 +344,7 @@ To correctly choose the value we want to write to the register, we implement a m
 #### Updated top level diagram:
 ![Alt text](images/image-2.png)
 
+<div id="pc"/>
 ##### Program Counter: 
 The program counter module has been updated to be able to execute `JALR` instructions. This is done by:
 Having adders calculate `PC + 4`, `PC + ImmExt` and `ImmExt + SrcA (ImmExt + Rs1)`.  By doing so for every current value of the `PC`, it meant that only a 3 input MUX was needed to implement all necessary instructions. The control signal for this MUX is (as mentioned above) `PCSrc [1:0]`. 

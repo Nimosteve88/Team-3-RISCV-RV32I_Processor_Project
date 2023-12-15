@@ -392,7 +392,7 @@ Throughout this project, I believe I have had to make use of my debugging skills
 
 ### Group dynamics
 
-I believe we maintained a good dynamic as a group throughout the assignment and understood that some people's productivity will be more consistent that others. Also we respected each other's obligations outside of the project and maintained a fluid "Whoever is free contributes, whoever is stuck asks for help." mentality. This was made easier by our pretty constant communication via a WhatsApp group chat with a frequent exchange of screenshots and questions allowing for everyone to be up-to-date on concurrent problems being addressed. This sort of environment helped me contribute effectively and I will be aiming to cultivate it in future group projects.
+I believe we maintained a good dynamic as a group throughout the assignment and understood that some people's productivity will be more consistent than others. Also we respected each other's obligations outside of the project and maintained a fluid "Whoever is free contributes, whoever is stuck asks for help." mentality. This was made easier by our pretty constant communication via a WhatsApp group chat with a frequent exchange of screenshots and questions allowing for everyone to be up-to-date on concurrent problems being addressed. This sort of environment helped me contribute effectively and I will be aiming to cultivate it in future group projects.
 
 ---
 

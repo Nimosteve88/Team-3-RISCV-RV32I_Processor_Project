@@ -54,4 +54,4 @@ Piplined Overview:
 - With the help of Sne Samal, testbenches were produced for the different areas I contributed in order to verify whether my work was successful.
 
 ## Given more time
-- Although we was able to implement our own version of Cache it definitely would've been great if I conducted research into more complicated implementations of Cache such as 4 way. Usually the more 'ways' the Cache has then the stronger the CPU's performance will be. 
+- Although we were able to create our own version of Cache, it would have been ideal if I had undertaken study into more difficult Cache implementations, such as 4 way. The more 'ways' the Cache has, the better the CPU's performance will be. 

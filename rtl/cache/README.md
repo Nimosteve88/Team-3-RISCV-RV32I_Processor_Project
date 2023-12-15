@@ -1,9 +1,10 @@
 # Pipelined Processor with Data Cache.
 ## Contents
-[File Listing](#file-listing)  
-[Testing Instructions](#testing-instructions)  
-[Test Results](#test-results)   
-[Documentation](#documentation)  
+1. [File Listing](#file-listing)  
+2. [Testing Instructions](#testing-instructions)  
+3. [Test Results](#test-results)   
+4. [Documentation](#documentation)  
+5. [Unit Testing Documentation](#unit-testing-documentation)
 
 ## File Listing
 > [!IMPORTANT]
@@ -152,15 +153,15 @@ Additionally, CSV files with output data were generated for each distribution in
     
 For this stretch goal, we will be implementing a data cache designed for both temporal and spatial locality.
 
-### Cache Organisation:
-![Alt text](image.png)
+#### Cache Organisation:
+![Alt text](images/image.png)
 
-### Cache in the Top Level:
+#### Cache in the Top Level:
 - Since the data cache interacts directly with the data memory, there needed to be some modifications to the data memory:
 
-![Alt text](image-1.png)
+![Alt text](images/image-1.png)
 
-### Data Cache Functionality Overview:
+#### Data Cache Functionality Overview:
 - The address comes from the memory pipeline register.
 - It is fed into the data cache that determines whether there is a hit or not.
 - If there is a hit, then output data from the data cache is sent to the MUX that has hit as a select and hence the read data (RD) is the value from cache.
@@ -171,3 +172,39 @@ For this stretch goal, we will be implementing a data cache designed for both te
 - The new data is written into the cache and the valid bit is set to 1 regardless of previous result - the write enable for cache (WEN_cache) is high here.
 - Both data cache and memory have an input ByteAddr, which was derermined from the control unit in the decode stage. This is to ensure that when perforaming load byte instructions, the data is correctly formatted - e.g, the `LBU` instructon.
 - The data memory still can do normal writing operations - store word instructions.
+
+## Unit Testing Documentation
+The following parts were tested individually with more detail on their testing process provided below:
+- Data memory
+- Combined cache and data memory
+
+> [!NOTE]
+> The other components in the pipelined and cache processor either remained the same from the single cycle version or the pipelined version - so they didn't require additional testing, or they were tested in the top level.
+
+#### Data memory
+- I tested data memory using GTK wave and a test memory file to ensure that when data is read from the memory, surrounding words were also outputted, to be sent to the cache.
+- The test memory file helped with this since I chose blocks to be ordered:
+```
+00 10 11 11  
+01 10 11 11  
+02 10 11 11  
+03 10 11 11  
+04 10 11 11  
+05 10 11 11  
+06 10 11 11  
+07 10 11 11  
+08 10 11 11  
+09 10 11 11  
+0A 10 11 11 
+.
+.
+.
+```
+- I also tested for ByteAddr functionality as well and ensured that this doesn't affect the data that would be written to the cache.
+
+#### Combined cache and data memory
+- A combined component with data cache, data memory and a mux to select the right data was built.
+- I tested this together as one rather than testing the cache individually due to time constraints.
+- Once again, i used the test memory file to help with visualisation.
+- GTK wave was used to plot signals and visualise data being written to the cache on the next clock cycle when there was a miss, as can be seen on the waveform below:
+![Alt text](images/image-2.jpg>)

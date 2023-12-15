@@ -13,13 +13,13 @@
 
 Single_Cycle Overview:
 
-![Alt text](control_unit.png)
+![Alt text](Resources/control_unit.png)
 
 - Tasked with creating the control unit SV file and maintaining it as changes are being made to project.
 - Considered I, S, B, J, and U type instructions (based on our F1 assembly program) and how the control unit generates the control signals based on the instruction word.
 - Used this table:
 
-![Alt text](control_decoder.png)
+![Alt text](Resources/control_decoder.png)
 
 - And studied the different instructions we would use, in our assembly code, to properly program control unit.
 
@@ -28,7 +28,7 @@ Single_Cycle Overview:
 
 - Made changes to the Control Unit to generate Jump and Branch signals based on the instruction word (in bold below)
 
-![Alt text](pipelinedctrl.png)
+![Alt text](Resources/pipelinedctrl.png)
 
 - These tables used to generate Jump and Branch signals depending on the instruction word: 
 
@@ -49,7 +49,7 @@ BranchType [1:0]:
 
 - Constructed to PCSrc logic block which would determine the value of PCSrc, which would determine whether the next value of PC will be PC + 4, PC + offset, or rs1 + offset.
 
-![Alt text](PCSrcBlock.png)
+![Alt text](Resources/PCSrcBlock.png)
 
 - Value of PCSrc was determined by the Jump and Branch flags from the Control Unit, and the EQ flag from the ALU.
 

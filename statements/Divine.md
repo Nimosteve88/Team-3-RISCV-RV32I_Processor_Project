@@ -13,7 +13,7 @@
 
 ## Contributions
 
-### Control Unit [Evidence](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/d030a36b21b98ec279fab5ba0ce47d90b93f8791)
+### Control Unit ([Evidence](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/d030a36b21b98ec279fab5ba0ce47d90b93f8791))
 
 Single_Cycle Overview:
 
@@ -28,7 +28,7 @@ Single_Cycle Overview:
 - And studied the different instructions we would use, in our assembly code, and how they affected the different parts of the RV CPU, to properly program control unit.
 
 
-### Pipelining [Evidence]()
+### Pipelining ([Evidence](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/06812cc3f92f7173b2e049319bc0cc5181ba35aa))
 
 - In the pipelining I continued to oversee and modify the control unit, adding new Jump and Branch signals which would then be used by the PCSrc block to determine the next value of PC.
 
@@ -51,7 +51,7 @@ BranchType [1:0]:
 | 1           | 0           | BNE        |
 
 
-- Constructed to PCSrc logic block which would determine the value of PCSrc, which would determine the next value of PC. Either:
+- Constructed to PCSrc logic block, ([Evidence](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/3c96daaf8972a1ad8114c12ee277b4c8fc8edff5)), which would determine the value of PCSrc, which would determine the next value of PC. Either:
  - PC = PC + 4
  - PC = PC + offset
  - PC = rs1 + offset

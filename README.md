@@ -72,7 +72,7 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 | data_memory.sv                                                    | Single Cycle        |       | x   |        |        |
 | data_top_level.sv                                                 | Single Cycle        |   x   | t   |        |        |
 | extend.sv                                                         | Single Cycle        |       | p   |    p    |        |
-| instruction_memory.sv                                             | Single Cycle        |       |     |     p   |        |
+| instruction_memory.sv                                             | Single Cycle        |       |     |     x   |        |
 | pc_module.sv                                                      | Single Cycle        |       | t   |        | x      |
 | pc_reg.sv                                                         | Single Cycle        |       |     |        | x      |
 | register_file.sv                                                  | Single Cycle        |   x   | t   |        |        |

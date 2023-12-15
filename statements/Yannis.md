@@ -351,7 +351,7 @@ Our primary tester, Sne, was attempting to test each pipeline register individua
 
 ![Alt text](Resources/image-10.jpg)
 
-In the image above, we can see a test scenario where the *Fetch and Decode Stages* are stalled for 4 and 3 cycles respectively and *Execute Stage* is flushed - followed by a *Decode Stage* flush. In this test, I was checking to see that all of the stages go through all of the sequential PC values and that none were skipped. **The test was passed** and this is what prompted up to put everything together and test our pipelined processor with the full programs.
+In the image above, we can see a test scenario where the *Fetch and Decode Stages* are stalled for 4 and 3 cycles respectively and *Execute Stage* is flushed - followed by a *Decode Stage* flush. In this test, I was checking to see that all of the stages go through all of the sequential PC values and that none were skipped. **The test was passed** and this is what prompted us to put everything together and test our pipelined processor with the full programs.
 
 > *See commit [8919a7c](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/8919a7c6e04a26ee7cf38011b4a162262a1494d2) for the final update where the Execute Stage was added to be tested. (ignoring housekeeping commits)*
 

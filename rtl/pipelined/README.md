@@ -14,18 +14,18 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 
 | File Name                 | Steve | Sne | Divine | Yannis |
 |---------------------------|-------|-----|--------|--------|
-| control_unit_pipelined.sv |       | t   |        |        |
-| decode.sv                 |       | t   |        |        |
-| execute.sv                |       | t   |        |        |
-| fetch.sv                  |       | t   |        |        |
-| hazard.sv                 |       | t   |        |        |
-| memory.sv                 |       | t   |        |        |
-| pc_reg.sv                 |       |     |        |        |
-| PCSrclogic.sv             |       | t   |        |        |
-| rd1emux.sv                |       |     |        |        |
-| rd2emux.sv                |       |     |        |        |
-| top_level.sv              |       | x/t   |        |        |
-| write_back.sv             |       | t   |        |        |
+| control_unit_pipelined.sv |       | t   |   x    |   x    |
+| decode.sv                 |   p   | t   |        |   x    |
+| execute.sv                |   p   | t   |        |   x    |
+| fetch.sv                  |   p   | t   |        |   x    |
+| hazard.sv                 |       | t   |        |   x    |
+| memory.sv                 |   p   | t   |        |   x    |
+| pc_reg.sv                 |   p   |     |        |        |
+| PCSrclogic.sv             |       | t   |   x    |        |
+| rd1emux.sv                |   x   |     |        |        |
+| rd2emux.sv                |   x   |     |        |        |
+| top_level.sv              |       | x/t |        |        |
+| write_back.sv             |   p   | t   |        |   x    |
 
 ## Testing Instructions
 #### Testing the Formula 1 Program

@@ -77,6 +77,12 @@
 - Created the final version of the processor:  
 ![Alt text](Resources/image-7.png)
 
+> [!IMPORTANT]
+> For more details on the individual tests I did, you can view my documentation for the following sections:
+> [Single Cycle Unit Testing Documentation](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/single_cycle#unit-testing-documentation)
+> [Pipelined Unit Testing Documentation](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/pipelined#unit-testing-documentation)
+> [Pipelined and Cache Unit Testing Documentation](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/cache#unit-testing-documentation)
+
 ## Reflection 
 #### Testing and Debugging:
 As the primary tester and debugger, I learnt to write effectvie test benches whils covering as many corner cases as I could. I also automated some of the test results, making use of the terminal to view my test results. In cases where I would have view and manually verify multiple signals with GTKWave, I found this tactic useful. Additionally I feel more confident looking at code written by other people and debugging it when the code failed my tests.
@@ -115,6 +121,7 @@ Some mistakes I made included applying test bench inputs in the wrong place - i.
 ![Alt text](Resources/image-4.png)
 
 ## Given more time
+- I would have liked to test each individual component - perform more unit tests rather than rely on chance for some components when it came to top level testing.
 - Given more time, I would try and make more wrappers around lower level components - such that the final top level file has a fewer number of parts. For instance, I would wrap each pipeline stage, for example into its own component. This would make each component more modular and the top level a lot less complicated.
 - I would have liked to make use of GitHub actions to automate testing. Given more time, I would have liked to learn how to use this feature of GitHub. If I had been familiar with this, time would have been saved in testing, since team members would have been able to immediately see if their component would work or not.
 - I would have also liked to reasearch additional ways to improve performance. With more time, I would have looked at branch prediction in particular to design a more efficient RISC-V CPU.

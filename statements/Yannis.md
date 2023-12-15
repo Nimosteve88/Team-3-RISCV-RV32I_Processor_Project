@@ -7,8 +7,14 @@
 *  Built and tested the [Program Counter](#pc)
 *  Wrote and tested the[ F1 Light Sequence assembly code program](#f1)
 *  Built the [Hazard Detection Unit](#hazard) and helped in the [design, debugging and testing of the Pipeline Registers](#pipeline)
-* Built the [Cache](#cache)
+*  Built the [Cache](#cache)
 
+### If you'd like to skip ahead:
+
+* [What I learned](#learn)
+* [Mistakes](#mistakes)
+* [Design Decisions](#decisions)
+* [Next time](#next_time)
 ## Contributions
 <div id="pc"/>
 
@@ -366,30 +372,40 @@ The documentation for our version of the cache can be found [here.](https://gith
 
 ---
 
+<div id="learn"/>
+
 ## What I learned 
 
 ### Git
-[Discuss your experience with Git, including specific commands used, problem-solving, and collaboration with team members.]
 
+This being my first time working this extensively on a GitHub repo with such a large number of frequent commits, I can safely say that I know feel far more comfortable at dealing with `.gitignore` files as I had a bit of a scare with my first Obsidian pushes. The fact that I accessed the repo both via Visual Studio Code and Obsidian has helped me grow more confident in dealing with the inevitable conflicts that arise. The most important thing I have gained however, is an appreciation for the usefulness of GitHub - I am looking forward to having even more conflicts to resolve in the future.
 ### Markdown
-[Describe your use of Markdown for documentation purposes.]
 
-### System Verilog and Verilator
-[Discuss your learning experience with System Verilog and Verilator, highlighting your comfort level and ability to handle common errors.]
+Although I recorded all of my notes on the IAC labs using Markdown files on Obsidian, I have now come to realise how friendly a piece of software that Obsidian is as everything would work fine locally, and not while viewing the GitHub readme files on my browser. In this sense, I have developed an understanding on how to be more careful when writing Markdown code - especially when it comes to creating files to be displayed on a GitHub repo.
+
+### System Verilog
+
+As Prof. Cheung promised, I have only now come to realise the difference between blocking and non-blocking I/O operations - after loads of iterations of trial and error that is. I think my understanding of System Verilog as a whole have increased as I have had to work with a large variety of processor modules, each designed to accomplish different things.
 
 ### Debugging skills
-[Explain how you improved your debugging skills, whether through GTKwave or other tools.]
+
+Throughout this project, I believe I have had to make use of my debugging skills when trying to develop the F1 RISC-V Assembly code program using the Online Interpreter linked above, and in testing the pipeline - trying to understand whether our registers work as expected. All in all I have developed a calmer method to debugging and have come to appreciate the importance of a good testbench. (More often than not we had faulty testbenches or testing methods, rather than faulty CPU modules.)
 
 ### Group dynamics
-[Share your insights into working within a team, including the importance of giving team members creative space and time to work at their own pace.]
+
+I believe we maintained a good dynamic as a group throughout the assignment and understood that some people's productivity will be more consistent that others. Also we respected each other's obligations outside of the project and maintained a fluid "Whoever is free contributes, whoever is stuck asks for help." mentality. This was made easier by our pretty constant communication via a WhatsApp group chat with a frequent exchange of screenshots and questions allowing for everyone to be up-to-date on concurrent problems being addressed. This sort of environment helped me contribute effectively and I will be aiming to cultivate it in future group projects.
 
 ---
+
+<div id="mistakes"/>
 
 ## Mistakes
 
 * [Reflect on any mistakes made during the project and what you learned from them.]
 
 ---
+
+<div id="desicions"/>
 
 ## Design Decisions
 * [Outline any design decisions you made during the project, including why you chose specific approaches.]
@@ -398,19 +414,10 @@ The documentation for our version of the cache can be found [here.](https://gith
 
 ---
 
+<div id="next_time"/>
+
 ## Next time
-[Discuss what you would do differently next time, any improvements you would make, and lessons learned.]
+
+My goals for 'next time' are to 
 
 ---
-
-## Acknowledgments
-[If there are specific individuals or resources you want to acknowledge, include them here.]
-
----
-
-## References
-[List any references or links to specific commits, branches, or documents mentioned in your statement.]
-
----
-
-[Include any additional sections or details you find relevant to your personal statement. Customize the template to fit your specific experiences and contributions.]

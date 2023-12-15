@@ -1,16 +1,12 @@
 # Team-3-RISCV-RV32I_Processor_Project
 
 ## Contents:
-1. [Joint Statement](#joint-statement)  
-2. [Contributors and Personal Statements](#contributors-and-personal-statements)  
-3. [Source Code](#source-code)  
-4. [High Level Description](#high-level-description)  
-5. [Repository Structure](#repository-structure)  
-6. [Combined File Listing](#combined-file-listing)  
-7. [References](#references)  
-
-## Joint Statement
->TODO: Insert Joint Statement Here
+1. [Contributors and Personal Statements](#contributors-and-personal-statements)  
+2. [Source Code](#source-code)  
+3. [High Level Description](#high-level-description)  
+4. [Repository Structure](#repository-structure)  
+5. [Combined File Listing](#combined-file-listing)  
+6. [References](#references)  
 
 ## Contributors and Personal Statements
 

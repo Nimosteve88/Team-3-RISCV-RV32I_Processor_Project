@@ -347,7 +347,7 @@ After discussions with the team, we decided to build a cache similar to the one 
 
 The Cache design shown in the lecture:
 
-![Alt text](Resources/cache.pdf)
+![Alt text](Resources/cache.jpg)
 
 The documentation for our version of the cache can be found [here.](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/cache/README.md#cache)
 

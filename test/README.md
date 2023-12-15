@@ -324,9 +324,9 @@ https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/assets/66144
 
 Additionally, CSV files with output data were generated for each distribution in the test bench. These were plotted and are as follows:
 
-| ![Single_Gaussian](../graph/output/single_gaussian_graph.png) | ![Single_Noisy](../graph/output/single_noisy_graph.png)       |
+| ![Single_Gaussian](../rtl/graph/output/single_gaussian_graph.png) | ![Single_Noisy](../rtl/graph/output/single_noisy_graph.png)       |
 |---------------------------------------------------------------|---------------------------------------------------------------|
-| ![Single_Sine](../graph/output/single_sine_graph.png)         | ![Single_Triangle](../graph/output/single_triangle_graph.png) |
+| ![Single_Sine](../rtl/graph/output/single_sine_graph.png)         | ![Single_Triangle](../rtl/graph/output/single_triangle_graph.png) |
 
 ### Pipelined
 #### F1 Program
@@ -356,9 +356,9 @@ https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/assets/66144
 
 Additionally, CSV files with output data were generated for each distribution in the test bench. These were plotted and are as follows:
 
-| ![pipelined_Gaussian](../graph/output/pipelined_gaussian_graph.png) | ![pipelined_Noisy](../graph/output/pipelined_noisy_graph.png)       |
+| ![pipelined_Gaussian](../rtl/graph/output/pipelined_gaussian_graph.png) | ![pipelined_Noisy](../rtl/graph/output/pipelined_noisy_graph.png)       |
 |---------------------------------------------------------------|---------------------------------------------------------------|
-| ![pipelined_Sine](../graph/output/pipelined_sine_graph.png)         | ![pipelined_Triangle](../graph/output/pipelined_triangle_graph.png) |
+| ![pipelined_Sine](../rtl/graph/output/pipelined_sine_graph.png)         | ![pipelined_Triangle](../rtl/graph/output/pipelined_triangle_graph.png) |
 
 ### Pipelined with Data Cache
 #### F1 Program
@@ -388,9 +388,9 @@ https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/assets/66144
 
 Additionally, CSV files with output data were generated for each distribution in the test bench. These were plotted and are as follows:
 
-| ![cache_Gaussian](../graph/output/cache_gaussian_graph.png) | ![cache_Noisy](../graph/output/cache_noisy_graph.png)       |
+| ![cache_Gaussian](../rtl/graph/output/cache_gaussian_graph.png) | ![cache_Noisy](../rtl/graph/output/cache_noisy_graph.png)       |
 |---------------------------------------------------------------|---------------------------------------------------------------|
-| ![cache_Sine](../graph/output/cache_sine_graph.png)         | ![cache_Triangle](../graph/output/cache_triangle_graph.png) |
+| ![cache_Sine](../rtl/graph/output/cache_sine_graph.png)         | ![cache_Triangle](../rtl/graph/output/cache_triangle_graph.png) |
 
 > [!NOTE]
 > It is important to point out that for cache results, the pdf results appear to be slightly smoother. This is because the output results were taken less frequently for a given cycle of the pdf generation - this can be seen in the test bench.

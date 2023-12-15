@@ -63,16 +63,18 @@
 - Debugged the top level when nothing seemed to run.
 - Found the error: The control unit didn't handle the case where the instruction is 0x0 (not a valid instruction, but the instruction input after a register flush)
 
-#### Cache: Updated Data Memory: [4dfe5ef](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/cc3f24fb2edd0df671f774fedc783ff5f4ea7ba9)
+#### Cache: Updated Data Memory: [cc3f24f](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/cc3f24fb2edd0df671f774fedc783ff5f4ea7ba9)
 - Since for cache, data memory could have been avoided if data was in cache and if not, relevant data needs to be sent back to the cache, data memory needed an update.
 - I updated the data memory to have a read enable signal to determine whether we need to read data or not. I also added 4 more data outs for the cache, when we read data from memory, the surrounding words that would form a block are sent back to be written into the cache - making use of spacial locality.
 
-#### Cache: Wrapper for Cache and Data Memory: [9720d3d](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/d6158f14ad0273d3322b3bd6fe929eaaee671396)
+#### Cache: Wrapper for Cache and Data Memory: [d6158f1](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/d6158f14ad0273d3322b3bd6fe929eaaee671396)
 - Tested and wrote the code for a combined data cache and memory. It can be seen working in the waveform below.
 - Added a mux at the end to determine whether data has been taken from the cache or main memory.
 ![Alt text](Resources/image-8.jpg)
 
-#### Cache: Top Level: [9720d3d](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/d6158f14ad0273d3322b3bd6fe929eaaee671396)
+![Cache top level](../rtl/cache/images/image-1.png)
+
+#### Cache: Top Level: [d6158f1](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/commit/d6158f14ad0273d3322b3bd6fe929eaaee671396)
 - Added the previous component to the top level, replacing the old data memory.
 - Created the final version of the processor:  
 ![Alt text](Resources/image-7.png)

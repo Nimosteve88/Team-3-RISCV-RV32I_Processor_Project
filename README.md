@@ -14,7 +14,7 @@
 |----------------|----------|--------------------|-----------------|----------------------------|
 | Steve Nimo     | 02254814 | **Nimosteve88**    | sn722@ic.ac.uk  | [Statement](statements/Steve.md)                  |
 | Sne Samal      | 02201807 | **sne-samal**      | ss5322@ic.ac.uk | [Statement](statements/Sne.md)                  |
-| Divine Wodi    | 02208866 | **CB-WO3**         | dw722@ic.ac.uk  | [Statement](statements/Divine.md)                           |
+| Divine Wodi    | 02208866 | **CB-W03**         | dw722@ic.ac.uk  | [Statement](statements/Divine.md)                           |
 | Yannis Zioulis | 02223077 | **yanniszioulis** | yz9722@ic.ac.uk | [Statement](statements/Yannis.md)                  |
 
 ## Source Code

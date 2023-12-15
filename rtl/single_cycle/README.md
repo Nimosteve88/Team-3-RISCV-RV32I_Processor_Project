@@ -367,7 +367,7 @@ The following parts were tested individually with more detail on their testing p
 - Sign extension unit
 - Program counter  
 
-> [!NOTE]
+> [!NOTE]  
 > The other major components - register file, instruction memory and data memory were tested in the context of the top level component. This was primarily due to time purposes, I thought parts that ended up being tested were relatively more crucial to the correct functionality of the CPU and if something didn't work correctly, I could narrow it down to the parts that weren't tested.
 
 #### ALU testing

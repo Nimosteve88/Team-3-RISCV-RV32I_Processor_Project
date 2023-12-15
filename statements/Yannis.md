@@ -282,6 +282,7 @@ The program is exactly the same as the prototype other than these minor differen
 > [!IMPORTANT]
 > By testing the program with vBuddy, I have become aware of the 'glitchy-ness' of the trigger in recording the reaction scores. This is something that I would definitely address if I had more time.
 
+
 ---
 
 ## What I learned 

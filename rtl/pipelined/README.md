@@ -14,7 +14,7 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 
 | File Name                 | Steve | Sne | Divine | Yannis |
 |---------------------------|-------|-----|--------|--------|
-| control_unit_pipelined.sv |       | t   |   x    |   x    |
+| control_unit_pipelined.sv |       | t   |   x    |       |
 | decode.sv                 |   p   | t   |        |   x    |
 | execute.sv                |   p   | t   |        |   x    |
 | fetch.sv                  |   p   | t   |        |   x    |

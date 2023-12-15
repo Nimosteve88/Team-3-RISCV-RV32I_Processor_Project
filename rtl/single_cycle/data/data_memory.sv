@@ -9,7 +9,9 @@ module data_memory #(
 ) (
     input logic                             clk,
     input logic                             WE,
+    /* verilator lint_off UNUSED */
     input logic     [DATA_WIDTH-1:0]        A,
+    /* verilator lint_on UNUSED */
     input logic     [DATA_WIDTH-1:0]        WD,
     input logic                             ByteAddr,
     output logic    [DATA_WIDTH-1:0]        RD
@@ -18,16 +20,17 @@ module data_memory #(
 
 logic [WIDTH-1:0] data_array [17'h1FFFF: 17'h0];
 
-
+/* verilator lint_off LATCH */
 initial begin
     $display("Loading data memory");
     //$readmemh("gaussian.mem", data_array, 17'h10000);      // change parameter to correct filename. NB: the third parameter is there to start writing/ storing memory into the correct location according to the memory map
     $display("Finished loading memory");
 end
-
+/* verilator lint_on LATCH */
 
 // reading is asynchronous (loading)
 // need to check if bits are correctly alligned - i.e. need to determine whether big endian or little endian
+/* verilator lint_off LATCH */
 always_comb
 begin
     if (ByteAddr) begin
@@ -41,7 +44,7 @@ begin
         end
     end
 end
-
+/* verilator lint_off LATCH */
 
 // writing is synchronous (storing)
 always_ff @(posedge clk) begin

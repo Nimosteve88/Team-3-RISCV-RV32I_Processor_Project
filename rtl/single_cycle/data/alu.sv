@@ -14,28 +14,28 @@ always_comb begin
     case (ALUctrl)
       3'b000: begin
         // ALU control is 3'b000, so perform addition (add)
-        ALUResult <= SrcA + SrcB;
-        EQ <= (SrcA == SrcB) ? 1 : 0; 
+        ALUResult = SrcA + SrcB;
+        EQ = (SrcA == SrcB) ? 1 : 0; 
       end
       3'b001: begin
         // ALU control is 3'b001, so check for equality  (sub)
-        ALUResult <= SrcA - SrcB;
-        EQ <= (SrcA == SrcB) ? 1 : 0; 
+        ALUResult = SrcA - SrcB;
+        EQ = (SrcA == SrcB) ? 1 : 0; 
       end
       3'b010: begin
         // AND
-        ALUResult <= SrcA & SrcB;
-        EQ <= (SrcA == SrcB) ? 1 : 0;
+        ALUResult = SrcA & SrcB;
+        EQ = (SrcA == SrcB) ? 1 : 0;
       end 
       3'b100: begin
         // ALU control is 3'b100, so check for (xor))
-        ALUResult <= SrcA ^ SrcB;
-        EQ <= (SrcA == SrcB) ? 1 : 0; 
+        ALUResult = SrcA ^ SrcB;
+        EQ = (SrcA == SrcB) ? 1 : 0; 
       end
       default: begin
         // Handle other cases if needed
-        ALUResult <= 0;
-        EQ <= 0;
+        ALUResult = 0;
+        EQ = 0;
       end
     endcase
   end

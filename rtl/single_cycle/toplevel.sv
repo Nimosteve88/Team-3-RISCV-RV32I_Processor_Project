@@ -32,15 +32,19 @@ logic   [WIDTH-1:0]                 PC;                         // program count
 logic   [WIDTH-1:0]                 PC_plus_4;                  // program counter module to result mux
 logic   [WIDTH-1:0]                 instruction;                // instruction memory to control unit, sign extension and register file
 logic                               reg_write;                  // control unit to data memory
+/* verilator lint_off UNOPTFLAT */
 logic                               ALUsrc;                     // control unit to ALU 2nd operand mux
 logic   [2:0]                       ALUctrl;                    // contorl unit to ALU
+/* verilator lint_on UNOPTFLAT */
 logic   [WIDTH-1:0]                 result_data;                // result mux to write data for register file
 logic                               EQ;                         // ALU equals flag to control unit
 logic   [WIDTH-1:0]                 ALU_result;                 // ALU result to data memory address and result MUX
 logic   [WIDTH-1:0]                 write_data;                 // register data 2 to write data of data memory
 logic   [1:0]                       result_src;                 // control unit result source to reuslt mux
 logic                               mem_write;                  // control unit to memory write enable on data memory
+/* verilator lint_off UNOPTFLAT */
 logic   [2:0]                       imm_src;                    // control unit to sign extend
+/* verilator lint_on UNOPTFLAT */
 logic                               byte_addr;                  // control unit to data memory
 logic   [WIDTH-1:0]                 read_data;                  // data memory read output to result mux
 

@@ -2,7 +2,9 @@ module extend #(
     parameter WIDTH = 32
 )(
     input logic     [2:0]           Immsrc,
+    /* verilator lint_off UNUSED */
     input logic     [WIDTH-1:0]     instr,
+    /* verilator lint_on UNUSED */
     output logic    [WIDTH-1:0]     Immop
 );
 

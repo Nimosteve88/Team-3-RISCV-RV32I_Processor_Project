@@ -14,7 +14,7 @@ module pc_module #(
 
 always_comb begin
     if (rst)
-        next_PC <= 32'b0; // resolved wrong value after reset problem
+        next_PC = 32'b0; // resolved wrong value after reset problem
     else begin
         case (PCSrc)
         2'b00: next_PC = PC + 32'd4;    // pc + 4

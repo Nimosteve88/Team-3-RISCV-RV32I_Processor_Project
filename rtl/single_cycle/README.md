@@ -202,24 +202,24 @@ To correctly choose the value we want to write to the register, we implement a m
     - PCTargetSrc: A mux select line to determine PCTarget, depending on `BNE`, `JAL` and `JALR` instruction types.
     - ByteAddr: A control input to determine how we modify outputs and inputs of data memory when we only want to focus on the least significant byte.
 
-7. **Program Counter:** The program counter module has been updated to be able to execute `JALR` instructions. This is done by:
-	 Having adders calculate `PC + 4`, `PC + ImmExt` and `ImmExt + SrcA (ImmExt + Rs1)`.  By doing so for every current value of the `PC`, it meant that only a 3 input MUX was needed to implement all necessary instructions. The control signal for this MUX is (as mentioned above) `PCSrc [1:0]`. 
-	 
-	 On the Program Counter side of things, `PCSrc` has the following effect:
-	 
-	 
-	 | PCSrc [1:0] | Use Case | Instruction Types | Instructions Used|
-     | --------------- | --------------- | --------------- | --------------- |
-     | 00 | PC <- PC + 4 | R-type, I-type (apart from jalr), S-type | addi (li, noop), add, xor, sub, sb, lbu |
-	 | 01 | PC <- PC + Imm | B-type, J-type | beq, bne, jal|
-	 | 10 | PC <- Rs1 + Imm | (only used jalr, technically I-type) | jalr (ret)|
-	 | 11 | ~~not used~~ | - | - |
-
 #### Control Decode Table:
 ![Alt text](images/image-1.png)
 
 #### Upadted top level diagram:
 ![Alt text](images/image-2.png)
+
+**Program Counter:** The program counter module has been updated to be able to execute `JALR` instructions. This is done by:
+Having adders calculate `PC + 4`, `PC + ImmExt` and `ImmExt + SrcA (ImmExt + Rs1)`.  By doing so for every current value of the `PC`, it meant that only a 3 input MUX was needed to implement all necessary instructions. The control signal for this MUX is (as mentioned above) `PCSrc [1:0]`. 
+
+On the Program Counter side of things, `PCSrc` has the following effect:
+
+
+| PCSrc [1:0] | Use Case | Instruction Types | Instructions Used|
+| --------------- | --------------- | --------------- | --------------- |
+| 00 | PC <- PC + 4 | R-type, I-type (apart from jalr), S-type | addi (li, noop), add, xor, sub, sb, lbu |
+| 01 | PC <- PC + Imm | B-type, J-type | beq, bne, jal|
+| 10 | PC <- Rs1 + Imm | (only used jalr, technically I-type) | jalr (ret)|
+| 11 | ~~not used~~ | - | - |
 
 ## Unit Testing Documentation
 The following parts were tested individually with more detail on their testing process provided below:

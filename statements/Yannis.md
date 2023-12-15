@@ -6,8 +6,8 @@
 
 *  Built and tested the [Program Counter](#pc)
 *  Wrote and tested the[ F1 Light Sequence assembly code program](#f1)
-*  Built the [Hazard Detection Unit](#hazard) and helped in the design, debugging and testing of the Pipeline Registers
-* Helped in building the Cache, and helped test our Cache Memory system
+*  Built the [Hazard Detection Unit](#hazard) and helped in the [design, debugging and testing of the Pipeline Registers](#pipeline)
+* Built the [Cache](#cache), and helped test our Cache Memory system
 
 ## Contributions
 <div id="pc"/>
@@ -283,6 +283,7 @@ The program is exactly the same as the prototype other than these minor differen
 
 <div id="hazard"/>
 
+
 ### Hazard Detection Unit
 
 The design of the Hazard Unit relied heavily on section '7.5.3 Hazards' of _"Digital Design and Computer Architecture (RISC-V Edition)"_ by Sarah Harris and David Harris (pages 440 - 447), but still required a deep understanding of how and why stalls and flushes works in order to be implemented for our processor. 
@@ -290,6 +291,58 @@ The design of the Hazard Unit relied heavily on section '7.5.3 Hazards' of _"Dig
 Particularly, I had to have the intuition that branches and jumps create control hazards, and that i had to be checking `PCSrcE [1:0]` for the values that correspond to our processor's jumps and branches. (Namely 01 and 10)
 
 The in-depth documentation of the Hazard Unit and how it was developed based on the textbook is available in [the pipelined version's README.](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/tree/main/rtl/pipelined#hazard)
+
+<div id="pipeline"/>
+
+### Pipeline Registers
+
+The implementation of the pipeline registers was a fairly simple, yet tedious process as it was comprised of essentially the same functionality for many input and output variables. At every clock cycle, the internal 'register' for each of the variables was updated with the input value, and the output of each register was assigned asynchronously. 
+
+Enable functions (to be used for stalling) were implemented in the *Fetch and Decode Stages* by only allowing the value stored in the internal 'registers' to be updated when EN was HIGH. 
+
+CLR functions (to be used for flushing) were implemented in the *Decode and Execute Stages* by changing the values in the internal 'registers' to zeros of correct length - the length assigned to every variable. 
+
+* The *Fetch Stage* as mentioned above is essentially an evolution of the `pc_module.sv` file. This is because, like its predecessor, `fetch.sv` contains all adders, only this time takes as input `SrcAE, PCE, ImmExtE and PCSrcE` from the *Execute Stage* to cover all of the needs of our programs. 
+
+This is all implemented using the following SystemVerilog code:
+```
+always_comb begin
+    assign PCPlus4F = PCF + 32'd4;
+
+    if (rst)
+        next_PC = 32'b0; 
+    else begin
+        case (PCSrcE)
+        2'b00: next_PC = PCPlus4F;          // pc + 4
+        2'b01: next_PC = PCE + ImmExtE;     // pc + offset
+        2'b10: next_PC = SrcAE + ImmExtE;   // rs1 + offset (jalr)
+        default: next_PC = PCPlus4F;        // default to pc + 4
+        endcase
+    end
+end
+
+pc_reg mypc_reg (
+    .clk (clk),
+    .en(en),
+//    .rst (rst),
+    .pcin (next_PC),
+    .pcout (PCF)
+);
+```
+
+**Helping with Testing the Pipeline Registers:**
+
+Our primary tester, Sne, was attempting to test each pipeline register individually. In doing so, he was not able to capture the essence of bubble creation and so was not certain whether we had a working set of pipeline registers. Upon discussing this with him, I realised that perhaps we had to test the effects of *stalling* and *flushing* by testing the entire chain of pipeline registers. I managed to do so by creating a file containing the *Fetch, Decode and Execute Stages* (as these are the stages with flush and stall functionality) [fetch_decode_top.sv.](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/pipelines/fetch_decode_top.sv) This 'pseudo-top' was tested alongside [fetch_decode_test_tb.cpp](https://github.com/Nimosteve88/Team-3-RISCV-RV32I_Processor_Project/blob/main/rtl/pipelined/pipelines/fetch_decode_test_tb.cpp) and produced the following results:
+
+![Alt text](Resources/image-10.jpg)
+
+In the image above, we can see a test scenario where the *Fetch and Decode Stages* are stalled for 4 and 3 cycles respectively and *Execute Stage* is flushed - followed by a *Decode Stage* flush. In this test, I was checking to see that all of the stages go through all of the sequential PC values and that none were skipped. **The test was passed** and this is what prompted up to put everything together and test our pipelined processor with the full programs.
+
+<div id="cache"/>
+
+
+### Building the Cache 
+
 
 ---
 

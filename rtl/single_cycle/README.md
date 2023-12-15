@@ -187,7 +187,7 @@ To correctly choose the value we want to write to the register, we implement a m
 
 4. **Extend**: In lab4, we only had to consider immediate sign extension for 2 type of instruction, now we need to consider 5 types. As such the input, ImmSrc has an increased width to correctly determine the sign extended immediate format based of the current instruction.
 
-5. **ALU**: We need to do more ALU operations than lab4.
+5. **ALU**: We need to do more ALU operations than lab4 - AND, XOR, SUB
 
 6. **Control Unit**: There are now more ouput signals based of the changes implemented above. Notably:
     - ResultSrc: Dtermines what data is being written to the register file.
@@ -196,10 +196,10 @@ To correctly choose the value we want to write to the register, we implement a m
     - PCTargetSrc: A mux select line to determine PCTarget, depending on `BNE`, `JAL` and `JALR` instruction types.
     - ByteAddr: A control input to determine how we modify outputs and inputs of data memory when we only want to focus on the least significant byte.
 
-### Control Decode Table:
+#### Control Decode Table:
 ![Alt text](images/image-1.png)
 
-### Upadted top level diagram:
+#### Upadted top level diagram:
 ![Alt text](images/image-2.png)
 
 ## Unit Testing Documentation

@@ -78,7 +78,7 @@ Key: `x`: full responsibility; `p`: partial responsibility; `t`: testing
 | register_file.sv                                                  | Single Cycle        |   x   | t   |        |        |
 | result_mux.sv                                                     | Single Cycle        |       | x   |        |        |
 | toplevel.sv (single cycle)                                        | Single Cycle        |       | x/t |        |        |
-| F1.s                                                              | Single Cycle        |       |     |        | x      |
+| F1.s                                                              | Single Cycle        |       |     |        | x/t    |
 | control_unit_pipelined.sv                                         | Pipelined           |       | t   |    x    |        |
 | decode.sv                                                         | Pipelined           |    p   | t   |        | x      |
 | execute.sv                                                        | Pipelined           |   p    | t   |        | x      |

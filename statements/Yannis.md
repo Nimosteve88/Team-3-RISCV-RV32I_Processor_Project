@@ -267,7 +267,7 @@ count_reaction:
 
 The program is exactly the same as the prototype other than these minor differences:
 
-* After `lights_off`, the program goes directly into `count_reaction` where a counter is set until the trigger is activated. Once activated, `a0` is set to the value of the reaction (in units of 2 clock cycles - I did not want to add a multiple of the time taken per cycle as that is different for every computer running the program.)
+* After `lights_off`, the program goes directly into `count_reaction` where a counter is set until the trigger is activated. Once activated, `a0` is set to the value of the reaction (in units of clock cycles - I did not want to add a multiple of the time taken per cycle as that is different for every computer running the program.)
 
 * After the 3rd LFSR cycle, by which point the delay has been calculated, I decided to keep the 5 least significant bits to limit the delay. 
 
@@ -275,6 +275,8 @@ The program is exactly the same as the prototype other than these minor differen
 
 > Important to note that the program uses a nested subroutine jumps in the `main_loop_idle` subroutine which requires storing and recovering the return address. (This was done by using register `t6`.)
 
+> [!NOTE]
+> By testing the program with vBuddy, I have become aware of the 'glitchy-ness' of the trigger in recording the reaction scores. This is something that I would definitely address if I had more time.
 
 ---
 
